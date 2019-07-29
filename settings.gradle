@@ -1,1 +1,1 @@
-include ':app', ':themebuilder'
+include ':app', ':themebuilder', ':design_system'
