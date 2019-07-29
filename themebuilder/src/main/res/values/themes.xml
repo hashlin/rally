@@ -23,8 +23,8 @@
     <!--Base custom theme which will be shared between both light and dark theme variants-->
     <style name="Base.Rally" parent="Base.MaterialThemeBuilder">
         <!--Material color attributes -->
-        <item name="colorPrimary">@color/rally_green</item>
-        <item name="colorPrimaryVariant">@color/rally_dark_green</item>
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryVariant">@color/color_primary_variant</item>
         <item name="colorSecondary">@color/color_secondary</item>
         <item name="colorSecondaryVariant">@color/color_secondary_variant</item>
 
