@@ -59,9 +59,9 @@
         <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.MyTheme.LargeComponent</item>
 
         <!--Component styles-->
-        <item name="materialAlertDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog.Alert</item>
-        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.MyTheme.BottomSheetDialog</item>
-        <item name="navigationViewStyle">@style/Widget.MyTheme.NavigationView</item>
+        <item name="materialAlertDialogTheme">@style/Widget.Rally.AlertDialog</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.Rally.BottomSheetDialog</item>
+        <item name="navigationViewStyle">@style/Widget.Rally.NavigationView</item>
         <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar.PrimarySurface</item>
     </style>
 

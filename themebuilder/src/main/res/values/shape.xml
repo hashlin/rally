@@ -35,18 +35,20 @@
 
   <!--Shape Appearance for small components like chips, buttons, text fields and FABs-->
   <style name="ShapeAppearance.MyTheme.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
-    <item name="cornerFamily">cut</item>
-    <item name="cornerSize">4dp</item>
+    <item name="cornerFamily">rounded</item>
+    <item name="cornerSize">0dp</item>
   </style>
 
   <!--Shape Appearance for medium components like cards, alert dialogs-->
   <style name="ShapeAppearance.MyTheme.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
-    <!--Your custom shape here-->
+    <item name="cornerFamily">rounded</item>
+    <item name="cornerSize">0dp</item>
   </style>
 
   <!--Shape Appearance for large components like side and bottom navigation drawers-->
   <style name="ShapeAppearance.MyTheme.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
-    <!--Your custom shape here-->
+    <item name="cornerFamily">rounded</item>
+    <item name="cornerSize">0dp</item>
   </style>
 
 </resources>
