@@ -55,4 +55,12 @@
     <color name="color_on_surface">#000000</color>
     <color name="color_on_error">#ffffff</color>
 
+
+    <color name="rally_green">#1EB980</color>
+    <color name="rally_dark_green">#045D56</color>
+    <color name="rally_orange">#FF6859</color>
+    <color name="rally_yellow">#FFCF44</color>
+    <color name="rally_purple">#B15DFF</color>
+    <color name="rally_blue">#72DEFF</color>
+
 </resources>

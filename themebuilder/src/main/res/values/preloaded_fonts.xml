@@ -17,6 +17,10 @@
 
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/eczar</item>
         <item>@font/roboto_black_italic</item>
+        <item>@font/roboto_condensed_bold</item>
+        <item>@font/roboto_condensed_light</item>
+        <item>@font/roboto_condensed_regular</item>
     </array>
 </resources>
