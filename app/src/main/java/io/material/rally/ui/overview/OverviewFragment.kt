@@ -16,14 +16,21 @@ import io.material.rally.ui.overview.adapter.Account
 import io.material.rally.ui.overview.adapter.AccountOverviewAdapter
 import io.material.rally.ui.overview.adapter.Bill
 import io.material.rally.ui.overview.adapter.BillAdapter
+import io.material.rally.ui.overview.adapter.Budget
+import io.material.rally.ui.overview.adapter.BudgetAdapter
 import kotlinx.android.synthetic.main.fragment_overview.content
 import kotlinx.android.synthetic.main.layout_account_overview.rv_account_overview
 import kotlinx.android.synthetic.main.layout_bill_overview.rv_bill_overview
+import kotlinx.android.synthetic.main.layout_budget_overview.rv_budget_overview
 
+/**
+ * Created by Chan Myae Aung on 7/30/19.
+ */
 class OverviewFragment : Fragment() {
 
   private val accountAdapter by lazy { AccountOverviewAdapter() }
   private val billAdapter by lazy { BillAdapter() }
+  private val budgetAdapter by lazy { BudgetAdapter() }
 
   private val decoration by lazy {
     DividerItemDecoration(requireContext(), RecyclerView.VERTICAL).apply {
@@ -49,6 +56,7 @@ class OverviewFragment : Fragment() {
 
     setUpAccountRecyclerView()
     setUpBillRecyclerView()
+    setUpBudgetRecyclerView()
 
     if (savedInstanceState == null) runEnterAnimation()
   }
@@ -75,11 +83,13 @@ class OverviewFragment : Fragment() {
   }
 
   private fun setUpBudgetRecyclerView() {
-    rv_account_overview.apply {
+    rv_budget_overview.apply {
       layoutManager = LinearLayoutManager(requireContext())
       setHasFixedSize(true)
-      adapter = null
+      addItemDecoration(decoration)
+      adapter = budgetAdapter
     }
+    budgetAdapter.submitList(listOf(Budget(""), Budget(""), Budget("")))
   }
 
   private fun runEnterAnimation() {

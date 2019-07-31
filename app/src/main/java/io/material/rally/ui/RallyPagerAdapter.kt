@@ -32,7 +32,7 @@ fun generateTabs(): List<TabUiModel> {
       TabUiModel("Overview",R.drawable.ic_overview),
       TabUiModel("Accounts", R.drawable.ic_attach_money),
       TabUiModel("Bills", R.drawable.ic_money_off),
-      TabUiModel("Overview", android.R.drawable.ic_delete),
+      TabUiModel("Overview", R.drawable.ic_budget),
       TabUiModel("Setting", R.drawable.ic_settings)
   )
 }

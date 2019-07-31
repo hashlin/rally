@@ -25,6 +25,9 @@
     <include
         layout="@layout/layout_bill_overview"/>
 
+    <include
+        layout="@layout/layout_budget_overview"/>
+
   </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>
