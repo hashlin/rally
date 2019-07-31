@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import io.material.rally.R
+import io.material.rally.ui.overview.OverviewFragment
 
 /**
  * Created by Chan Myae Aung on 7/30/19.

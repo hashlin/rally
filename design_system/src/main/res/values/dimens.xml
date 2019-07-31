@@ -30,8 +30,4 @@
     <dimen name="alpha_emphasis_high">@dimen/mtrl_emphasis_high_type</dimen>
     <dimen name="alpha_emphasis_medium">@dimen/mtrl_emphasis_medium</dimen>
     <dimen name="alpha_emphasis_disabled">@dimen/mtrl_emphasis_disabled</dimen>
-
-    <dimen name="spacing_small">8dp</dimen>
-    <dimen name="spacing_medium">16dp</dimen>
-    <dimen name="spacing_large">32dp</dimen>
 </resources>
