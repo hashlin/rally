@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Design System</string>
+
+    <string name="message_alert">Heads up, you\'ve used up 90% of your Shopping budget for this month</string>
 </resources>

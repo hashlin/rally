@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
                 tab.text = tabs[tab.position].name
             }
         })
+        tab_layout.getTabAt(0)?.text = tabs[0].name
 
     }
 
