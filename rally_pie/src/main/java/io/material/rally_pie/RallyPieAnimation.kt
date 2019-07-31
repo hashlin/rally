@@ -7,40 +7,25 @@ import android.view.animation.Transformation
  * Created by lin min phyo on 2019-07-30.
  */
 
-class RallyPieAnimation(pie: RallyPie) : Animation() {
+class RallyPieAnimation(val pie: RallyPie) : Animation() {
 
-    private var startOldAngles: List<Float> = listOf()
-    private var startNewAngles: List<Float> = listOf()
-    private var newAngles: List<Float> = listOf()
-    private var oldAngles: List<Float> = listOf()
-    private var pie: RallyPie? = pie
+    private var rallyPieProgressRenderData: MutableList<Pair<Float, Float>> = mutableListOf()
+    private var rallyPieRenderData: List<RallyPieRenderData> = listOf()
 
-    init {
-        this.oldAngles = pie.getSweepAngles()
-        this.startOldAngles = pie.getStartAngles()
-    }
-
-    fun setAngles(newAngles : List<Float>){
-        this.newAngles = newAngles
-    }
-
-
-    fun setStartAngles(startAngles : List<Float>){
-        this.startNewAngles = startAngles
+    fun addData(rallyPieRenderData: List<RallyPieRenderData>) {
+        this.rallyPieRenderData = rallyPieRenderData
+        repeat(rallyPieRenderData.size) {
+            this.rallyPieProgressRenderData.add(-90f to 0f)
+        }
     }
 
     override fun applyTransformation(interpolatedTime: Float, transformation: Transformation) {
-
-        val updatedAngles = newAngles.mapIndexed { index, value ->
-           0 + ( value - oldAngles[index] ) * interpolatedTime
+        pie.rallyPieProgressRenderData = rallyPieRenderData.mapIndexed { index, it ->
+            val progressStartAngle = -90 + (it.startAngle - rallyPieProgressRenderData[index].first) * interpolatedTime
+            val progressSweepAngle = 0 + (it.sweepAngle - rallyPieProgressRenderData[index].second) * interpolatedTime
+            it.copy(startAngle = progressStartAngle , sweepAngle = progressSweepAngle)
         }
 
-        val updatedStartAngles= startNewAngles.mapIndexed { index, value ->
-            -90  + (value - startOldAngles[index]) * interpolatedTime
-        }
-
-        pie?.setStartAngles(updatedStartAngles)
-        pie?.setSweepAngles(updatedAngles)
-        pie?.requestLayout()
+        pie.requestLayout()
     }
 }

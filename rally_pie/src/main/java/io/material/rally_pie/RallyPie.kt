@@ -14,24 +14,10 @@ import android.view.animation.Animation
  */
 class RallyPie : View {
 
-
-    private var startAngles = listOf(
-        270f,
-        270f,
-        270f,
-        270f
-    )
-
-
-    private var sweepAngles = listOf(
-        0f,
-        0f,
-        0f,
-        0f
-    )
+    var rallyPieProgressRenderData = listOf<RallyPieRenderData>()
+    private var rallyPieRenderData = listOf<RallyPieRenderData>()
 
     constructor(context: Context?) : super(context)
-
 
     constructor(
         context: Context?,
@@ -46,47 +32,11 @@ class RallyPie : View {
     )
             : super(context, attrs, defStyleAttr)
 
-    //    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-//    constructor(
-//        context: Context,
-//        attrs: AttributeSet? = null,
-//        defStyleAttr: Int,
-//        defStyleRes: Int)
-//            : super(context, attrs, defStyleAttr, defStyleRes)
     private var chartRadius = 500f
 
     private val paint by lazy {
         Paint().apply {
             color = Color.RED
-            strokeWidth = 20f
-            isAntiAlias = true
-            style = Paint.Style.STROKE
-        }
-    }
-
-    private val paint2 by lazy {
-        Paint().apply {
-            color = Color.GREEN
-            strokeWidth = 20f
-            isAntiAlias = true
-            style = Paint.Style.STROKE
-        }
-    }
-
-
-    private val paint3 by lazy {
-        Paint().apply {
-            color = Color.MAGENTA
-            strokeWidth = 20f
-            isAntiAlias = true
-            style = Paint.Style.STROKE
-        }
-    }
-
-
-    private val paint4 by lazy {
-        Paint().apply {
-            color = Color.BLUE
             strokeWidth = 20f
             isAntiAlias = true
             style = Paint.Style.STROKE
@@ -111,49 +61,43 @@ class RallyPie : View {
             width.toFloat() - 10f,
             height.toFloat() - 10f
         )
-        //canvas?.drawCircle((width / 2f), ( height/ 2f) , chartRadius, paint)
-        canvas?.drawArc(rect1, startAngles[0], sweepAngles[0], false, paint)
-        canvas?.drawArc(rect1, startAngles[1], sweepAngles[1], false, paint2)
-        canvas?.drawArc(rect1, startAngles[2], sweepAngles[2], false, paint3)
-        canvas?.drawArc(rect1, startAngles[3], sweepAngles[3], false, paint4)
+
+        canvas?.apply {
+            rallyPieRenderData.forEachIndexed { index, it ->
+                paint.color = it.color
+                drawArc(
+                    rect1,
+                    rallyPieProgressRenderData[index].startAngle,
+                    rallyPieProgressRenderData[index].sweepAngle,
+                    false,
+                    paint
+                )
+
+            }
+
+        }
+
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         super.onLayout(changed, left, top, right, bottom)
     }
 
-
-    fun getSweepAngles(): List<Float> {
-        return sweepAngles
+    fun getRallyPieRenderData(): List<RallyPieRenderData> {
+        return rallyPieRenderData
     }
-
-    fun setSweepAngles(angles: List<Float>) {
-        this.sweepAngles = angles
-    }
-
-
-    fun getStartAngles(): List<Float> {
-        return startAngles
-    }
-
-
-    fun setStartAngles(angles: List<Float>) {
-        this.startAngles = angles
-    }
-
 
     override fun startAnimation(animation: Animation?) {
         if (animation is RallyPieAnimation) {
-            animation.setStartAngles(
-                listOf(
-                    270f,
-                    300f,
-                    350f,
-                    250+360f
-                )
-            )
-            animation.setAngles(listOf(30f, 50f, 260f, 20f))
+            animation.addData(rallyPieRenderData)
         }
         super.startAnimation(animation)
     }
+
+    fun setPieData(pieData: RallyPieData) {
+        val totalPortionValues = pieData.portions.sumByDouble { it.value.toDouble() }.toFloat()
+        rallyPieRenderData = pieData.portions.toPoints(totalPortionValues)
+    }
+
+
 }
