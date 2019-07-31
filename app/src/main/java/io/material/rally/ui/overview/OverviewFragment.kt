@@ -2,21 +2,21 @@ package io.material.rally.ui.overview
 
 import android.graphics.drawable.InsetDrawable
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.DecelerateInterpolator
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ItemDecoration
-
 import io.material.rally.R
 import io.material.rally.ui.overview.adapter.Account
 import io.material.rally.ui.overview.adapter.AccountOverviewAdapter
 import io.material.rally.ui.overview.adapter.Bill
 import io.material.rally.ui.overview.adapter.BillAdapter
+import kotlinx.android.synthetic.main.fragment_overview.content
 import kotlinx.android.synthetic.main.layout_account_overview.rv_account_overview
 import kotlinx.android.synthetic.main.layout_bill_overview.rv_bill_overview
 
@@ -49,6 +49,8 @@ class OverviewFragment : Fragment() {
 
     setUpAccountRecyclerView()
     setUpBillRecyclerView()
+
+    if (savedInstanceState == null) runEnterAnimation()
   }
 
   private fun setUpAccountRecyclerView() {
@@ -77,6 +79,24 @@ class OverviewFragment : Fragment() {
       layoutManager = LinearLayoutManager(requireContext())
       setHasFixedSize(true)
       adapter = null
+    }
+  }
+
+  private fun runEnterAnimation() {
+    content.post {
+      var duration = 300L
+      for (i in 0 until content.childCount) {
+        duration += 100
+        val child = content.getChildAt(i)
+        child.translationY += 400
+        child.alpha = 0f
+        child.animate()
+            .translationY(0f)
+            .alpha(1f)
+            .setDuration(duration)
+            .setInterpolator(DecelerateInterpolator())
+            .start()
+      }
     }
   }
 
