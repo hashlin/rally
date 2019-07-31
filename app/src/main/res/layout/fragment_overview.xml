@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.overview.OverviewFragment"
     android:background="@color/color_secondary"
+    android:overScrollMode="never"
     >
 
   <LinearLayout
@@ -19,6 +20,9 @@
 
     <include
         layout="@layout/layout_account_overview"/>
+
+    <include
+        layout="@layout/layout_bill_overview"/>
 
   </LinearLayout>
 
