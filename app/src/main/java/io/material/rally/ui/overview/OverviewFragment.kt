@@ -1,5 +1,7 @@
 package io.material.rally.ui.overview
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.graphics.drawable.InsetDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,6 +20,7 @@ import io.material.rally.ui.overview.adapter.Bill
 import io.material.rally.ui.overview.adapter.BillAdapter
 import io.material.rally.ui.overview.adapter.Budget
 import io.material.rally.ui.overview.adapter.BudgetAdapter
+import io.material.rally.ui.widgets.RallyAlert
 import kotlinx.android.synthetic.main.fragment_overview.content
 import kotlinx.android.synthetic.main.layout_account_overview.rv_account_overview
 import kotlinx.android.synthetic.main.layout_bill_overview.rv_bill_overview
@@ -92,6 +95,11 @@ class OverviewFragment : Fragment() {
     budgetAdapter.submitList(listOf(Budget(""), Budget(""), Budget("")))
   }
 
+  private fun showAlert() {
+    RallyAlert.Builder()
+        .show(parent = content, positionToShow = 0)
+  }
+
   private fun runEnterAnimation() {
     content.post {
       var duration = 300L
@@ -105,6 +113,19 @@ class OverviewFragment : Fragment() {
             .alpha(1f)
             .setDuration(duration)
             .setInterpolator(DecelerateInterpolator())
+            .setListener(object : AnimatorListenerAdapter() {
+              override fun onAnimationEnd(animation: Animator?) {
+                super.onAnimationEnd(animation)
+                //This may crash if user navigate tab before animation end
+                //Bad error handling way here
+                //in real world,this could be with liveData or something else
+                try {
+                  if (i == content.childCount - 1) showAlert()
+                } catch (e: Exception) {
+                  e.printStackTrace()
+                }
+              }
+            })
             .start()
       }
     }
