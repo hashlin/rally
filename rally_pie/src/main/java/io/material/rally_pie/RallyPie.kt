@@ -31,7 +31,7 @@ class RallyPie : View {
     )
             : super(context, attrs, defStyleAttr)
 
-    private val STROKE = 20f
+    private val STROKE = 15f
     private var rect = RectF()
     private var chartRadius = 500f
 

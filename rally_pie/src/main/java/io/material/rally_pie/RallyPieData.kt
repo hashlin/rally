@@ -12,15 +12,15 @@ fun List<RallyPiePortion>.toPoints(maxValue: Float): List<RallyPieRenderData> {
     val renderDataList = mutableListOf<RallyPieRenderData>()
     forEachIndexed { index, it ->
         val startAngle = if (renderDataList.isEmpty()) {
-            -90f
+            -90f + 1f
         } else {
             val last = renderDataList.last()
-            last.startAngle + last.sweepAngle
+            last.startAngle + last.sweepAngle + 1f
         }
 
-        val endAngle = it.value * 360 / maxValue
+        val sweepAngle = it.value * 360 / maxValue - 1f
 
-        renderDataList.add(RallyPieRenderData(it.name, startAngle, endAngle, it.colorInt))
+        renderDataList.add(RallyPieRenderData(it.name, startAngle, sweepAngle, it.colorInt))
     }
 
     return renderDataList

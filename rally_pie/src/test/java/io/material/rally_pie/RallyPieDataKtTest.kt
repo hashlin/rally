@@ -1,8 +1,6 @@
 package io.material.rally_pie
 
-import android.graphics.Color
 import com.google.common.truth.Truth.assertThat
-import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.mockito.ArgumentMatchers.anyInt
@@ -31,10 +29,10 @@ class RallyPieDataKtTest {
 
 
         val expected = listOf(
-            RallyPieRenderData(anyString(), -90f, 90f , anyInt()),
-            RallyPieRenderData(anyString(), 0f, 90f  , anyInt()),
-            RallyPieRenderData(anyString(), 90f, 90f  , anyInt()),
-            RallyPieRenderData(anyString(), 180f, 90f  , anyInt())
+            RallyPieRenderData(anyString(), -90f + 1f, 90f - 1f, anyInt()),
+            RallyPieRenderData(anyString(), 0f + 1f, 90f - 1f, anyInt()),
+            RallyPieRenderData(anyString(), 90f + 1f, 90f - 1f, anyInt()),
+            RallyPieRenderData(anyString(), 180f + 1f, 90f - 1f, anyInt())
         )
 
         assertThat(piePortions.toPoints(200f)).containsExactlyElementsIn(expected)
@@ -51,9 +49,9 @@ class RallyPieDataKtTest {
         piePortions.add(RallyPiePortion(anyString(), 30f, anyInt()))
 
         val expected = listOf(
-            RallyPieRenderData(anyString(), -90f, 120f , anyInt()),
-            RallyPieRenderData(anyString(), -90f + 120f, 120f  , anyInt()),
-            RallyPieRenderData(anyString(), -90f + 240f, 120f , anyInt())
+            RallyPieRenderData(anyString(), -90f + 1f, 120f - 1f, anyInt()),
+            RallyPieRenderData(anyString(), -90f + 120f + 1f, 120f - 1f, anyInt()),
+            RallyPieRenderData(anyString(), -90f + 240f + 1f, 120f - 1f, anyInt())
         )
 
         assertThat(piePortions.toPoints(90f)).containsExactlyElementsIn(expected)
@@ -62,11 +60,12 @@ class RallyPieDataKtTest {
     @Test
     fun `Convert Only one point`() {
         val piePortions = mutableListOf<RallyPiePortion>()
-        piePortions.add(RallyPiePortion(anyString(), 200f , anyInt()))
+        piePortions.add(RallyPiePortion(anyString(), 200f, anyInt()))
 
 
-        val expected = listOf(RallyPieRenderData(anyString(), -90f, 360f, anyInt()))
-
+        val expected = listOf(
+            RallyPieRenderData(anyString(), -90f + 1f, 360f - 1f, anyInt())
+        )
 
         assertThat(piePortions.toPoints(200f)).containsExactlyElementsIn(expected)
     }
