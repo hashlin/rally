@@ -13,7 +13,7 @@
       app:layout_constraintTop_toTopOf="@id/tvName"
       app:layout_constraintBottom_toBottomOf="@id/tvDesc"
       app:layout_constraintStart_toStartOf="parent"
-      android:background="@color/rally_green"
+      android:background="@color/rally_green_700"
       android:layout_marginStart="@dimen/spacing_medium"/>
 
   <TextView

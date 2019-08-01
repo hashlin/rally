@@ -6,8 +6,9 @@
     >
 
   <io.material.rally_pie.RallyPie
-      android:layout_width="200dp"
+      android:layout_width="match_parent"
       android:layout_height="200dp"
+      android:padding="@dimen/spacing_large"
       android:id="@+id/rallyPie"
       android:layout_gravity="center"
       />

@@ -4,7 +4,7 @@ package io.material.rally_pie
  * Created by lin min phyo on 2019-07-31.
  */
 
-data class RallyPieData(val portions: List<RallyPiePortion>, val maxValue: Float? = null, val animated: Boolean = true)
+data class RallyPieData(val portions: List<RallyPiePortion>, val maxValue: Float? = null)
 
 data class RallyPiePortion(val name: String, val value: Float, val colorInt: Int)
 

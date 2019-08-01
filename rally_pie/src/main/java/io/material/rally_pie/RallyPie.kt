@@ -2,7 +2,6 @@ package io.material.rally_pie
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
@@ -15,7 +14,7 @@ import android.view.animation.Animation
 class RallyPie : View {
 
     var rallyPieProgressRenderData = listOf<RallyPieRenderData>()
-    private var rallyPieRenderData = listOf<RallyPieRenderData>()
+    private var rallyPieFinalRenderData = listOf<RallyPieRenderData>()
 
     constructor(context: Context?) : super(context)
 
@@ -32,41 +31,41 @@ class RallyPie : View {
     )
             : super(context, attrs, defStyleAttr)
 
+    private val STROKE = 20f
+    private var rect = RectF()
     private var chartRadius = 500f
 
     private val paint by lazy {
         Paint().apply {
-            color = Color.RED
-            strokeWidth = 20f
+            strokeWidth = STROKE
             isAntiAlias = true
             style = Paint.Style.STROKE
         }
     }
 
-    private var rect1 = RectF()
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        super.onMeasure(widthMeasureSpec, widthMeasureSpec)
 
-        chartRadius = 500f
-        //chartRadius = (widthMeasureSpec / 2).toFloat()
+        chartRadius = (width / 2).toFloat() - paddingStart - paddingEnd - STROKE - STROKE
 
+        rect.set(
+            0f + STROKE + paddingLeft,
+            0f + STROKE + paddingTop,
+            width - STROKE - paddingRight,
+            height - STROKE - paddingRight
+        )
     }
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        rect1.set(
-            0f + 10f,
-            0f + 10f,
-            width.toFloat() - 10f,
-            height.toFloat() - 10f
-        )
+
 
         canvas?.apply {
-            rallyPieRenderData.forEachIndexed { index, it ->
+            rallyPieFinalRenderData.forEachIndexed { index, it ->
                 paint.color = it.color
                 drawArc(
-                    rect1,
+                    rect,
                     rallyPieProgressRenderData[index].startAngle,
                     rallyPieProgressRenderData[index].sweepAngle,
                     false,
@@ -76,27 +75,33 @@ class RallyPie : View {
             }
 
         }
-
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         super.onLayout(changed, left, top, right, bottom)
     }
 
+
     fun getRallyPieRenderData(): List<RallyPieRenderData> {
-        return rallyPieRenderData
+        return rallyPieFinalRenderData
     }
 
     override fun startAnimation(animation: Animation?) {
         if (animation is RallyPieAnimation) {
-            animation.addData(rallyPieRenderData)
+            animation.addData(rallyPieFinalRenderData)
         }
         super.startAnimation(animation)
     }
 
-    fun setPieData(pieData: RallyPieData) {
+    fun setPieData(pieData: RallyPieData, animation: RallyPieAnimation? = null) {
         val totalPortionValues = pieData.portions.sumByDouble { it.value.toDouble() }.toFloat()
-        rallyPieRenderData = pieData.portions.toPoints(totalPortionValues)
+        rallyPieFinalRenderData = pieData.portions.toPoints(totalPortionValues)
+        if (animation != null) {
+            animation.addData(rallyPieFinalRenderData)
+            this.startAnimation(animation)
+        } else {
+            rallyPieProgressRenderData = rallyPieFinalRenderData
+        }
     }
 
 
