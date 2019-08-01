@@ -61,10 +61,32 @@
     <color name="rally_green_700">#0E6C40</color>
     <!--<color name="rally_green_400">#1EB980</color>-->
 
-    <!--<color name="rally_dark_green">#045D56</color>-->
+    <color name="rally_dark_green">#0C4B44</color>
+
     <color name="rally_orange">#FF6859</color>
+    <color name="rally_orange_300">#FC4F47</color>
+    <color name="rally_orange_200">#FC6E69</color>
+    <color name="rally_orange_50">#FECDC5</color>
+
+
+
     <color name="rally_yellow">#FFCF44</color>
+    <color name="rally_yellow_500">#FD9C12</color>
+    <color name="rally_yellow_300">#FEC635</color>
+    <color name="rally_yellow_200">#FED665</color>
+
+
+
     <color name="rally_purple">#B15DFF</color>
+    <color name="rally_purple_300">#9600FF</color>
+    <color name="rally_purple_200">#9F3BFF</color>
+    <color name="rally_purple_50">#D5BCF5</color>
+
+
+
     <color name="rally_blue">#72DEFF</color>
+    <color name="rally_blue_700">#0C68FA</color>
+    <color name="rally_blue_200">#63D6FE</color>
+    <color name="rally_blue_100">#A4EFFF</color>
 
 </resources>
