@@ -1,1 +1,1 @@
-include ':app', ':themebuilder', ':design_system', ':rally_pie', ':rally_line_chart'
+include ':app', ':themebuilder', ':design_system', ':rally_pie', ':rally_line_chart', ':rally_line_indicator'
