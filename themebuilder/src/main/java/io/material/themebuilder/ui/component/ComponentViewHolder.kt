@@ -46,6 +46,7 @@ import io.material.themebuilder.ui.component.Component.TABS
 import io.material.themebuilder.ui.component.Component.SNACKBAR
 import io.material.themebuilder.ui.component.Component.DIALOG
 import io.material.themebuilder.ui.component.Component.BOTTOM_SHEET
+import kotlinx.android.synthetic.main.component_tabs.view.*
 
 /**
  * Sealed class to define all [RecyclerView.ViewHolder]s used to display [Component]s.
@@ -124,7 +125,8 @@ sealed class ComponentViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
   class TabsComponentViewHolder(
     parent: ViewGroup
-  ) : ComponentViewHolder(inflate(parent, R.layout.component_tabs))
+  ) : ComponentViewHolder(inflate(parent, R.layout.component_tabs)) {
+  }
 
   class SnackbarComponentViewHolder(
     parent: ViewGroup

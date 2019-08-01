@@ -36,7 +36,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/rally_green"/>
+        android:background="@color/rally_green_300"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_budget_overview"

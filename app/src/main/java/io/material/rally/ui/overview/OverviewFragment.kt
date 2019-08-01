@@ -72,7 +72,6 @@ class OverviewFragment : Fragment() {
       adapter = accountAdapter
     }
     accountAdapter.submitList(listOf(Account(""), Account(""), Account("")))
-
   }
 
   private fun setUpBillRecyclerView() {
@@ -128,7 +127,10 @@ class OverviewFragment : Fragment() {
             })
             .start()
       }
+
     }
   }
 
+
 }
+

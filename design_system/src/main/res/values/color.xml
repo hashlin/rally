@@ -56,8 +56,12 @@
     <color name="color_on_error">#ffffff</color>
 
 
-    <color name="rally_green">#1EB980</color>
-    <color name="rally_dark_green">#045D56</color>
+    <color name="rally_green_300">#36F0AB</color>
+    <color name="rally_green_500">#21AF6C</color>
+    <color name="rally_green_700">#0E6C40</color>
+    <!--<color name="rally_green_400">#1EB980</color>-->
+
+    <!--<color name="rally_dark_green">#045D56</color>-->
     <color name="rally_orange">#FF6859</color>
     <color name="rally_yellow">#FFCF44</color>
     <color name="rally_purple">#B15DFF</color>
