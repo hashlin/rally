@@ -34,7 +34,7 @@
       android:id="@+id/tvDesc"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:text="$45.43 / $70"
+      android:text="........1234"
       android:layout_marginBottom="@dimen/spacing_medium"
       app:layout_constraintTop_toBottomOf="@id/tvName"
       app:layout_constraintBottom_toBottomOf="parent"

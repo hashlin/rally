@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import io.material.rally.R
+import io.material.rally.ui.account.AccountFragment
 import io.material.rally.ui.overview.OverviewFragment
 import io.material.rally.ui.settings.CustomViewFragment
 
@@ -12,26 +13,32 @@ import io.material.rally.ui.settings.CustomViewFragment
  * Created by Chan Myae Aung on 7/30/19.
  */
 class RallyPagerAdapter(
-    fragmentManager: FragmentManager,
-    private val tabs: List<TabUiModel>
+  fragmentManager: FragmentManager,
+  private val tabs: List<TabUiModel>
 ) : FragmentPagerAdapter(
     fragmentManager,
     BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
 ) {
 
-    override fun getItem(position: Int): Fragment {
-        if (position == 4) return CustomViewFragment()
-        return OverviewFragment()
+  override fun getItem(position: Int): Fragment {
+    return when (position) {
+      0 -> OverviewFragment()
+      1 -> AccountFragment()
+      2 -> OverviewFragment()
+      3 -> OverviewFragment()
+      4 -> CustomViewFragment()
+      else -> OverviewFragment()
     }
+  }
 
-    override fun getCount(): Int {
-        return tabs.size
-    }
+  override fun getCount(): Int {
+    return tabs.size
+  }
 }
 
 fun generateTabs(): List<TabUiModel> {
   return listOf(
-      TabUiModel("Overview",R.drawable.ic_overview),
+      TabUiModel("Overview", R.drawable.ic_overview),
       TabUiModel("Accounts", R.drawable.ic_attach_money),
       TabUiModel("Bills", R.drawable.ic_money_off),
       TabUiModel("Overview", R.drawable.ic_budget),
