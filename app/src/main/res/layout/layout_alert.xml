@@ -25,7 +25,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/btnSeeAll"
         app:layout_constraintBottom_toBottomOf="@id/btnSeeAll"
-        style="@style/TextAppearance.MyTheme.Subtitle1"
+        style="?attr/textAppearanceSubtitle1"
         />
 
     <com.google.android.material.button.MaterialButton
@@ -56,7 +56,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/label_alert"
         app:layout_constraintEnd_toStartOf="@id/btnSeeAll"
-        style="@style/TextAppearance.MyTheme.Subtitle1"
+        style="?attr/textAppearanceSubtitle1"
         android:text="@string/message_alert"
         />
 

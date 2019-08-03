@@ -39,19 +39,20 @@
         <item name="colorOnError">@color/color_on_error</item>
 
         <!--Material type attributes-->
-        <item name="textAppearanceHeadline1">@style/TextAppearance.MyTheme.Headline1</item>
-        <item name="textAppearanceHeadline2">@style/TextAppearance.MyTheme.Headline2</item>
-        <item name="textAppearanceHeadline3">@style/TextAppearance.MyTheme.Headline3</item>
-        <item name="textAppearanceHeadline4">@style/TextAppearance.MyTheme.Headline4</item>
-        <item name="textAppearanceHeadline5">@style/TextAppearance.MyTheme.Headline5</item>
-        <item name="textAppearanceHeadline6">@style/TextAppearance.MyTheme.Headline6</item>
-        <item name="textAppearanceSubtitle1">@style/TextAppearance.MyTheme.Subtitle1</item>
-        <item name="textAppearanceSubtitle2">@style/TextAppearance.MyTheme.Subtitle2</item>
-        <item name="textAppearanceBody1">@style/TextAppearance.MyTheme.Body1</item>
-        <item name="textAppearanceBody2">@style/TextAppearance.MyTheme.Body2</item>
-        <item name="textAppearanceButton">@style/TextAppearance.MyTheme.Button</item>
-        <item name="textAppearanceCaption">@style/TextAppearance.MyTheme.Caption</item>
-        <item name="textAppearanceOverline">@style/TextAppearance.MyTheme.Overline</item>
+        <item name="textAppearanceHeadline1">@style/TextAppearance.Rally.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.Rally.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.Rally.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.Rally.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.Rally.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.Rally.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.Rally.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.Rally.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Rally.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Rally.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.Rally.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.Rally.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.Rally.Overline</item>
+        <item name="textAppearanceMoney">@style/TextAppearance.Rally.Money1</item>
 
         <!--Material shape attributes-->
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.MyTheme.SmallComponent</item>
@@ -62,8 +63,21 @@
         <item name="materialAlertDialogTheme">@style/Widget.Rally.AlertDialog</item>
         <item name="bottomSheetDialogTheme">@style/ThemeOverlay.Rally.BottomSheetDialog</item>
         <item name="navigationViewStyle">@style/Widget.Rally.NavigationView</item>
-        <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar.PrimarySurface</item>
+        <item name="toolbarStyle">@style/Widget.Rally.Toolbar</item>
+        <item name="materialCardViewStyle">@style/Widget.Rally.CardView</item>
+
     </style>
+
+
+    <style name="Widget.Rally.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">0dp</item>
+    </style>
+
+
+    <style name="Widget.Rally.Toolbar" parent="@style/Widget.MaterialComponents.Toolbar.PrimarySurface">
+        <item name="android:background">?attr/backgroundColor</item>
+    </style>
+
 
     <style name="Base.MaterialThemeBuilder" parent="Theme.MaterialComponents.NoActionBar">
         <item name="alphaEmphasisHigh">@dimen/alpha_emphasis_high</item>
