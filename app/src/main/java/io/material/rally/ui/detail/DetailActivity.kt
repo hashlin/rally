@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import io.material.rally.R
 import kotlinx.android.synthetic.main.activity_detail.tab
+import kotlinx.android.synthetic.main.activity_detail.viewPager
 
 class DetailActivity : AppCompatActivity() {
 
@@ -26,5 +27,7 @@ class DetailActivity : AppCompatActivity() {
       Log.i("TAG","position $it")
     }
 
+    viewPager.adapter = MyPagerAdapter(supportFragmentManager)
+    tab.setUpWithViewPager(viewPager)
   }
 }

@@ -49,6 +49,9 @@ class TabAdapter(
   fun setListener(listener: ((position: Int) -> Unit)?){
     this.listener = listener
   }
+
+  internal fun listenTabChangeForPager(){}
+
 }
 
 class TabViewHolder(

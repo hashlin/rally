@@ -4,24 +4,25 @@ import android.animation.ArgbEvaluator
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.StyleRes
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.ViewPager
 
 /**
  * Created by Chan Myae Aung on 8/4/19.
  */
-//click listener
-//integration with viewpager
 class RallyScrollableTab : RecyclerView {
 
   private val tabAdapter by lazy { TabAdapter(style = tabTextStyle) }
   private var selectedColor = Color.WHITE
   private var unSelectedColor = Color.GRAY
   private var tabTextStyle = TabStyle(R.style.TabTextStyle)
+  private val layoutManager = LinearLayoutManager(context, HORIZONTAL, false)
 
   constructor(
     context: Context,
@@ -41,7 +42,7 @@ class RallyScrollableTab : RecyclerView {
   private fun init(set: AttributeSet?) {
     initAttributes(set)
 
-    layoutManager = LinearLayoutManager(context, HORIZONTAL, false)
+    setLayoutManager(layoutManager)
     setHasFixedSize(true)
     adapter = tabAdapter
 
@@ -98,8 +99,26 @@ class RallyScrollableTab : RecyclerView {
     tabAdapter.setListener(listener)
   }
 
-  fun setUpWithViewPager() {
+  fun setUpWithViewPager(viewPager: ViewPager) {
+    if(viewPager.adapter == null) throw IllegalStateException("ViewPager does not have pager adapter")
 
+    tabAdapter
+    viewPager.addOnPageChangeListener(object:ViewPager.OnPageChangeListener{
+      override fun onPageScrollStateChanged(state: Int) {}
+
+      override fun onPageScrolled(
+        position: Int,
+        positionOffset: Float,
+        positionOffsetPixels: Int
+      ) {
+        //scroll with offset divided by 2 as tab item width is half of viewpager item width)
+        layoutManager.scrollToPositionWithOffset(position,-positionOffsetPixels/2)
+      }
+
+      override fun onPageSelected(position: Int) {
+        smoothScrollToPosition(position)
+      }
+    })
   }
 
   private fun colorView(
