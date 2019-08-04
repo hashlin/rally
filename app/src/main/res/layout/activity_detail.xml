@@ -22,7 +22,7 @@
       android:layout_gravity="center_vertical"
       android:background="@color/color_secondary_variant"
       app:selectedColor="@android:color/white"
-      app:unSelectedColor="#B3DDDDDD"
+      app:unSelectedColor="#66DDDDDD"
       app:tabTextStyle="@style/TextAppearance.RallyScrollableTab"
       />
 

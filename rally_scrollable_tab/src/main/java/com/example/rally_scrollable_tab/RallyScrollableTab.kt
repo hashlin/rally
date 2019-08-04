@@ -61,7 +61,8 @@ class RallyScrollableTab : RecyclerView {
           (0 until childCount).forEach {
             val child = getChildAt(it)
             val childCenterX = (child.left + child.right) / 2
-            val scaleValue = getGaussianScale(childCenterX, 1f, 1f, 150.toDouble())
+            val scaleValue =
+              Util.getGaussianScale(childCenterX, 1f, 1f, 150.toDouble(), left, right)
 //            child.scaleX = scaleValue
 //            child.scaleY = scaleValue
             colorView(child, scaleValue)
@@ -93,6 +94,14 @@ class RallyScrollableTab : RecyclerView {
     tabAdapter.addAll(list)
   }
 
+  fun addOnTabListener(listener: (position: Int) -> Unit) {
+    tabAdapter.setListener(listener)
+  }
+
+  fun setUpWithViewPager() {
+
+  }
+
   private fun colorView(
     child: View,
     scaleValue: Float
@@ -101,23 +110,11 @@ class RallyScrollableTab : RecyclerView {
     val color = ArgbEvaluator().evaluate(percent, unSelectedColor, selectedColor) as Int
     child.findViewById<TextView>(R.id.tvTab)
         .setTextColor(color)
-
   }
 
-  private fun getGaussianScale(
-    childCenterX: Int,
-    minScaleOffest: Float,
-    scaleFactor: Float,
-    spreadFactor: Double
-  ): Float {
-    val recyclerCenterX = (left + right) / 2
-    return (Math.pow(
-        Math.E,
-        -Math.pow(childCenterX - recyclerCenterX.toDouble(), 2.toDouble()) / (2 * Math.pow(
-            spreadFactor,
-            2.toDouble()
-        ))
-    ) * scaleFactor + minScaleOffest).toFloat()
+  override fun onDetachedFromWindow() {
+    super.onDetachedFromWindow()
+    tabAdapter.setListener(null)
   }
 }
 

@@ -16,6 +16,8 @@ class TabAdapter(
   private val style: TabStyle
 ) : RecyclerView.Adapter<TabViewHolder>() {
 
+  private var listener: ((position: Int) -> Unit)? = null
+
   override fun onCreateViewHolder(
     parent: ViewGroup,
     viewType: Int
@@ -24,7 +26,7 @@ class TabAdapter(
         .inflate(R.layout.item_tab, parent, false)
 
     TextViewCompat.setTextAppearance(view.findViewById(R.id.tvTab), style.tabTextStyle)
-    return TabViewHolder(view)
+    return TabViewHolder(view,listener)
   }
 
   override fun getItemCount(): Int {
@@ -43,10 +45,25 @@ class TabAdapter(
     tabs.addAll(list)
     notifyDataSetChanged()
   }
+
+  fun setListener(listener: ((position: Int) -> Unit)?){
+    this.listener = listener
+  }
 }
 
-class TabViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class TabViewHolder(
+  view: View,
+  private val listener: ((position: Int) -> Unit)?
+) : RecyclerView.ViewHolder(view) {
+
   private val tab: TextView = view.findViewById(R.id.tvTab)
+
+  init {
+    view.setOnClickListener {
+      listener?.invoke(adapterPosition)
+    }
+  }
+
   fun bind(model: String) {
     tab.text = model
   }
