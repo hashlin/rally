@@ -15,14 +15,23 @@
       android:transitionName="DetailView"
       android:background="@color/color_secondary"/>
 
+  <include
+      android:id="@+id/toolbar"
+      layout="@layout/include_toolbar"/>
+
+  <View
+      android:id="@+id/fakeBarView"
+      android:layout_width="match_parent"
+      android:layout_height="300dp"/>
+
   <com.example.rally_scrollable_tab.RallyScrollableTab
       android:id="@+id/tab"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_centerInParent="true"
+      android:layout_below="@id/fakeBarView"
       android:background="@color/color_secondary_variant"
       app:selectedColor="@android:color/white"
-      app:unSelectedColor="#CCDDDDDD"
+      app:unSelectedColor="#33DDDDDD"
       app:tabTextStyle="@style/TextAppearance.RallyScrollableTab"
       />
 

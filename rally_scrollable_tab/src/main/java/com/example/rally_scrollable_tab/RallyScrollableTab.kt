@@ -19,6 +19,10 @@ import androidx.viewpager.widget.ViewPager
 /**
  * Created by Chan Myae Aung on 8/4/19.
  */
+/**
+ * Currently only support tab item click,
+ * but not trigger event when tab item are scrolled and selected
+ */
 class RallyScrollableTab : RecyclerView {
 
   private val tabAdapter by lazy { TabAdapter(style = tabTextStyle) }
@@ -28,6 +32,7 @@ class RallyScrollableTab : RecyclerView {
   private val layoutManager = LinearLayoutManager(context, HORIZONTAL, false)
   private var viewPager: ViewPager? = null
   private var isRVScrolling = true
+  private var listener: ((position: Int) -> Unit)? = null
 
   constructor(
     context: Context,
@@ -96,6 +101,8 @@ class RallyScrollableTab : RecyclerView {
     })
 
     tabAdapter.onTabClick {
+      isRVScrolling = true
+      listener?.invoke(it)
       smoothScrollToPosition(it)
       viewPager?.setCurrentItem(it, true)
     }
@@ -124,7 +131,7 @@ class RallyScrollableTab : RecyclerView {
   }
 
   fun addOnTabListener(listener: (position: Int) -> Unit) {
-    tabAdapter.onTabClick(listener)
+    this.listener = listener
   }
 
   @SuppressLint("ClickableViewAccessibility") fun setUpWithViewPager(viewPager: ViewPager) {
