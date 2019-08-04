@@ -1,12 +1,16 @@
 package io.material.rally.ui.overview.adapter
 
-import android.view.LayoutInflater
+import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import io.material.rally.R
+import io.material.rally.ui.detail.DetailActivity
 import io.material.rally.ui.extension.inflate
 
 /**
@@ -43,10 +47,16 @@ class AccountOverviewAdapter : ListAdapter<Account, AccountOverviewViewHolder>(o
   }
 }
 
-class AccountOverviewViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class AccountOverviewViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
   fun bind(model: Account) {
-
+    view.setOnClickListener {
+      val intent = Intent(view.context, DetailActivity::class.java)
+      val pair = Pair(view.findViewById<View>(R.id.shareView), "DetailView")
+      val options =
+        ActivityOptionsCompat.makeSceneTransitionAnimation(view.context as AppCompatActivity, pair)
+      view.context.startActivity(intent,options.toBundle())
+    }
   }
 }
 
