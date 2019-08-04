@@ -1,10 +1,12 @@
 package com.example.rally_scrollable_tab
 
 import android.animation.ArgbEvaluator
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.StyleRes
@@ -25,6 +27,7 @@ class RallyScrollableTab : RecyclerView {
   private var tabTextStyle = TabStyle(R.style.TabTextStyle)
   private val layoutManager = LinearLayoutManager(context, HORIZONTAL, false)
   private var viewPager: ViewPager? = null
+  private var isRVScrolling = true
 
   constructor(
     context: Context,
@@ -53,6 +56,10 @@ class RallyScrollableTab : RecyclerView {
 
     createPagerStyle()
 
+    setOnTouchListener { _, _ ->
+      isRVScrolling = true
+      false
+    }
     addOnScrollListener(object : OnScrollListener() {
       override fun onScrolled(
         recyclerView: RecyclerView,
@@ -71,7 +78,7 @@ class RallyScrollableTab : RecyclerView {
             colorView(child, scaleValue)
           }
         }
-        viewPager?.scrollBy(dx*2, 0)
+        //viewPager?.scrollBy(dx*2, 0)
       }
 
       override fun onScrollStateChanged(
@@ -79,9 +86,11 @@ class RallyScrollableTab : RecyclerView {
         newState: Int
       ) {
         super.onScrollStateChanged(recyclerView, newState)
+
         if (newState == SCROLL_STATE_IDLE) {
+          //need flat to disable this when viewpager is scrolling
           val child = snapHelper.findSnapView(layoutManager) ?: return
-          viewPager?.setCurrentItem(layoutManager.getPosition(child), true)
+          if (isRVScrolling) viewPager?.setCurrentItem(layoutManager.getPosition(child), true)
         }
       }
     })
@@ -118,11 +127,16 @@ class RallyScrollableTab : RecyclerView {
     tabAdapter.onTabClick(listener)
   }
 
-  fun setUpWithViewPager(viewPager: ViewPager) {
+  @SuppressLint("ClickableViewAccessibility") fun setUpWithViewPager(viewPager: ViewPager) {
     if (viewPager.adapter == null) throw IllegalStateException(
         "ViewPager does not have pager adapter"
     )
     this.viewPager = viewPager
+
+    viewPager.setOnTouchListener { _, _ ->
+      isRVScrolling = false
+      false
+    }
 
     viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
       override fun onPageScrollStateChanged(state: Int) {}
@@ -133,7 +147,8 @@ class RallyScrollableTab : RecyclerView {
         positionOffsetPixels: Int
       ) {
         //scroll with offset divided by 2 as tab item width is half of viewpager item width)
-        layoutManager.scrollToPositionWithOffset(position, -positionOffsetPixels / 2)
+        if (!isRVScrolling)
+          layoutManager.scrollToPositionWithOffset(position, -positionOffsetPixels / 2)
       }
 
       override fun onPageSelected(position: Int) {
