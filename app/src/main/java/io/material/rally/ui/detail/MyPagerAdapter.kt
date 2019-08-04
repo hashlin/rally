@@ -14,6 +14,6 @@ class MyPagerAdapter(fm:FragmentManager) : FragmentPagerAdapter(fm,BEHAVIOR_RESU
   }
 
   override fun getCount(): Int {
-    return 10
+    return 12
   }
 }

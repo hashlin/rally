@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.annotation.StyleRes
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
+import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 
@@ -23,6 +24,7 @@ class RallyScrollableTab : RecyclerView {
   private var unSelectedColor = Color.GRAY
   private var tabTextStyle = TabStyle(R.style.TabTextStyle)
   private val layoutManager = LinearLayoutManager(context, HORIZONTAL, false)
+  private var viewPager: ViewPager? = null
 
   constructor(
     context: Context,
@@ -69,8 +71,25 @@ class RallyScrollableTab : RecyclerView {
             colorView(child, scaleValue)
           }
         }
+        viewPager?.scrollBy(dx*2, 0)
+      }
+
+      override fun onScrollStateChanged(
+        recyclerView: RecyclerView,
+        newState: Int
+      ) {
+        super.onScrollStateChanged(recyclerView, newState)
+        if (newState == SCROLL_STATE_IDLE) {
+          val child = snapHelper.findSnapView(layoutManager) ?: return
+          viewPager?.setCurrentItem(layoutManager.getPosition(child), true)
+        }
       }
     })
+
+    tabAdapter.onTabClick {
+      smoothScrollToPosition(it)
+      viewPager?.setCurrentItem(it, true)
+    }
   }
 
   private fun initAttributes(set: AttributeSet?) {
@@ -96,14 +115,16 @@ class RallyScrollableTab : RecyclerView {
   }
 
   fun addOnTabListener(listener: (position: Int) -> Unit) {
-    tabAdapter.setListener(listener)
+    tabAdapter.onTabClick(listener)
   }
 
   fun setUpWithViewPager(viewPager: ViewPager) {
-    if(viewPager.adapter == null) throw IllegalStateException("ViewPager does not have pager adapter")
+    if (viewPager.adapter == null) throw IllegalStateException(
+        "ViewPager does not have pager adapter"
+    )
+    this.viewPager = viewPager
 
-    tabAdapter
-    viewPager.addOnPageChangeListener(object:ViewPager.OnPageChangeListener{
+    viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
       override fun onPageScrollStateChanged(state: Int) {}
 
       override fun onPageScrolled(
@@ -112,7 +133,7 @@ class RallyScrollableTab : RecyclerView {
         positionOffsetPixels: Int
       ) {
         //scroll with offset divided by 2 as tab item width is half of viewpager item width)
-        layoutManager.scrollToPositionWithOffset(position,-positionOffsetPixels/2)
+        layoutManager.scrollToPositionWithOffset(position, -positionOffsetPixels / 2)
       }
 
       override fun onPageSelected(position: Int) {
@@ -133,7 +154,8 @@ class RallyScrollableTab : RecyclerView {
 
   override fun onDetachedFromWindow() {
     super.onDetachedFromWindow()
-    tabAdapter.setListener(null)
+    tabAdapter.onTabClick(null)
+    viewPager = null
   }
 }
 

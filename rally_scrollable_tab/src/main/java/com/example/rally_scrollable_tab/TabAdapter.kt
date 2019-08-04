@@ -46,7 +46,7 @@ class TabAdapter(
     notifyDataSetChanged()
   }
 
-  fun setListener(listener: ((position: Int) -> Unit)?){
+  fun onTabClick(listener: ((position: Int) -> Unit)?){
     this.listener = listener
   }
 

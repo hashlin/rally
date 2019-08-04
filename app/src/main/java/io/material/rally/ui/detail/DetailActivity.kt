@@ -23,9 +23,9 @@ class DetailActivity : AppCompatActivity() {
             "Aug 2018","Sep 2018","Oct 2018","Nov 2018","Dec 2018"
             )
     )
-    tab.addOnTabListener {
-      Log.i("TAG","position $it")
-    }
+//    tab.addOnTabListener {
+//      Log.i("TAG","position $it")
+//    }
 
     viewPager.adapter = MyPagerAdapter(supportFragmentManager)
     tab.setUpWithViewPager(viewPager)
