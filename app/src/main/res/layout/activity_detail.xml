@@ -1,51 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".ui.detail.DetailActivity"
     >
 
-  <FrameLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      >
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:transitionName="DetailView"
-        android:background="@color/color_secondary"/>
-  </FrameLayout>
-
-
-  <include
-      android:id="@+id/toolbar"
-      layout="@layout/include_toolbar"/>
-
   <View
-      android:id="@+id/fakeBarView"
       android:layout_width="match_parent"
-      android:layout_height="300dp"/>
-
-  <com.example.rally_scrollable_tab.RallyScrollableTab
-      android:id="@+id/tab"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_below="@id/fakeBarView"
-      android:background="@color/color_secondary_variant"
-      app:selectedColor="@android:color/white"
-      app:unSelectedColor="#33DDDDDD"
-      app:tabTextStyle="@style/TextAppearance.RallyScrollableTab"
+      android:layout_height="match_parent"
+      android:background="@color/color_secondary"
+      android:transitionName="DetailView"
       />
 
-  <androidx.viewpager.widget.ViewPager
-      android:id="@+id/viewPager"
+  <LinearLayout
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_below="@id/tab"
-      />
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      >
+    <include
+        layout="@layout/include_toolbar"
+        android:id="@+id/toolbar"
+        />
 
-</RelativeLayout>
+    <View
+        android:id="@+id/fakeBarView"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        />
+
+    <com.example.rally_scrollable_tab.RallyScrollableTab
+        android:id="@+id/tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_secondary_variant"
+        app:selectedColor="@android:color/white"
+        app:tabTextStyle="@style/TextAppearance.RallyScrollableTab"
+        app:unSelectedColor="#33DDDDDD"
+        />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+  </LinearLayout>
+
+
+</FrameLayout>
