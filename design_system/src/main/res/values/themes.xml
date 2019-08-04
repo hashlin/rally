@@ -52,7 +52,8 @@
         <item name="textAppearanceButton">@style/TextAppearance.Rally.Button</item>
         <item name="textAppearanceCaption">@style/TextAppearance.Rally.Caption</item>
         <item name="textAppearanceOverline">@style/TextAppearance.Rally.Overline</item>
-        <item name="textAppearanceMoney">@style/TextAppearance.Rally.Money1</item>
+        <item name="textAppearanceMoney1">@style/TextAppearance.Rally.Money1</item>
+        <item name="textAppearanceCardNumber1">@style/TextAppearance.Rally.CardNumber1</item>
 
         <!--Material shape attributes-->
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.MyTheme.SmallComponent</item>
@@ -63,19 +64,28 @@
         <item name="materialAlertDialogTheme">@style/Widget.Rally.AlertDialog</item>
         <item name="bottomSheetDialogTheme">@style/ThemeOverlay.Rally.BottomSheetDialog</item>
         <item name="navigationViewStyle">@style/Widget.Rally.NavigationView</item>
-        <item name="toolbarStyle">@style/Widget.Rally.Toolbar</item>
         <item name="materialCardViewStyle">@style/Widget.Rally.CardView</item>
+        <item name="tabStyle">@style/Widget.Rally.TabLayout</item>
+        <item name="dividerStyle">@style/Widget.Rally.Divider</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.Rally.Button.OutlinedButton</item>
 
+        <item name="android:statusBarColor">@color/color_status_bar</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
 
     <style name="Widget.Rally.CardView" parent="Widget.MaterialComponents.CardView">
-        <item name="cardElevation">0dp</item>
+        <item name="cardElevation">.1dp</item>
     </style>
 
 
-    <style name="Widget.Rally.Toolbar" parent="@style/Widget.MaterialComponents.Toolbar.PrimarySurface">
-        <item name="android:background">?attr/backgroundColor</item>
+    <style name="Widget.Rally.Button.OutlinedButton" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconTint">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <style name="Widget.Rally.TabLayout" parent="@style/Widget.MaterialComponents.TabLayout">
+        <item name="android:background">?android:attr/colorBackground</item>
+        <item name="android:elevation">0dp</item>
     </style>
 
 

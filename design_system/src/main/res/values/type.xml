@@ -108,9 +108,15 @@
     </style>
 
 
-    <attr name="textAppearanceMoney" format="reference"/>
+    <attr name="textAppearanceMoney1" format="reference"/>
     <style name="TextAppearance.Rally.Money1" parent="TextAppearance.Rally.Subtitle1">
         <item name="fontFamily">@font/eczar</item>
         <item name="android:letterSpacing">.15</item>
+    </style>
+
+    <attr name="textAppearanceCardNumber1" format="reference"/>
+    <style name="TextAppearance.Rally.CardNumber1" parent="TextAppearance.Rally.Subtitle2">
+        <item name="android:textColor">?attr/colorPrimaryVariant</item>
+        <item name="android:letterSpacing">.25</item>
     </style>
 </resources>

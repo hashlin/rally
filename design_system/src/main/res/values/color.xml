@@ -34,8 +34,8 @@
     <!--colorPrimary colors map to components and elements, such as app bars and buttons. -->
     <!--colorSecondary colors are most often used as accents on components, such as FABs and -->
     <!--selection controls.-->
-    <color name="color_primary">#ffffff</color>
-    <color name="color_primary_variant">#ffffff</color>
+    <color name="color_primary">#FFFFFF</color>
+    <color name="color_primary_variant">#AEAEB1</color>
     <color name="color_secondary">#2A2931</color>
     <color name="color_secondary_variant">#1D1D23</color>
 
@@ -54,6 +54,8 @@
     <color name="color_on_background">#ffffff</color>
     <color name="color_on_surface">#ffffff</color>
     <color name="color_on_error">#ffffff</color>
+
+    <color name="color_status_bar">#27272F</color>
 
 
     <color name="rally_green_300">#36F0AB</color>

@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.overview.OverviewFragment"
-    android:background="@color/color_secondary"
     android:overScrollMode="never"
     >
 

@@ -34,14 +34,14 @@
       android:id="@+id/tvDesc"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:text="$45.43 / $70"
+      android:text="••••••1234"
       android:layout_marginBottom="@dimen/spacing_medium"
       app:layout_constraintTop_toBottomOf="@id/tvName"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintStart_toEndOf="@id/bar"
       app:layout_constraintEnd_toStartOf="@id/tvAmount"
       android:layout_marginStart="@dimen/spacing_medium"
-      style="?attr/textAppearanceSubtitle2"/>
+      style="?attr/textAppearanceCardNumber1"/>
 
   <TextView
       android:id="@+id/tvAmount"
@@ -53,7 +53,7 @@
       app:layout_constraintEnd_toStartOf="@id/ivArrow"
       android:layout_marginStart="@dimen/spacing_medium"
       android:layout_marginEnd="@dimen/spacing_medium"
-      style="?attr/textAppearanceMoney"/>
+      style="?attr/textAppearanceMoney1"/>
 
   <ImageView
       android:id="@+id/ivArrow"
@@ -64,7 +64,7 @@
       app:layout_constraintEnd_toEndOf="parent"
       android:layout_marginEnd="@dimen/spacing_medium"
       android:src="@drawable/ic_right_arrow"
-      android:tint="@color/color_primary"
+      android:tint="?attr/colorPrimaryVariant"
       />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

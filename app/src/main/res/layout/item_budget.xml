@@ -53,7 +53,7 @@
       app:layout_constraintEnd_toStartOf="@id/ivArrow"
       android:layout_marginStart="@dimen/spacing_medium"
       android:layout_marginEnd="@dimen/spacing_medium"
-      style="?attr/textAppearanceBody1"/>
+      style="?attr/textAppearanceMoney1"/>
 
   <TextView
       android:id="@+id/ivArrow"
