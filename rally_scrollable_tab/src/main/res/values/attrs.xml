@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="RallyScrollableTab">
+    <attr name="selectedColor" format="color"/>
+    <attr name="unSelectedColor" format="color"/>
+    <attr name="tabTextStyle" format="reference"/>
+  </declare-styleable>
+</resources>

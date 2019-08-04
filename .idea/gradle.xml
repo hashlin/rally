@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/rally_line_chart" />
             <option value="$PROJECT_DIR$/rally_line_indicator" />
             <option value="$PROJECT_DIR$/rally_pie" />
+            <option value="$PROJECT_DIR$/rally_scrollable_tab" />
             <option value="$PROJECT_DIR$/themebuilder" />
           </set>
         </option>
