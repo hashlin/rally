@@ -9,11 +9,17 @@
     tools:context=".ui.detail.DetailActivity"
     >
 
-  <View
+  <FrameLayout
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:transitionName="DetailView"
-      android:background="@color/color_secondary"/>
+      android:layout_height="wrap_content"
+      >
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:transitionName="DetailView"
+        android:background="@color/color_secondary"/>
+  </FrameLayout>
+
 
   <include
       android:id="@+id/toolbar"
