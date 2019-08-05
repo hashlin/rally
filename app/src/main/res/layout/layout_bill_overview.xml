@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bills"
-        style="@style/TextAppearance.MyTheme.Subtitle1"
+        style="?attr/textAppearanceSubtitle1"
         android:layout_marginTop="@dimen/spacing_small"
         android:layout_marginStart="@dimen/spacing_medium"
         />
@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="$1,810.09"
-        style="@style/TextAppearance.MyTheme.Headline3"
+        style="?attr/textAppearanceHeadline3"
         android:layout_marginStart="@dimen/spacing_medium"
         />
 

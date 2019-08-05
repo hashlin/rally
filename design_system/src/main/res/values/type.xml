@@ -37,71 +37,72 @@
     <!--letterSpacing, etc. to define a custom appearance for each and see how they are -->
     <!--applied globally across your app.-->
 
-    <style name="TextAppearance.MyTheme.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+    <style name="TextAppearance.Rally.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
         <item name="fontFamily">@font/roboto_condensed_light</item>
         <item name="android:textSize">96sp</item>
     </style>
 
-    <style name="TextAppearance.MyTheme.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+    <style name="TextAppearance.Rally.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
         <item name="fontFamily">@font/roboto_condensed_light</item>
         <item name="android:textSize">60sp</item>
     </style>
 
-    <style name="TextAppearance.MyTheme.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+    <style name="TextAppearance.Rally.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
         <item name="fontFamily">@font/eczar</item>
         <item name="android:textSize">48sp</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
     </style>
 
-    <style name="TextAppearance.MyTheme.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+    <style name="TextAppearance.Rally.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
         <item name="fontFamily">@font/roboto_condensed_regular</item>
         <item name="android:textSize">24sp</item>
     </style>
 
-    <style name="TextAppearance.MyTheme.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+    <style name="TextAppearance.Rally.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
         <item name="fontFamily">@font/roboto_condensed_regular</item>
         <item name="android:textSize">24sp</item>
     </style>
 
-    <style name="TextAppearance.MyTheme.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+    <style name="TextAppearance.Rally.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="fontFamily">@font/roboto_condensed_regular</item>
         <item name="android:textSize">20sp</item>
         <item name="android:fontWeight">500</item>
 
     </style>
 
-    <style name="TextAppearance.MyTheme.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+    <style name="TextAppearance.Rally.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
         <item name="fontFamily">@font/roboto_condensed_regular</item>
         <item name="android:textSize">16sp</item>
     </style>
 
-    <style name="TextAppearance.MyTheme.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+    <style name="TextAppearance.Rally.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
         <item name="fontFamily">@font/roboto_condensed_regular</item>
         <item name="android:textSize">14sp</item>
         <item name="android:fontWeight">500</item>
     </style>
 
-    <style name="TextAppearance.MyTheme.Body1" parent="TextAppearance.MaterialComponents.Body1">
+    <style name="TextAppearance.Rally.Body1" parent="TextAppearance.MaterialComponents.Body1">
         <item name="fontFamily">@font/eczar</item>
         <item name="android:textSize">16sp</item>
     </style>
 
-    <style name="TextAppearance.MyTheme.Body2" parent="TextAppearance.MaterialComponents.Body2">
+    <style name="TextAppearance.Rally.Body2" parent="TextAppearance.MaterialComponents.Body2">
         <item name="fontFamily">@font/roboto_condensed_light</item>
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="TextAppearance.MyTheme.Button" parent="TextAppearance.MaterialComponents.Button">
+    <style name="TextAppearance.Rally.Button" parent="TextAppearance.MaterialComponents.Button">
         <item name="fontFamily">@font/roboto_condensed_bold</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textAllCaps">true</item>
     </style>
 
-    <style name="TextAppearance.MyTheme.Caption" parent="TextAppearance.MaterialComponents.Caption">
+    <style name="TextAppearance.Rally.Caption" parent="TextAppearance.MaterialComponents.Caption">
         <item name="fontFamily">@font/roboto_condensed_regular</item>
         <item name="android:textSize">12sp</item>
     </style>
 
-    <style name="TextAppearance.MyTheme.Overline" parent="TextAppearance.MaterialComponents.Overline">
+    <style name="TextAppearance.Rally.Overline" parent="TextAppearance.MaterialComponents.Overline">
         <item name="fontFamily">@font/roboto_condensed_regular</item>
         <item name="android:textSize">10sp</item>
     </style>
@@ -110,4 +111,16 @@
         <item name="android:letterSpacing">0.2</item>
     </style>
 
+
+    <attr name="textAppearanceMoney1" format="reference"/>
+    <style name="TextAppearance.Rally.Money1" parent="TextAppearance.Rally.Subtitle1">
+        <item name="fontFamily">@font/eczar</item>
+        <item name="android:letterSpacing">.15</item>
+    </style>
+
+    <attr name="textAppearanceCardNumber1" format="reference"/>
+    <style name="TextAppearance.Rally.CardNumber1" parent="TextAppearance.Rally.Subtitle2">
+        <item name="android:textColor">?attr/colorPrimaryVariant</item>
+        <item name="android:letterSpacing">.25</item>
+    </style>
 </resources>

@@ -28,7 +28,7 @@
       app:layout_constraintStart_toEndOf="@id/bar"
       app:layout_constraintEnd_toStartOf="@id/tvAmount"
       android:layout_marginStart="@dimen/spacing_medium"
-      style="@style/TextAppearance.MyTheme.Subtitle1"/>
+      style="?attr/textAppearanceSubtitle1"/>
 
   <TextView
       android:id="@+id/tvDesc"
@@ -41,7 +41,7 @@
       app:layout_constraintStart_toEndOf="@id/bar"
       app:layout_constraintEnd_toStartOf="@id/tvAmount"
       android:layout_marginStart="@dimen/spacing_medium"
-      style="@style/TextAppearance.MyTheme.Subtitle2"/>
+      style="?attr/textAppearanceSubtitle2"/>
 
   <TextView
       android:id="@+id/tvAmount"
@@ -53,7 +53,7 @@
       app:layout_constraintEnd_toStartOf="@id/ivArrow"
       android:layout_marginStart="@dimen/spacing_medium"
       android:layout_marginEnd="@dimen/spacing_medium"
-      style="@style/TextAppearance.MyTheme.Body1"/>
+      style="?attr/textAppearanceMoney1"/>
 
   <TextView
       android:id="@+id/ivArrow"
@@ -64,7 +64,7 @@
       app:layout_constraintEnd_toEndOf="parent"
       android:layout_marginEnd="@dimen/spacing_medium"
       android:text="Left"
-      style="@style/TextAppearance.MyTheme.Caption"
+      style="?attr/textAppearanceCaption"
       />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
