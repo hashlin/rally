@@ -47,8 +47,8 @@
         <item name="android:textSize">60sp</item>
     </style>
 
-    <style name="TextAppearance.Rally.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
-        <item name="fontFamily">@font/eczar</item>
+    <style name="TextAppearance.MyTheme.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">@font/eczar_semibold</item>
         <item name="android:textSize">48sp</item>
         <item name="android:textColor">?attr/colorPrimary</item>
     </style>
