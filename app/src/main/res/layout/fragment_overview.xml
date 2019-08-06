@@ -17,6 +17,13 @@
     <include
         layout="@layout/layout_account_overview"/>
 
+    <ProgressBar
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:indeterminate="true"
+        android:layout_height="wrap_content"
+        />
+
     <include
         layout="@layout/layout_bill_overview"/>
 
