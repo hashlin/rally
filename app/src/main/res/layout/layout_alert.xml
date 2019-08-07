@@ -5,10 +5,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:clickable="true"
-    android:layout_marginStart="@dimen/spacing_medium"
-    android:layout_marginEnd="@dimen/spacing_medium"
-    android:layout_marginTop="@dimen/spacing_medium"
-    android:layout_marginBottom="@dimen/spacing_small"
     >
 
   <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,7 +35,7 @@
         />
     <View
         android:layout_marginStart="@dimen/spacing_medium"
-        android:layout_marginEnd="@dimen/spacing_large"
+        android:layout_marginEnd="@dimen/spacing_x_large"
         android:id="@+id/bar"
         android:layout_width="0dp"
         android:layout_height="1dp"

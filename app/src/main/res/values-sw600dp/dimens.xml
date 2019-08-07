@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="spacing_keyline">24dp</dimen>
+
+  <dimen name="spacing_gutters_half">12dp</dimen>
+  <dimen name="spacing_gutters">24dp</dimen>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    app:layoutDescription="@xml/test_states"
+    android:layout_height="match_parent"
+    >
+
+  <ImageView
+      android:id="@+id/iv_one"
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      android:background="@color/rally_blue_100"
+      />
+
+  <ImageView
+      android:background="@color/rally_blue_200"
+      android:id="@+id/iv_two"
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      />
+</androidx.constraintlayout.motion.widget.MotionLayout>
