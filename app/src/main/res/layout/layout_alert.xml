@@ -54,7 +54,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/label_alert"
         app:layout_constraintEnd_toStartOf="@id/btnSeeAll"
-        style="?attr/textAppearanceSubtitle1"
+        style="?attr/textAppearanceSubtitle2"
         android:text="@string/message_alert"
         />
 

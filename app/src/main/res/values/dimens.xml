@@ -7,6 +7,10 @@
 
 
   <dimen name="spacing_keyline">16dp</dimen>
-  <dimen name="spacing_gutters_half">8dp</dimen>
-  <dimen name="spacing_gutters">16dp</dimen>
+
+  <dimen name="horizontal_gutters_half">8dp</dimen>
+  <dimen name="horizontal_gutters">16dp</dimen>
+
+  <dimen name="vertical_gutters_half">12dp</dimen>
+  <dimen name="vertical_gutters">24dp</dimen>
 </resources>

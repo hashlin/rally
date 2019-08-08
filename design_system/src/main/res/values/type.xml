@@ -79,7 +79,7 @@
     <style name="TextAppearance.Rally.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
         <item name="fontFamily">@font/roboto_condensed_regular</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:fontWeight">500</item>
+        <item name="android:lineSpacingExtra">2dp</item>
     </style>
 
     <style name="TextAppearance.Rally.Body1" parent="TextAppearance.MaterialComponents.Body1">
@@ -110,8 +110,10 @@
 
 
     <attr name="textAppearanceMoney1" format="reference"/>
-    <style name="TextAppearance.Rally.Money1" parent="TextAppearance.Rally.Subtitle1">
+    <style name="TextAppearance.Rally.Money1" parent="">
         <item name="fontFamily">@font/eczar</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:letterSpacing">.15</item>
     </style>
 

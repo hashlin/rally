@@ -34,7 +34,7 @@
 
 
     <io.material.rally.ui.widgets.RallyAlert
-        android:layout_marginTop="@dimen/spacing_gutters"
+        android:layout_marginTop="@dimen/vertical_gutters_half"
         android:id="@+id/rv_alert"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@+id/keyline_start"
@@ -50,7 +50,7 @@
         app:layout_constraintStart_toStartOf="@+id/keyline_start"
         app:layout_constraintEnd_toEndOf="@+id/keyline_end"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_gutters_half"
+        android:layout_marginTop="@dimen/vertical_gutters_half"
         app:layout_constraintTop_toBottomOf="@+id/rv_alert"
         />
 
@@ -62,7 +62,7 @@
         app:layout_constraintStart_toStartOf="@+id/keyline_start"
         app:layout_constraintEnd_toEndOf="@+id/keyline_end"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_gutters_half"
+        android:layout_marginTop="@dimen/vertical_gutters_half"
         app:layout_constraintTop_toBottomOf="@+id/layout_account_overview"
         />
 
@@ -74,7 +74,7 @@
         android:layout_marginBottom="@dimen/spacing_medium"
         app:layout_constraintStart_toStartOf="@+id/keyline_start"
         app:layout_constraintEnd_toEndOf="@+id/keyline_end"
-        android:layout_marginTop="@dimen/spacing_gutters_half"
+        android:layout_marginTop="@dimen/vertical_gutters_half"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_bill_overview"
         />
