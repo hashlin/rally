@@ -4,12 +4,19 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.view.ViewTreeObserver
+import android.view.ViewTreeObserver.OnPreDrawListener
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import io.material.rally.R
+import kotlinx.android.synthetic.main.activity_detail.content
 import kotlinx.android.synthetic.main.activity_detail.tab
+import kotlinx.android.synthetic.main.activity_detail.toolbar
 import kotlinx.android.synthetic.main.activity_detail.viewPager
 
 class DetailActivity : AppCompatActivity() {
+
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -17,13 +24,19 @@ class DetailActivity : AppCompatActivity() {
 
     setUpToolbar()
     setUpTab()
+    content.viewTreeObserver.addOnPreDrawListener(object:OnPreDrawListener{
+      override fun onPreDraw(): Boolean {
+        content.viewTreeObserver.removeOnPreDrawListener(this)
+        return true
+      }
+    })
   }
 
   private fun setUpToolbar(){
-//    setSupportActionBar(toolbar as Toolbar?)
-//    val actionBar = supportActionBar
-//    actionBar?.setDisplayHomeAsUpEnabled(true)
-//    actionBar?.title = ""
+    setSupportActionBar(toolbar as Toolbar?)
+    val actionBar = supportActionBar
+    actionBar?.setDisplayHomeAsUpEnabled(true)
+    actionBar?.title = ""
   }
 
   private fun setUpTab() {
@@ -44,9 +57,5 @@ class DetailActivity : AppCompatActivity() {
   override fun onCreateOptionsMenu(menu: Menu?): Boolean {
     menuInflater.inflate(R.menu.menu_detail,menu)
     return true
-  }
-
-  override fun onOptionsItemSelected(item: MenuItem): Boolean {
-    return super.onOptionsItemSelected(item)
   }
 }
