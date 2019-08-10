@@ -92,7 +92,7 @@
 
 
     <style name="Widget.Rally.CardView" parent="Widget.MaterialComponents.CardView">
-        <item name="cardElevation">.1dp</item>
+        <item name="cardElevation">0dp</item>
     </style>
 
 

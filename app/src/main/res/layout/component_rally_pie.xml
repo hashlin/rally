@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_gravity="center"
-        android:padding="@dimen/spacing_large"
+        android:padding="@dimen/spacing_x_large"
         />
 
 
@@ -29,7 +29,7 @@
     <io.material.rally_line_indicator.RallyLineIndicator
         android:layout_width="match_parent"
         android:id="@+id/rallyLineIndicator"
-        android:layout_margin="@dimen/spacing_large"
+        android:layout_margin="@dimen/spacing_x_large"
         android:layout_height="300dp"
         android:layout_gravity="center"
         />

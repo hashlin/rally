@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConstraintLayoutStates xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+  <ConstraintSet android:id="@+id/constraint_set">
+
+  </ConstraintSet>
+
+  <StateSet app:defaultState="@layout/test_first">
+    <State android:id="@+id/first">
+      <Variant
+          app:constraints="@+id/test_first"
+          app:region_widthLessThan="600dp"/>
+    </State>
+
+    <State android:id="@+id/second">
+      <Variant
+          app:constraints="@+id/test_second"
+          app:region_widthLessThan="1000dp"/>
+    </State>
+  </StateSet>
+
+
+</ConstraintLayoutStates>

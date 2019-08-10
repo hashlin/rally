@@ -118,11 +118,11 @@ class OverviewFragment : Fragment() {
                 //This may crash if user navigate tab before animation end
                 //Bad error handling way here
                 //in real world,this could be with liveData or something else
-                try {
-                  if (i == content.childCount - 1) showAlert()
-                } catch (e: Exception) {
-                  e.printStackTrace()
-                }
+//                try {
+//                  if (i == content.childCount - 1) showAlert()
+//                } catch (e: Exception) {
+//                  e.printStackTrace()
+//                }
               }
             })
             .start()

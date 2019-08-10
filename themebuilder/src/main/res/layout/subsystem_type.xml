@@ -147,7 +147,7 @@
     <io.material.themebuilder.widget.TypeAttributeView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="\?textAppearanceCaption"
+      android:text="?textAppearanceCaption"
       app:previewText="@string/text_appearance_caption_label"
       app:previewTextAppearance="?textAppearanceCaption"
       app:previewAlpha="?alphaEmphasisMedium"
