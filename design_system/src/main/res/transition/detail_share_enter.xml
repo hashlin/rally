@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
-<changeBounds/>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="400">
+  <changeTransform/>
+  <changeBounds/>
 </transitionSet>

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import io.material.rally.R
+import io.material.rally.ui.TestActivity
 import io.material.rally.ui.detail.DetailActivity
 import io.material.rally.ui.extension.inflate
 
@@ -51,7 +52,7 @@ class AccountOverviewViewHolder(val view: View) : RecyclerView.ViewHolder(view) 
 
   fun bind(model: Account) {
     view.setOnClickListener {
-      val intent = Intent(view.context, DetailActivity::class.java)
+      val intent = Intent(view.context, TestActivity::class.java)
       val pair = Pair(view.findViewById<View>(R.id.shareView), "DetailView")
       val options =
         ActivityOptionsCompat.makeSceneTransitionAnimation(view.context as AppCompatActivity, pair)

@@ -1,14 +1,12 @@
 package io.material.rally.ui.detail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import io.material.rally.R
 import kotlinx.android.synthetic.main.activity_detail.tab
-import kotlinx.android.synthetic.main.activity_detail.toolbar
 import kotlinx.android.synthetic.main.activity_detail.viewPager
 
 class DetailActivity : AppCompatActivity() {
@@ -22,10 +20,10 @@ class DetailActivity : AppCompatActivity() {
   }
 
   private fun setUpToolbar(){
-    setSupportActionBar(toolbar as Toolbar?)
-    val actionBar = supportActionBar
-    actionBar?.setDisplayHomeAsUpEnabled(true)
-    actionBar?.title = ""
+//    setSupportActionBar(toolbar as Toolbar?)
+//    val actionBar = supportActionBar
+//    actionBar?.setDisplayHomeAsUpEnabled(true)
+//    actionBar?.title = ""
   }
 
   private fun setUpTab() {

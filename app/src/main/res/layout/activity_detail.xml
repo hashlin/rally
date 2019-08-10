@@ -20,10 +20,6 @@
       android:layout_height="match_parent"
       android:orientation="vertical"
       >
-    <include
-        layout="@layout/include_toolbar"
-        android:id="@+id/toolbar"
-        />
 
     <View
         android:id="@+id/fakeBarView"

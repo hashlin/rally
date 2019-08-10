@@ -19,13 +19,16 @@
 
     <!--Top level DayNight theme to be used in AndroidManifest.xml-->
     <style name="Rally.DayNight" parent="Base.Rally">
-        <item name="android:windowAllowEnterTransitionOverlap">true</item>
-        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+        <item name="android:windowAllowEnterTransitionOverlap">false</item>
+        <item name="android:windowAllowReturnTransitionOverlap">false
+        </item>
         <item name="android:windowSharedElementsUseOverlay">false</item>
     </style>
 
     <style name="Rally.DayNight.Main" parent="Base.Rally">
         <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowExitTransition">@transition/detail_enter</item>
+        <item name="android:windowReenterTransition">@transition/detail_enter</item>
     </style>
     <style name="Rally.DayNight.Detail" parent="Base.Rally">
         <item name="android:windowContentTransitions">true</item>
