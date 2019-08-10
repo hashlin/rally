@@ -52,7 +52,7 @@ class AccountOverviewViewHolder(val view: View) : RecyclerView.ViewHolder(view) 
 
   fun bind(model: Account) {
     view.setOnClickListener {
-      val intent = Intent(view.context, TestActivity::class.java)
+      val intent = Intent(view.context, DetailActivity::class.java)
       val pair = Pair(view.findViewById<View>(R.id.shareView), "DetailView")
       val options =
         ActivityOptionsCompat.makeSceneTransitionAnimation(view.context as AppCompatActivity, pair)

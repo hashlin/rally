@@ -10,9 +10,6 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/Base.Rally">
-    <activity android:name=".ui.TestActivity"
-        android:theme="@style/Rally.DayNight.Detail">
-    </activity>
     <activity
         android:name=".ui.detail.DetailActivity"
         android:theme="@style/Rally.DayNight.Detail">
