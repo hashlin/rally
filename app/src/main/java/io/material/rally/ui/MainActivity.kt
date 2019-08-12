@@ -21,30 +21,10 @@ class MainActivity : AppCompatActivity() {
 
   private fun setUpViewPager() {
     val tabs = generateTabs()
-    view_pager.adapter = RallyPagerAdapter(supportFragmentManager, tabs)
-    tab_layout.setupWithViewPager(view_pager)
+    view_pager.adapter = RallyPagerAdapter(this , tabs)
+    tab_layout.setUpWithViewPager2(view_pager)
 
-    tabs.forEachIndexed { i, tab ->
-      tab_layout.getTabAt(i)
-          ?.setIcon(tab.icon)
-    }
-
-    tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-      override fun onTabReselected(tab: TabLayout.Tab?) {}
-
-      override fun onTabUnselected(tab: TabLayout.Tab?) {}
-
-      override fun onTabSelected(tab: TabLayout.Tab) {
-        for (i in 0 until tab_layout.tabCount) {
-          tab_layout.getTabAt(i)
-              ?.text = ""
-        }
-        tab.text = tabs[tab.position].name
-      }
-    })
-    tab_layout.getTabAt(0)
-        ?.text = tabs[0].name
-
+    view_pager.setCurrentItem( 0 , true)
   }
 
   private fun calculateTabWidth() {

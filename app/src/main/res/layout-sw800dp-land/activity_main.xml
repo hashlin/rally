@@ -16,20 +16,14 @@
       android:layout_height="match_parent"
       />
 
-  <com.google.android.material.tabs.TabLayout
+  <io.material.rally.ui.RallyTab
       app:layout_constraintTop_toTopOf="parent"
       android:id="@+id/tab_layout"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      app:tabMode="auto"
-      app:tabInlineLabel="true"
-      app:tabGravity="center"
-      app:tabIndicator="@null"
-      app:tabPaddingStart="0dp"
-      app:tabPaddingEnd="0dp"
       />
 
-  <androidx.viewpager.widget.ViewPager
+  <androidx.viewpager2.widget.ViewPager2
       android:id="@+id/view_pager"
       android:layout_width="0dp"
       app:layout_constraintEnd_toEndOf="parent"
