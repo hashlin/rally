@@ -9,18 +9,13 @@ import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
 import android.widget.TextView
-import androidx.appcompat.widget.TintTypedArray.obtainStyledAttributes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.transition.AutoTransition
 import androidx.transition.Slide
-import androidx.transition.Transition
 import androidx.transition.TransitionManager
-import androidx.viewpager.widget.ViewPager
-import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.button.MaterialButton
 import io.material.rally.R
-import kotlinx.android.synthetic.main.activity_rally_tab.cl
 import kotlinx.android.synthetic.main.layout_rally_tab.view.cl
 import kotlinx.android.synthetic.main.layout_rally_tab.view.flow
 import kotlinx.android.synthetic.main.layout_rally_tab.view.image1
@@ -38,13 +33,12 @@ class RallyTab @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyleAttr: Int = 0
-) : ConstraintLayout(context, attrs, defStyleAttr){
+) : ConstraintLayout(context, attrs, defStyleAttr) {
 
-  var viewPager : ViewPager2? = null
+  var viewPager: ViewPager2? = null
   var previousClickedPosition = 0
   var lastClickedPosition = 0
   var isInTransition = false
-
 
   val transition by lazy {
     AutoTransition().apply {
@@ -53,8 +47,7 @@ class RallyTab @JvmOverloads constructor(
   }
 
   init {
-    View.inflate(context , R.layout.layout_rally_tab, this)
-
+    View.inflate(context, R.layout.layout_rally_tab, this)
 
     val slideInRight = Slide(Gravity.RIGHT)
     slideInRight.duration = 1000
@@ -63,51 +56,27 @@ class RallyTab @JvmOverloads constructor(
     // textView..addTransition(slideInRight)
 
     image1.setOnClickListener {
-      viewPager?.setCurrentItem(0 , false)
+      viewPager?.setCurrentItem(0, false)
     }
 
     image2.setOnClickListener {
-      viewPager?.setCurrentItem(1 , false)
+      viewPager?.setCurrentItem(1, false)
     }
 
 
 
     image3.setOnClickListener {
-      viewPager?.setCurrentItem(2 , false)
+      viewPager?.setCurrentItem(2, false)
     }
 
     image4.setOnClickListener {
-      viewPager?.setCurrentItem(3 , false)
+      viewPager?.setCurrentItem(3, false)
     }
 
     image5.setOnClickListener {
-      viewPager?.setCurrentItem(4 , false)
+      viewPager?.setCurrentItem(4, false)
 
     }
-
-    //clickedItem(0)
-    transition.addListener(object : Transition.TransitionListener {
-      override fun onTransitionEnd(transition: Transition) {
-        isInTransition = false
-      }
-
-      override fun onTransitionResume(transition: Transition) {
-      }
-
-      override fun onTransitionPause(transition: Transition) {
-        isInTransition = true
-      }
-
-      override fun onTransitionCancel(transition: Transition) {
-        isInTransition = false
-      }
-
-      override fun onTransitionStart(transition: Transition) {
-        isInTransition = true
-      }
-    })
-
-
 
   }
 
@@ -115,56 +84,56 @@ class RallyTab @JvmOverloads constructor(
 
   private fun clickedItem(position: Int) {
     TransitionManager.beginDelayedTransition(cl, transition)
-
-    if(isInTransition){
-      return
-    }
     previousClickedPosition = lastClickedPosition
     lastClickedPosition = position
 
-    textView.post{
-      if (lastClickedPosition != previousClickedPosition) {
-        val refs = flow.referencedIds.toMutableList()
-        refs.remove(R.id.textView)
-        refs.filterIndexed { index, viewId -> index != position }
-            .forEach {
-              findViewById<MaterialButton>(it).iconTint =
-                ColorStateList.valueOf(fetchColor(io.material.design_system.R.attr.colorPrimaryVariant))
-            }
+
+    if (lastClickedPosition != previousClickedPosition) {
+      textView.alpha = 0f
 
 
-        findViewById<MaterialButton>(refs[position]).iconTint =
-          ColorStateList.valueOf(fetchColor(io.material.design_system.R.attr.colorPrimary))
-        findViewById<TextView>(R.id.textView).setTextColor(fetchColor(io.material.design_system.R.attr.colorPrimary))
+
+      val refs = flow.referencedIds.toMutableList()
+      refs.remove(R.id.textView)
+      refs.filterIndexed { index, viewId -> index != position }
+          .forEach {
+            findViewById<MaterialButton>(it).iconTint =
+              ColorStateList.valueOf(
+                  fetchColor(io.material.design_system.R.attr.colorPrimaryVariant)
+              )
+          }
 
 
-        refs.add(position + 1, R.id.textView)
-
-        flow.referencedIds = refs.toIntArray()
-
-
-        textView.alpha = 0f
-        textView.text = tabNames[position]
-        val alpha = ObjectAnimator.ofFloat(textView, "alpha", 0f, 1f)
-        alpha.startDelay = alpha.duration / 2
+      findViewById<MaterialButton>(refs[position]).iconTint =
+        ColorStateList.valueOf(fetchColor(io.material.design_system.R.attr.colorPrimary))
+      findViewById<TextView>(R.id.textView).setTextColor(
+          fetchColor(io.material.design_system.R.attr.colorPrimary)
+      )
 
 
-        if (previousClickedPosition < lastClickedPosition) {
-          val slideInX = textView.width - image1.width / 3 - image1.paddingStart
-          val slide = ObjectAnimator.ofFloat(
-              textView, "translationX", slideInX.toFloat(), 0f
-          )
+      refs.add(position + 1, R.id.textView)
+
+      flow.referencedIds = refs.toIntArray()
+
+
+      textView.text = tabNames[position]
+      val alpha = ObjectAnimator.ofFloat(textView, "alpha", 0f, 1f)
+      alpha.startDelay = alpha.duration / 2
+
+      if (previousClickedPosition < lastClickedPosition) {
+        val slideInX = textView.width - image1.width / 3 - image1.paddingStart
+        val slide = ObjectAnimator.ofFloat(
+            textView, "translationX", slideInX.toFloat(), 0f
+        )
 //          slide.interpolator = transition.interpolator
-          val set = AnimatorSet()
+        val set = AnimatorSet()
 
-          set.playTogether(alpha, slide)
-          set.start()
-        } else {
-          alpha.start()
-        }
+        set.playTogether(alpha, slide)
+        set.start()
+      } else {
+        alpha.start()
       }
     }
-
 
   }
 
@@ -179,8 +148,7 @@ class RallyTab @JvmOverloads constructor(
     return color
   }
 
-
-  fun setUpWithViewPager2(viewPager : ViewPager2){
+  fun setUpWithViewPager2(viewPager: ViewPager2) {
     this.viewPager = viewPager
     viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
       override fun onPageSelected(position: Int) {
