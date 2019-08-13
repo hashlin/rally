@@ -1,6 +1,7 @@
 package io.material.rally.ui.account
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.material.design_system.R.color
 import io.material.rally.R
-import io.material.rally.ui.extension.getRallyItemDecoration
+import io.material.rally.extension.getRallyItemDecoration
 import io.material.rally.ui.overview.adapter.Account
 import io.material.rally.ui.overview.adapter.AccountOverviewAdapter
 import io.material.rally_pie.RallyPieAnimation
@@ -21,6 +22,7 @@ import kotlinx.android.synthetic.main.fragment_account.rv_account
 /**
  * Created by Chan Myae Aung on 8/1/19.
  */
+
 class AccountFragment : Fragment() {
 
   private val accountAdapter by lazy { AccountOverviewAdapter() }
@@ -42,6 +44,7 @@ class AccountFragment : Fragment() {
     setUpPieView()
     setUpRecyclerView()
   }
+
 
   private fun setUpPieView() {
     val rallyPiePortions = listOf(

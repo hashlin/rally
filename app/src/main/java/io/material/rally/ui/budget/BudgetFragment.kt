@@ -1,6 +1,7 @@
 package io.material.rally.ui.budget
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import io.material.design_system.R.color
 
 import io.material.rally.R
-import io.material.rally.ui.extension.getRallyItemDecoration
+import io.material.rally.extension.getRallyItemDecoration
 import io.material.rally.ui.overview.adapter.Budget
 import io.material.rally.ui.overview.adapter.BudgetAdapter
 import io.material.rally_pie.RallyPieAnimation
@@ -43,6 +44,11 @@ class BudgetFragment : Fragment() {
     setUpPieView()
     setUpRecyclerView()
   }
+
+//  override fun onResume() {
+//    super.onResume()
+//    setUpPieView()
+//  }
 
   private fun setUpPieView() {
     val rallyPiePortions = listOf(
