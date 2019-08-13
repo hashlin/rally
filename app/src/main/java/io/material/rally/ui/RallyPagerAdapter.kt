@@ -9,6 +9,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import io.material.rally.R
 import io.material.rally.ui.account.AccountFragment
+import io.material.rally.ui.bill.BillFragment
+import io.material.rally.ui.budget.BudgetFragment
 import io.material.rally.ui.overview.OverviewFragment
 import io.material.rally.ui.settings.CustomViewFragment
 
@@ -18,9 +20,8 @@ import io.material.rally.ui.settings.CustomViewFragment
 class RallyPagerAdapter(
   fragmentActivity: FragmentActivity,
   private val tabs: List<TabUiModel>
-) : FragmentStateAdapter(
-    fragmentActivity
-) {
+) : FragmentStateAdapter(fragmentActivity) {
+
   override fun getItemCount(): Int {
     return tabs.size
   }
@@ -29,8 +30,8 @@ class RallyPagerAdapter(
     return when (position) {
       0 -> OverviewFragment()
       1 -> AccountFragment()
-      2 -> OverviewFragment()
-      3 -> OverviewFragment()
+      2 -> BillFragment()
+      3 -> BudgetFragment()
       4 -> CustomViewFragment()
       else -> OverviewFragment()
     }
@@ -42,7 +43,7 @@ fun generateTabs(): List<TabUiModel> {
       TabUiModel("Overview", R.drawable.ic_overview),
       TabUiModel("Accounts", R.drawable.ic_attach_money),
       TabUiModel("Bills", R.drawable.ic_money_off),
-      TabUiModel("Overview", R.drawable.ic_budget),
+      TabUiModel("Budget", R.drawable.ic_budget),
       TabUiModel("Setting", R.drawable.ic_settings)
   )
 }
