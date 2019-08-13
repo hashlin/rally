@@ -24,16 +24,14 @@
 
     <style name="Rally.DayNight.Main" parent="Base.Rally">
         <item name="android:windowContentTransitions">true</item>
-        <item name="android:windowExitTransition">@transition/detail_enter</item>
-        <item name="android:windowReenterTransition">@transition/detail_enter</item>
         <item name="android:windowSharedElementsUseOverlay">false</item>
     </style>
     <style name="Rally.DayNight.Detail" parent="Base.Rally">
         <item name="android:windowContentTransitions">true</item>
         <item name="android:windowEnterTransition">@transition/detail_enter</item>
-        <item name="android:windowReturnTransition">@transition/detail_enter</item>
+        <item name="android:windowReturnTransition">@transition/detail_return</item>
         <item name="android:windowSharedElementEnterTransition">@transition/detail_share_enter</item>
-        <item name="android:windowSharedElementReturnTransition">@transition/detail_share_enter</item>
+        <item name="android:windowSharedElementReturnTransition">@transition/detail_share_return</item>
         <item name="android:windowSharedElementsUseOverlay">false</item>
     </style>
 

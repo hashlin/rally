@@ -9,7 +9,14 @@
     tools:context=".ui.MainActivity"
     >
 
-  <io.material.rally.ui.RallyTab
+  <LinearLayout
+      android:id="@+id/main_content"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      >
+
+    <io.material.rally.ui.RallyTab
       android:id="@+id/tab_layout"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -20,5 +27,7 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       />
+  </LinearLayout>
+
 
 </LinearLayout>

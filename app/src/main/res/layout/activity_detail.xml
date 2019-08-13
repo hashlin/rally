@@ -5,10 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/content"
     tools:context=".ui.detail.DetailActivity"
     >
 
   <View
+      android:id="@+id/shareView"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:background="@color/color_secondary"
@@ -20,6 +22,10 @@
       android:layout_height="match_parent"
       android:orientation="vertical"
       >
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/include_toolbar"/>
 
     <View
         android:id="@+id/fakeBarView"

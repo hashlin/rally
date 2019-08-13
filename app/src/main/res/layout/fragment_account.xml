@@ -65,7 +65,6 @@
         android:id="@+id/rv_account"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/color_secondary"
         android:overScrollMode="never"
         tools:itemCount="3"
         tools:listitem="@layout/item_account"
