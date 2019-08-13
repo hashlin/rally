@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="ScaleTransition">
+    <attr name="startScal" format="float"/>
+    <attr name="endScal" format="float"/>
+  </declare-styleable>
+</resources>
