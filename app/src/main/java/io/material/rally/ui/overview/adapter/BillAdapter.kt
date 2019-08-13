@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import io.material.rally.R
-import io.material.rally.ui.extension.inflate
+import io.material.rally.extension.inflate
 
 /**
  * Created by Chan Myae Aung on 7/31/19.

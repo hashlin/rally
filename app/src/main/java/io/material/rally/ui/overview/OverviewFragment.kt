@@ -10,7 +10,7 @@ import android.view.animation.DecelerateInterpolator
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.material.rally.R
-import io.material.rally.ui.extension.getRallyItemDecoration
+import io.material.rally.extension.getRallyItemDecoration
 import io.material.rally.ui.overview.adapter.Account
 import io.material.rally.ui.overview.adapter.AccountOverviewAdapter
 import io.material.rally.ui.overview.adapter.Bill

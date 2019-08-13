@@ -1,4 +1,4 @@
-package io.material.rally.ui.extension
+package io.material.rally.extension
 
 import android.graphics.drawable.InsetDrawable
 import android.view.LayoutInflater
