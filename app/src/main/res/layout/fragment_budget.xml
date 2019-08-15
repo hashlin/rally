@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:overScrollMode="never"
-    tools:context=".ui.account.AccountFragment"
+    tools:context=".ui.budget.BudgetFragment"
     >
 
   <androidx.constraintlayout.widget.ConstraintLayout
@@ -40,7 +40,7 @@
         android:id="@+id/label_alert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total"
+        android:text="Left"
         android:layout_marginBottom="@dimen/spacing_medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +62,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_account"
+        android:id="@+id/rv_budget"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:overScrollMode="never"

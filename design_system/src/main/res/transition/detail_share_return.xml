@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:duration="@integer/anim_duration">
+  <changeBounds/>
+  <transition
+      class="io.material.design_system.FadeTransition"
+      app:startAlpha="1.0"
+      app:endAlpha="0.0">
+    <targets>
+      <target android:targetId="@id/shareView" />
+    </targets>
+  </transition>
+</transitionSet>

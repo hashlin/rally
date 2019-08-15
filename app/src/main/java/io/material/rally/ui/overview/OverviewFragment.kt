@@ -2,18 +2,15 @@ package io.material.rally.ui.overview
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
-import android.graphics.drawable.InsetDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import io.material.rally.R
+import io.material.rally.extension.getRallyItemDecoration
 import io.material.rally.ui.overview.adapter.Account
 import io.material.rally.ui.overview.adapter.AccountOverviewAdapter
 import io.material.rally.ui.overview.adapter.Bill
@@ -34,14 +31,6 @@ class OverviewFragment : Fragment() {
   private val accountAdapter by lazy { AccountOverviewAdapter() }
   private val billAdapter by lazy { BillAdapter() }
   private val budgetAdapter by lazy { BudgetAdapter() }
-
-  private val decoration by lazy {
-    DividerItemDecoration(requireContext(), RecyclerView.VERTICAL).apply {
-      val divider = ContextCompat.getDrawable(requireContext(), R.drawable.divider)!!
-      val margin = resources.getDimensionPixelSize(R.dimen.spacing_medium)
-      setDrawable(InsetDrawable(divider, margin, 0, margin, 0))
-    }
-  }
 
   override fun onCreateView(
     inflater: LayoutInflater,
@@ -68,7 +57,7 @@ class OverviewFragment : Fragment() {
     rv_account_overview.apply {
       layoutManager = LinearLayoutManager(requireContext())
       setHasFixedSize(true)
-      addItemDecoration(decoration)
+      addItemDecoration(getRallyItemDecoration())
       adapter = accountAdapter
     }
     accountAdapter.submitList(listOf(Account(""), Account(""), Account("")))
@@ -78,7 +67,7 @@ class OverviewFragment : Fragment() {
     rv_bill_overview.apply {
       layoutManager = LinearLayoutManager(requireContext())
       setHasFixedSize(true)
-      addItemDecoration(decoration)
+      addItemDecoration(getRallyItemDecoration())
       adapter = billAdapter
     }
     billAdapter.submitList(listOf(Bill(""), Bill(""), Bill("")))
@@ -88,7 +77,7 @@ class OverviewFragment : Fragment() {
     rv_budget_overview.apply {
       layoutManager = LinearLayoutManager(requireContext())
       setHasFixedSize(true)
-      addItemDecoration(decoration)
+      addItemDecoration(getRallyItemDecoration())
       adapter = budgetAdapter
     }
     budgetAdapter.submitList(listOf(Budget(""), Budget(""), Budget("")))
