@@ -14,29 +14,29 @@
       android:layout_height="wrap_content"
       android:layout_marginStart="12dp"
       android:layout_marginEnd="12dp"
-      android:paddingTop="16dp"
-      android:paddingBottom="16dp"
+      android:paddingTop="4dp"
+      android:paddingBottom="4dp"
       app:layout_constraintTop_toTopOf="parent"
       app:constraint_referenced_ids="image1 , textView , image2 , image3 , image4, image5"
       tools:layout_editor_absoluteX="12dp"
       />
 
   <com.google.android.material.button.MaterialButton
-      style="@style/Widget.MaterialComponents.Button.TextButton"
-      android:id="@+id/image1"
-      android:layout_width="52dp"
-      android:layout_height="40dp"
       android:padding="16dp"
       app:icon="@drawable/ic_overview"
       app:iconTint="?attr/colorPrimary"
+      style="@style/Widget.MaterialComponents.Button.TextButton"
+      android:id="@+id/image1"
+      android:layout_width="56dp"
+      android:layout_height="56dp"
       />
 
 
   <com.google.android.material.button.MaterialButton
       android:id="@+id/image2"
       style="@style/Widget.MaterialComponents.Button.TextButton"
-      android:layout_width="52dp"
-      android:layout_height="40dp"
+      android:layout_width="50dp"
+      android:layout_height="56dp"
       android:padding="16dp"
       app:icon="@drawable/ic_attach_money"
       app:iconTint="?attr/colorPrimary"
@@ -45,8 +45,8 @@
 
   <com.google.android.material.button.MaterialButton
       android:id="@+id/image3"
-      android:layout_width="52dp"
-      android:layout_height="40dp"
+      android:layout_width="50dp"
+      android:layout_height="56dp"
       style="@style/Widget.MaterialComponents.Button.TextButton"
       android:padding="16dp"
       app:icon="@drawable/ic_money_off"
@@ -56,8 +56,8 @@
 
   <com.google.android.material.button.MaterialButton
       android:id="@+id/image4"
-      android:layout_width="52dp"
-      android:layout_height="40dp"
+      android:layout_width="50dp"
+      android:layout_height="56dp"
       android:padding="16dp"
       style="@style/Widget.MaterialComponents.Button.TextButton"
       app:icon="@drawable/ic_budget"
@@ -69,8 +69,8 @@
       style="@style/Widget.MaterialComponents.Button.TextButton"
 
       android:id="@+id/image5"
-      android:layout_width="52dp"
-      android:layout_height="40dp"
+      android:layout_width="50dp"
+      android:layout_height="56dp"
       android:padding="16dp"
       app:icon="@drawable/ic_settings"
       app:iconTint="?attr/colorPrimary"

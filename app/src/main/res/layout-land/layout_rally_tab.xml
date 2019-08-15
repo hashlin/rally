@@ -25,10 +25,7 @@
       android:layout_height="wrap_content"
       android:padding="16dp"
       app:icon="@drawable/ic_overview"
-      app:iconGravity="textStart"
-      app:iconPadding="0dp"
-      app:iconTint="?attr/colorPrimary"
-      style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+      style="@style/Widget.Rally.Button.IconOnly"
       />
 
 
@@ -38,10 +35,7 @@
       android:layout_height="wrap_content"
       android:padding="16dp"
       app:icon="@drawable/ic_attach_money"
-      app:iconGravity="textStart"
-      app:iconPadding="0dp"
-      app:iconTint="?attr/colorPrimary"
-      style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+      style="@style/Widget.Rally.Button.IconOnly"
       />
 
 
@@ -51,10 +45,7 @@
       android:layout_height="wrap_content"
       android:padding="16dp"
       app:icon="@drawable/ic_money_off"
-      app:iconGravity="textStart"
-      app:iconPadding="0dp"
-      app:iconTint="?attr/colorPrimary"
-      style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+      style="@style/Widget.Rally.Button.IconOnly"
       />
 
 
@@ -62,12 +53,9 @@
       android:id="@+id/image4"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      app:iconPadding="0dp"
-      app:iconGravity="textStart"
       android:padding="16dp"
-      app:iconTint="?attr/colorPrimary"
       app:icon="@drawable/ic_budget"
-      style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+      style="@style/Widget.Rally.Button.IconOnly"
       />
 
 
@@ -75,12 +63,9 @@
       android:id="@+id/image5"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      app:iconPadding="0dp"
-      app:iconGravity="textStart"
+      style="@style/Widget.Rally.Button.IconOnly"
       android:padding="16dp"
-      app:iconTint="?attr/colorPrimary"
       app:icon="@drawable/ic_settings"
-      style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
       />
 
 

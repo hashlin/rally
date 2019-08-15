@@ -64,7 +64,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tvAmount"
-        style="@style/TextAppearance.Rally.Subtitle1"
+        style="?attr/textAppearanceSubtitle1"
         />
 
     <com.google.android.material.button.MaterialButton
@@ -75,8 +75,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvAmount"
-        app:strokeColor="@android:color/transparent"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        style="@style/Widget.Rally.Button.IconOnly"
         />
 
     <com.google.android.material.card.MaterialCardView

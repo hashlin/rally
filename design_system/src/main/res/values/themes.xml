@@ -84,8 +84,10 @@
         <item name="dividerStyle">@style/Widget.Rally.Divider</item>
         <item name="materialButtonOutlinedStyle">@style/Widget.Rally.Button.OutlinedButton</item>
 
+
         <item name="android:statusBarColor">@color/color_status_bar</item>
         <item name="android:windowLightStatusBar">false</item>
+        <item name="android:iconTint">?attr/colorPrimaryVariant</item>
     </style>
 
 
@@ -95,6 +97,12 @@
 
 
     <style name="Widget.Rally.Button.OutlinedButton" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconTint">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <style name="Widget.Rally.Button.IconOnly" parent="@style/Widget.MaterialComponents.Button.TextButton.Icon">
+        <item name="iconPadding">0dp</item>
+        <item name="iconGravity">textStart</item>
         <item name="iconTint">?attr/colorPrimaryVariant</item>
     </style>
 
