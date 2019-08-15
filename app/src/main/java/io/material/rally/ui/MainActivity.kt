@@ -21,16 +21,11 @@ class MainActivity : AppCompatActivity() {
   private fun setUpViewPager() {
     val tabs = generateTabs()
     view_pager.adapter = RallyPagerAdapter(this , tabs)
-    tab_layout.setUpWithViewPager2(view_pager)
+    tab_layout.setUpWithViewPager2(view_pager , false)
 
     view_pager.setCurrentItem( 0 , true)
   }
 
-  private fun calculateTabWidth() {
-    val displayMetrics = DisplayMetrics()
-    windowManager.defaultDisplay.getMetrics(displayMetrics)
-    val widthS = displayMetrics.widthPixels
-  }
 
   private fun runEnterAnimation() {
     tab_layout.post {

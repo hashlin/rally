@@ -91,8 +91,6 @@ class RallyTab @JvmOverloads constructor(
     if (lastClickedPosition != previousClickedPosition) {
       textView.alpha = 0f
 
-
-
       val refs = flow.referencedIds.toMutableList()
       refs.remove(R.id.textView)
       refs.filterIndexed { index, viewId -> index != position }
@@ -148,8 +146,13 @@ class RallyTab @JvmOverloads constructor(
     return color
   }
 
-  fun setUpWithViewPager2(viewPager: ViewPager2) {
+  fun setUpWithViewPager2(
+    viewPager: ViewPager2,
+    allowSwipe: Boolean
+  ) {
     this.viewPager = viewPager
+    this.viewPager?.isUserInputEnabled = allowSwipe
+
     viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
       override fun onPageSelected(position: Int) {
         super.onPageSelected(position)

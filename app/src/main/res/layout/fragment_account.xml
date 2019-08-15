@@ -13,14 +13,33 @@
       android:layout_height="match_parent"
       android:orientation="vertical"
       >
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".1"
+        />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".9"
+        />
+
+
     <io.material.rally_pie.RallyPie
         android:id="@+id/rallyPie"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:padding="@dimen/spacing_large"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/spacing_small"
+        app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
         app:layout_constraintTop_toTopOf="parent"
         />
 
@@ -29,22 +48,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="$12,132,34"
-        style="@style/TextAppearance.Rally.Headline3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/rallyPie"
         app:layout_constraintBottom_toBottomOf="@id/rallyPie"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rallyPie"
+        style="@style/TextAppearance.Rally.Headline3"
         />
 
     <TextView
         android:id="@+id/label_alert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total"
         android:layout_marginBottom="@dimen/spacing_medium"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Total"
         app:layout_constraintBottom_toTopOf="@id/tvAmount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         style="@style/TextAppearance.Rally.Subtitle1"
         />
 
@@ -52,26 +71,34 @@
         android:id="@+id/material_icon_button"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        app:icon="@drawable/ic_info_outline"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvAmount"
+        app:icon="@drawable/ic_info_outline"
         app:strokeColor="@android:color/transparent"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         />
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_account"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:overScrollMode="never"
-        tools:itemCount="3"
-        tools:listitem="@layout/item_account"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/spacing_medium"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rallyPie"
-        />
+        >
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/rv_account"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:overScrollMode="never"
+          tools:itemCount="3"
+          tools:listitem="@layout/item_account"
+          />
+
+    </com.google.android.material.card.MaterialCardView>
+
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
