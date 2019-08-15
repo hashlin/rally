@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import io.material.rally.R
+import io.material.rally.data.model.Budget
 import io.material.rally.extension.inflate
 
 /**
@@ -48,5 +49,3 @@ class BudgetViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
   }
 }
-
-data class Budget(val name: String)

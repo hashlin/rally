@@ -28,17 +28,19 @@
         android:layout_marginStart="@dimen/spacing_medium"
         />
     <TextView
+        android:id="@+id/tv_account_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="$12,132.49"
+        tools:text="$12,132.49"
         style="?attr/textAppearanceHeadline3"
         android:layout_marginStart="@dimen/spacing_medium"
         />
 
-    <View
+    <io.material.rally_line_indicator.RallyLineIndicator
+        android:id="@+id/account_line_indicator"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/rally_green_300"/>
+        tools:background="@color/rally_green_300"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_account_overview"

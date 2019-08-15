@@ -1,6 +1,5 @@
 package io.material.rally_line_indicator.data
 
-import androidx.annotation.ColorInt
 
 data class RallyLineIndicatorData(
   val portions: List<RallyLineIndicatorPortion>,
