@@ -9,28 +9,34 @@
     tools:context=".ui.MainActivity"
     >
 
-  <androidx.constraintlayout.utils.widget.MockView
+  <ImageView
+      android:id="@+id/logo"
+      android:layout_width="128dp"
+      android:layout_height="128dp"
+      app:layout_constraintDimensionRatio="1:1"
+      android:src="@drawable/logo"
       app:layout_constraintStart_toStartOf="parent"
-      android:id="@+id/mock_tab_layout"
-      android:layout_width="84dp"
-      android:layout_height="match_parent"
+      app:layout_constraintTop_toTopOf="parent"
       />
 
   <io.material.rally.ui.RallyTab
-      app:layout_constraintTop_toTopOf="parent"
       android:id="@+id/tab_layout"
-      android:layout_width="match_parent"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      app:layout_constraintStart_toStartOf="@+id/logo"
+      app:layout_constraintEnd_toEndOf="@+id/logo"
+      app:layout_constraintTop_toBottomOf="@+id/logo"
       />
 
   <androidx.viewpager2.widget.ViewPager2
       android:id="@+id/view_pager"
       android:layout_width="0dp"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toEndOf="@+id/mock_tab_layout"
-      app:layout_constraintTop_toBottomOf="@+id/tab_layout"
       android:layout_height="0dp"
+      android:layout_marginStart="@dimen/vertical_gutters"
       app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@+id/tab_layout"
+      app:layout_constraintTop_toTopOf="parent"
       />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

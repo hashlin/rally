@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:orientation="vertical"
+    >
+
+  <View
+      android:id="@+id/shareView"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      />
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline_vertical_35"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_percent=".35"
+      />
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline_vertical_70"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_percent=".70"
+      />
+
+
+  <View
+      android:id="@+id/bar"
+      android:layout_width="4dp"
+      android:layout_height="0dp"
+      android:layout_marginStart="@dimen/spacing_medium"
+      android:background="@color/rally_green_700"
+      app:layout_constraintBottom_toBottomOf="@id/tvDesc"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="@id/tvName"
+      />
+
+  <TextView
+      android:id="@+id/tvName"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/spacing_medium"
+      android:text="Home Savings"
+      app:layout_constraintStart_toEndOf="@id/bar"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      style="?attr/textAppearanceSubtitle1"
+      />
+
+  <TextView
+      android:id="@+id/tvDesc"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/spacing_medium"
+      android:text="••••••1234"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toEndOf="@+id/guideline_vertical_35"
+      app:layout_constraintTop_toTopOf="parent"
+      style="?attr/textAppearanceCardNumber1"
+      />
+
+  <TextView
+      android:id="@+id/tvAmount"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="@dimen/spacing_medium"
+      android:layout_marginStart="@dimen/spacing_medium"
+      android:text="$ 2,215.13"
+      app:layout_constraintBottom_toBottomOf="@id/tvDesc"
+      app:layout_constraintEnd_toStartOf="@id/ivArrow"
+      app:layout_constraintTop_toTopOf="@id/tvName"
+      style="?attr/textAppearanceMoney1"
+      />
+
+  <ImageView
+      android:id="@+id/ivArrow"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="@dimen/spacing_medium"
+      android:src="@drawable/ic_right_arrow"
+      android:tint="?attr/colorPrimaryVariant"
+      app:layout_constraintBottom_toBottomOf="@id/tvDesc"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="@id/tvName"
+      />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
