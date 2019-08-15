@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl"
+    android:layout_width="128dp"
+    android:layout_height="match_parent"
+    >
+
+
+  <androidx.constraintlayout.helper.widget.Flow
+      android:id="@+id/flow"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:paddingBottom="16dp"
+      android:paddingTop="16dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:constraint_referenced_ids="image1 , textView , image2 , image3 , image4, image5"
+      />
+
+  <com.google.android.material.button.MaterialButton
+      android:id="@+id/image1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="16dp"
+      app:icon="@drawable/ic_overview"
+      app:iconGravity="textStart"
+      app:iconPadding="0dp"
+      app:iconTint="?attr/colorPrimary"
+      style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+      />
+
+
+  <com.google.android.material.button.MaterialButton
+      android:id="@+id/image2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="16dp"
+      app:icon="@drawable/ic_attach_money"
+      app:iconGravity="textStart"
+      app:iconPadding="0dp"
+      app:iconTint="?attr/colorPrimary"
+      style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+      />
+
+
+  <com.google.android.material.button.MaterialButton
+      android:id="@+id/image3"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="16dp"
+      app:icon="@drawable/ic_money_off"
+      app:iconGravity="textStart"
+      app:iconPadding="0dp"
+      app:iconTint="?attr/colorPrimary"
+      style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+      />
+
+
+  <com.google.android.material.button.MaterialButton
+      android:id="@+id/image4"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:iconPadding="0dp"
+      app:iconGravity="textStart"
+      android:padding="16dp"
+      app:iconTint="?attr/colorPrimary"
+      app:icon="@drawable/ic_budget"
+      style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+      />
+
+
+  <com.google.android.material.button.MaterialButton
+      android:id="@+id/image5"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:iconPadding="0dp"
+      app:iconGravity="textStart"
+      android:padding="16dp"
+      app:iconTint="?attr/colorPrimary"
+      app:icon="@drawable/ic_settings"
+      style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+      />
+
+
+  <TextView
+      android:id="@+id/textView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:lines="4"
+      android:text="Overview"
+      style="?attr/textAppearanceButton"
+      />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
