@@ -50,19 +50,33 @@
       app:layout_constraintStart_toEndOf="@id/bar"
       app:layout_constraintEnd_toStartOf="@id/tvAmount"
       android:layout_marginStart="@dimen/spacing_medium"
-      style="?attr/textAppearanceCardNumber1"/>
+      style="?attr/textAppearanceBody2"/>
 
   <TextView
       android:id="@+id/tvAmount"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="$ 2,215.13"
+      android:text="2,215.13"
       app:layout_constraintTop_toTopOf="@id/tvName"
       app:layout_constraintBottom_toBottomOf="@id/tvDesc"
       app:layout_constraintEnd_toStartOf="@id/ivArrow"
       android:layout_marginStart="@dimen/spacing_medium"
-      android:layout_marginEnd="@dimen/spacing_medium"
+      android:layout_marginEnd="@dimen/spacing_small"
       style="?attr/textAppearanceMoney1"/>
+
+  <TextView
+      android:id="@+id/text_view_dollar"
+      android:text="$"
+      style="?attr/textAppearanceMoney1"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintHorizontal_bias=".55"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      />
+
 
   <ImageView
       android:id="@+id/ivArrow"
