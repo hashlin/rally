@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import io.material.rally.R
 import kotlinx.android.synthetic.main.activity_main.tab_layout
 import kotlinx.android.synthetic.main.activity_main.view_pager
@@ -13,6 +14,11 @@ class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
+
+    (application as RallyApp).preferenceRepository
+        .nightModeLive.observe(this, Observer { nightMode ->
+      nightMode?.let { delegate.localNightMode = it }
+    })
 
     if (savedInstanceState == null) runEnterAnimation()
     setUpViewPager()

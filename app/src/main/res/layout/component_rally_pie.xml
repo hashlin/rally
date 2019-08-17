@@ -9,6 +9,15 @@
       android:orientation="vertical"
       >
 
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:layout_marginEnd="@dimen/spacing_medium"
+        android:layout_marginStart="@dimen/spacing_medium"
+        android:id="@+id/dark_theme_switch"
+        android:text="Dark Theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
     <io.material.rally_pie.RallyPie
         android:id="@+id/rallyPie"
         android:layout_width="match_parent"

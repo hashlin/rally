@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import com.google.android.material.switchmaterial.SwitchMaterial
 import io.material.rally.R
+import io.material.rally.ui.RallyApp
 import io.material.rally_line_indicator.data.RallyLineIndicatorData
 import io.material.rally_line_indicator.data.RallyLineIndicatorPortion
 import io.material.rally_pie.RallyPieAnimation
@@ -33,6 +36,9 @@ class CustomViewFragment : Fragment() {
     savedInstanceState: Bundle?
   ) {
     super.onViewCreated(view, savedInstanceState)
+
+    setUpDarkThemeSwitch(view)
+
 
     val rallyPiePortions = listOf(
         RallyPiePortion(
@@ -63,5 +69,18 @@ class CustomViewFragment : Fragment() {
         )
     )
     rallyLineIndicator.setData(RallyLineIndicatorData(rallyLineIndicatorPortions))
+  }
+
+  private fun setUpDarkThemeSwitch(view : View) {
+    val darkThemeSwitch: SwitchMaterial = view.findViewById(R.id.dark_theme_switch)
+    val preferenceRepository = (requireActivity().application as RallyApp).preferenceRepository
+
+    preferenceRepository.isDarkThemeLive.observe(this, Observer { isDarkTheme ->
+      isDarkTheme?.let { darkThemeSwitch.isChecked = it }
+    })
+
+    darkThemeSwitch.setOnCheckedChangeListener { _, checked ->
+      preferenceRepository.isDarkTheme = checked
+    }
   }
 }
