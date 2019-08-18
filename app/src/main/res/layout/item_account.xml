@@ -17,14 +17,16 @@
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintBottom_toBottomOf="parent"/>
 
-  <View
+  <io.material.rally_line_indicator.RallyVerticalBar
       android:id="@+id/bar"
       android:layout_width="4dp"
       android:layout_height="0dp"
       app:layout_constraintTop_toTopOf="@id/tvName"
       app:layout_constraintBottom_toBottomOf="@id/tvDesc"
       app:layout_constraintStart_toStartOf="parent"
-      android:background="@color/rally_green_700"
+      android:background="?attr/colorSecondary"
+      android:layout_marginTop="4dp"
+      android:layout_marginBottom="4dp"
       android:layout_marginStart="@dimen/spacing_medium"/>
 
   <TextView

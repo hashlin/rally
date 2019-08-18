@@ -14,6 +14,8 @@ import io.material.rally.data.model.Account
 import io.material.rally.ui.TestActivity
 import io.material.rally.ui.detail.DetailActivity
 import io.material.rally.extension.inflate
+import io.material.rally_line_indicator.RallyVerticalBar
+import io.material.rally_line_indicator.RallyVerticalBarData
 
 /**
  * Created by Chan Myae Aung on 7/31/19.
@@ -51,13 +53,18 @@ class AccountOverviewAdapter : ListAdapter<Account, AccountOverviewViewHolder>(o
 
 class AccountOverviewViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
+  private val barView: RallyVerticalBar = view.findViewById(R.id.bar)
+
   fun bind(model: Account) {
+
+    barView.renderData(RallyVerticalBarData(100f, 100f, model.color))
+
     view.setOnClickListener {
       val intent = Intent(view.context, DetailActivity::class.java)
       val pair = Pair(view.findViewById<View>(R.id.shareView), "DetailView")
       val options =
         ActivityOptionsCompat.makeSceneTransitionAnimation(view.context as AppCompatActivity, pair)
-      view.context.startActivity(intent,options.toBundle())
+      view.context.startActivity(intent, options.toBundle())
     }
   }
 }

@@ -9,6 +9,10 @@
       android:orientation="vertical"
       >
 
+    <io.material.rally_line_indicator.RallyVerticalBar
+        android:layout_width="20dp"
+        android:layout_height="100dp"/>
+
     <io.material.rally_pie.RallyPie
         android:id="@+id/rallyPie"
         android:layout_width="match_parent"
