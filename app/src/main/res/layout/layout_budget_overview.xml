@@ -26,17 +26,19 @@
         android:layout_marginStart="@dimen/spacing_medium"
         />
     <TextView
+        android:id="@+id/tv_budget_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="$717.12"
+        tools:text="$717.12"
         style="?attr/textAppearanceHeadline3"
         android:layout_marginStart="@dimen/spacing_medium"
         />
 
-    <View
+    <io.material.rally_line_indicator.RallyLineIndicator
+        android:id="@+id/budget_line_indicator"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/rally_green_300"/>
+        tools:background="@color/rally_green_300"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_budget_overview"

@@ -1,18 +1,16 @@
 package io.material.rally.ui.bill
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.material.design_system.R.color
-
 import io.material.rally.R
+import io.material.rally.data.DataProvider
 import io.material.rally.extension.getRallyItemDecoration
-import io.material.rally.ui.overview.adapter.Bill
 import io.material.rally.ui.overview.adapter.BillAdapter
 import io.material.rally_pie.RallyPieAnimation
 import io.material.rally_pie.RallyPieData
@@ -78,11 +76,7 @@ class BillFragment : Fragment() {
       addItemDecoration(getRallyItemDecoration())
       adapter = billAdapter
     }
-    billAdapter.submitList(
-        listOf(
-            Bill(""), Bill(""), Bill(""), Bill(""), Bill(""), Bill("")
-        )
-    )
+    billAdapter.submitList(DataProvider.billOverView.bills)
   }
 
 }

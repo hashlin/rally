@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import io.material.design_system.R.color
 
 import io.material.rally.R
+import io.material.rally.data.DataProvider
 import io.material.rally.extension.getRallyItemDecoration
-import io.material.rally.ui.overview.adapter.Budget
 import io.material.rally.ui.overview.adapter.BudgetAdapter
 import io.material.rally_pie.RallyPieAnimation
 import io.material.rally_pie.RallyPieData
@@ -85,11 +85,7 @@ class BudgetFragment : Fragment() {
       addItemDecoration(getRallyItemDecoration())
       adapter = budgetAdapter
     }
-    budgetAdapter.submitList(
-        listOf(
-            Budget(""), Budget(""), Budget(""), Budget(""), Budget(""), Budget("")
-        )
-    )
+    budgetAdapter.submitList(DataProvider.budgetOverView.budgets)
   }
 
 }

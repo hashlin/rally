@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import io.material.rally.R
-import io.material.rally.ui.overview.adapter.Account
+import io.material.rally.data.DataProvider
 import io.material.rally.ui.overview.adapter.AccountOverviewAdapter
 import kotlinx.android.synthetic.main.fragment_detail.rv_account
 
@@ -57,10 +57,6 @@ class DetailFragment : Fragment() {
       addItemDecoration(decoration)
       adapter = accountAdapter
     }
-    accountAdapter.submitList(
-        listOf(
-            Account(""), Account(""), Account(""), Account(""), Account(""), Account("")
-        )
-    )
+    accountAdapter.submitList(DataProvider.accountOverView.accounts)
   }
 }

@@ -35,12 +35,12 @@
       />
 
 
-  <View
+  <io.material.rally_line_indicator.RallyVerticalBar
       android:id="@+id/bar"
       android:layout_width="4dp"
       android:layout_height="0dp"
       android:layout_marginStart="@dimen/spacing_medium"
-      android:background="@color/rally_green_700"
+      android:background="?attr/colorSecondary"
       app:layout_constraintBottom_toBottomOf="@id/tvDesc"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="@id/tvName"

@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.material.design_system.R.color
 import io.material.rally.R
+import io.material.rally.data.DataProvider
 import io.material.rally.extension.getRallyItemDecoration
-import io.material.rally.ui.overview.adapter.Account
 import io.material.rally.ui.overview.adapter.AccountOverviewAdapter
 import io.material.rally_pie.RallyPieAnimation
 import io.material.rally_pie.RallyPieData
@@ -72,11 +72,7 @@ class AccountFragment : Fragment() {
       addItemDecoration(getRallyItemDecoration())
       adapter = accountAdapter
     }
-    accountAdapter.submitList(
-        listOf(
-            Account(""), Account(""), Account(""), Account(""), Account(""), Account("")
-        )
-    )
+    accountAdapter.submitList(DataProvider.accountOverView.accounts)
   }
 
 }

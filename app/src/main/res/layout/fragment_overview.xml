@@ -55,7 +55,6 @@
         />
 
     <include
-
         layout="@layout/layout_bill_overview"
         android:id="@+id/layout_bill_overview"
         android:layout_width="0dp"
