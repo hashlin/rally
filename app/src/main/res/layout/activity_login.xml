@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.LoginActivity"
+    >
+
+  <ImageView
+      android:id="@+id/imgLogo"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toTopOf="@id/input_email"
+      app:layout_constraintWidth_percent="0.5"
+      app:layout_constraintDimensionRatio="1:1"
+      android:src="@drawable/rally_app_icon"
+      android:layout_marginTop="@dimen/spacing_x_large"
+      />
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/input_email"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/imgLogo"
+      app:layout_constraintBottom_toTopOf="@id/input_pwd"
+      android:layout_marginStart="@dimen/spacing_medium"
+      android:layout_marginEnd="@dimen/spacing_medium"
+      android:layout_marginTop="@dimen/spacing_x_large"
+      app:hintEnabled="false"
+      app:endIconMode="custom"
+      app:endIconDrawable="@drawable/ic_done"
+      app:endIconTint="@color/rally_green_300"
+      >
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:hint="email"
+        android:inputType="textEmailAddress"/>
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/input_pwd"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      app:layout_constraintStart_toStartOf="@id/input_email"
+      app:layout_constraintEnd_toEndOf="@id/input_email"
+      android:layout_marginTop="@dimen/spacing_medium"
+      app:layout_constraintTop_toBottomOf="@id/input_email"
+      app:hintEnabled="false"
+      app:endIconMode="password_toggle"
+      style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:hint="password"
+        android:imeOptions="actionDone"
+        android:inputType="textPassword"/>
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <ImageView
+      android:id="@+id/iv_fingerprint"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/input_pwd"
+      app:layout_constraintBottom_toTopOf="@+id/label_login_id"
+      app:layout_constraintWidth_percent="0.3"
+      app:layout_constraintDimensionRatio="1:0.7"
+      android:src="@drawable/ic_fingerprint"
+      />
+
+
+  <TextView
+      android:id="@+id/label_login_id"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="Or Login  With Touch ID"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:gravity="center"
+      app:layout_constraintTop_toBottomOf="@id/iv_fingerprint"
+      app:layout_constraintBottom_toBottomOf="parent"
+      android:layout_marginBottom="@dimen/spacing_x_large"
+      style="?attr/textAppearanceSubtitle2"
+      android:layout_marginTop="@dimen/spacing_medium"
+      />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
