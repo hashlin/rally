@@ -44,7 +44,7 @@
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_gravity="center"
-          android:padding="@dimen/spacing_x_large"
+          android:layout_marginTop="@dimen/spacing_x_large"
           app:layout_constraintEnd_toEndOf="@+id/guideline_end"
           app:layout_constraintStart_toStartOf="@+id/guideline_start"
           app:layout_constraintTop_toTopOf="parent"

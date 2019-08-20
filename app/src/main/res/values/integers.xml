@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!--View.GONE is 2-->
+  <integer name="visibility_total_amount_budget_overview">2</integer>
+</resources>

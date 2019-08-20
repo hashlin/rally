@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.fragment_detail.rv_account
  */
 class DetailFragment : Fragment() {
 
-  private val accountAdapter by lazy { AccountOverviewAdapter() }
+  private val accountAdapter by lazy { AccountOverviewAdapter(isSingleLine = false) }
 
   private val decoration by lazy {
     DividerItemDecoration(requireContext(), RecyclerView.VERTICAL).apply {

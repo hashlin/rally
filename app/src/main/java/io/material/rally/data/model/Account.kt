@@ -5,6 +5,6 @@ import androidx.annotation.ColorRes
 /**
  * Created by Chan Myae Aung on 8/15/19.
  */
-data class Account(val name: String,val desc:String,val amount:String,@ColorRes val color:Int)
+data class Account(val name: String,val desc:String,val amount:Float, @ColorRes val color:Int)
 
-data class AccountOverView(val total:String,val accounts:List<Account>)
+data class AccountOverView(val total:Float,val accounts:List<Account>)

@@ -52,9 +52,9 @@
       android:layout_height="wrap_content"
       android:layout_marginStart="@dimen/spacing_medium"
       android:text="Home Savings"
+      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintStart_toEndOf="@id/bar"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintBottom_toBottomOf="parent"
       style="?attr/textAppearanceSubtitle1"
       />
 
@@ -76,12 +76,24 @@
       android:layout_height="wrap_content"
       android:layout_marginEnd="@dimen/spacing_medium"
       android:layout_marginStart="@dimen/spacing_medium"
-      android:text="$ 2,215.13"
+      android:text="2,215.13"
       app:layout_constraintBottom_toBottomOf="@id/tvDesc"
       app:layout_constraintEnd_toStartOf="@id/ivArrow"
       app:layout_constraintTop_toTopOf="@id/tvName"
       style="?attr/textAppearanceMoney1"
       />
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="$"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintHorizontal_bias=".7"
+      app:layout_constraintStart_toStartOf="@+id/guideline_vertical_70"
+      app:layout_constraintTop_toTopOf="parent"
+      style="?attr/textAppearanceMoney1"
+      />
+
 
   <ImageView
       android:id="@+id/ivArrow"

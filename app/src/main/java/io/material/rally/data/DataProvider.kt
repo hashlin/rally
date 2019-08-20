@@ -14,29 +14,29 @@ import io.material.rally.data.model.BudgetOverview
 object DataProvider {
 
   private val accounts = listOf(
-      Account("Home Savings", "......1234", "2,215.13", R.color.rally_green_700),
-      Account("Home Savings", "......1234", "2,215.13", R.color.rally_green_500),
-      Account("Home Savings", "......1234", "2,215.13", R.color.rally_green_300),
-      Account("Home Savings", "......1234", "2,215.13", R.color.rally_dark_green),
-      Account("Home Savings", "......1234", "2,215.13", R.color.rally_green_700),
-      Account("Home Savings", "......1234", "2,215.13", R.color.rally_green_500),
-      Account("Home Savings", "......1234", "2,215.13", R.color.rally_green_300),
-      Account("Home Savings", "......1234", "2,215.13", R.color.rally_dark_green),
-      Account("Home Savings", "......1234", "2,215.13", R.color.rally_green_500),
-      Account("Home Savings", "......1234", "2,215.13", R.color.rally_green_300)
+      Account("Home Savings", "......1234", 2_215.13f, R.color.rally_green_700),
+      Account("Home Savings", "......1234", 2_215.13f, R.color.rally_green_500),
+      Account("Home Savings", "......1234", 2_215.13f, R.color.rally_green_300),
+      Account("Home Savings", "......1234", 2_215.13f, R.color.rally_dark_green),
+      Account("Home Savings", "......1234", 2_215.13f, R.color.rally_green_700),
+      Account("Home Savings", "......1234", 2_215.13f, R.color.rally_green_500),
+      Account("Home Savings", "......1234", 2_215.13f, R.color.rally_green_300),
+      Account("Home Savings", "......1234", 2_215.13f, R.color.rally_dark_green),
+      Account("Home Savings", "......1234", 2_215.13f, R.color.rally_green_500),
+      Account("Home Savings", "......1234", 2_215.13f, R.color.rally_green_300)
   )
 
   private val bills = listOf(
-      Bill("RedPay Credit", "Due Feb 9", "1,200.00", R.color.rally_blue),
-      Bill("RedPay Credit", "Due Feb 9", "1200.00", R.color.rally_orange),
-      Bill("RedPay Credit", "Due Feb 9", "1200.00", R.color.rally_purple),
-      Bill("RedPay Credit", "Due Feb 9", "1200.00", R.color.rally_yellow),
-      Bill("RedPay Credit", "Due Feb 9", "1200.00", R.color.rally_blue_700),
-      Bill("RedPay Credit", "Due Feb 9", "1200.00", R.color.rally_green_300),
-      Bill("RedPay Credit", "Due Feb 9", "1200.00", R.color.rally_blue_700),
-      Bill("RedPay Credit", "Due Feb 9", "1200.00", R.color.rally_orange_200),
-      Bill("RedPay Credit", "Due Feb 9", "1200.00", R.color.rally_yellow),
-      Bill("RedPay Credit", "Due Feb 9", "1200.00", R.color.rally_blue)
+      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_blue),
+      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_orange),
+      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_purple),
+      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_yellow),
+      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_blue_700),
+      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_green_300),
+      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_blue_700),
+      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_orange_200),
+      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_yellow),
+      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_blue)
   )
 
   private val budgets = listOf(
@@ -52,9 +52,10 @@ object DataProvider {
       Budget("Coffee Shops", 1000f, 600f, R.color.rally_blue)
   )
 
-  val accountOverView = AccountOverView("12,132.49", accounts)
+  val accountOverView =
+    AccountOverView(accounts.sumByDouble { it.amount.toDouble() }.toFloat(), accounts)
 
-  val billOverView = BillOverView("1,810.09", bills)
+  val billOverView = BillOverView(bills.sumByDouble { it.amount.toDouble() }.toFloat(), bills)
 
   val budgetOverView = BudgetOverview("717.12", budgets)
 }

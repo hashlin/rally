@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.material.rally.R
 import io.material.rally.data.model.Budget
 import io.material.rally.extension.inflate
+import io.material.rally.extension.toMoneyFormatted
 import io.material.rally_line_indicator.RallyVerticalBar
 import io.material.rally_line_indicator.RallyVerticalBarData
 
@@ -49,12 +50,14 @@ class BudgetAdapter : ListAdapter<Budget, BudgetViewHolder>(object : DiffUtil.It
 class BudgetViewHolder(view: View) : RecyclerView.ViewHolder(view) {
   private val barView: RallyVerticalBar = view.findViewById(R.id.bar)
   private val tvName:TextView = view.findViewById(R.id.tvName)
-  private val tvDesc:TextView = view.findViewById(R.id.tvDesc)
+  private val tvUsed:TextView = view.findViewById(R.id.tvUsed)
+  private val tvTotal:TextView = view.findViewById(R.id.tvTotal)
   private val tvLeftAmount:TextView = view.findViewById(R.id.tvLeft)
 
   fun bind(model: Budget) {
     tvName.text = model.name
-    tvDesc.text = model.desc
+    tvUsed.text = model.desc
+//    tvTotal.text = model.total.toMoneyFormatted()
     tvLeftAmount.text = model.left.toString()
     barView.renderData(RallyVerticalBarData(model.spend,model.total,model.color))
   }
