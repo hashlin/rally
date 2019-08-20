@@ -42,4 +42,5 @@
     <style name="Widget.Rally.AlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog.Centered">
     </style>
 
+
 </resources>
