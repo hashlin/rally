@@ -3,6 +3,7 @@ package io.material.rally.ui.login
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -17,6 +18,7 @@ import androidx.lifecycle.Observer
 import io.material.rally.R
 import io.material.rally.ui.MainActivity
 import io.material.rally.ui.RallyApp
+import io.material.rally.ui.TestActivity
 import kotlinx.android.synthetic.main.activity_login.et_email
 import kotlinx.android.synthetic.main.activity_login.et_pwd
 import kotlinx.android.synthetic.main.activity_login.imgLogo
@@ -26,11 +28,17 @@ import kotlinx.android.synthetic.main.activity_login.iv_fingerprint
 import kotlinx.android.synthetic.main.activity_login.label_login_id
 import kotlinx.android.synthetic.main.activity_main.logo
 
+/**
+ * Created by Chan Myae Aung on 8/18/19.
+ */
 class LoginActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_login)
+
+    startActivity(Intent(this,TestActivity::class.java))
+    finish()
 
     (application as RallyApp).preferenceRepository
         .nightModeLive.observe(this, Observer { nightMode ->
