@@ -14,6 +14,7 @@ import io.material.design_system.R.color
 import io.material.rally.R
 import io.material.rally.data.DataProvider
 import io.material.rally.extension.getRallyItemDecoration
+import io.material.rally.extension.toMoneyFormatted
 import io.material.rally.ui.overview.adapter.AccountOverviewAdapter
 import io.material.rally.ui.overview.adapter.BillAdapter
 import io.material.rally.ui.overview.adapter.BudgetAdapter
@@ -36,7 +37,7 @@ import kotlinx.android.synthetic.main.layout_budget_overview.tv_budget_amount
  */
 class OverviewFragment : Fragment() {
 
-  private val accountAdapter by lazy { AccountOverviewAdapter() }
+  private val accountAdapter by lazy { AccountOverviewAdapter(isSingleLine = false) }
   private val billAdapter by lazy { BillAdapter() }
   private val budgetAdapter by lazy { BudgetAdapter() }
 
@@ -54,7 +55,6 @@ class OverviewFragment : Fragment() {
   ) {
     super.onViewCreated(view, savedInstanceState)
 
-    setUpAccountOverview()
     setUpAccountRecyclerView()
     setUpBillOverview()
     setUpBillRecyclerView()
@@ -64,20 +64,9 @@ class OverviewFragment : Fragment() {
     if (savedInstanceState == null) runEnterAnimation()
   }
 
-  private fun setUpAccountOverview(){
-    val rallyLineIndicatorPortions = listOf(
-        RallyLineIndicatorPortion(
-            "A", 100f, ContextCompat.getColor(requireContext(), color.rally_green_500)
-        ),
-        RallyLineIndicatorPortion(
-            "A", 500f, ContextCompat.getColor(requireContext(), color.rally_green_700)
-        ),
-        RallyLineIndicatorPortion(
-            "A", 300f, ContextCompat.getColor(requireContext(), color.rally_green_300)
-        )
-    )
-    account_line_indicator.setData(RallyLineIndicatorData(rallyLineIndicatorPortions))
-    tv_account_amount.text = DataProvider.accountOverView.total
+  private fun setUpAccountOverview(lineIndicatorData: RallyLineIndicatorData) {
+    account_line_indicator.setData(lineIndicatorData)
+    tv_account_amount.text = DataProvider.accountOverView.total.toMoneyFormatted()
   }
 
   private fun setUpAccountRecyclerView() {
@@ -88,10 +77,19 @@ class OverviewFragment : Fragment() {
       adapter = accountAdapter
     }
     accountAdapter.submitList(DataProvider.accountOverView.accounts.take(3))
+
+    val portions = DataProvider.accountOverView.accounts.take(3)
+        .map {
+          RallyLineIndicatorPortion(
+              name = it.name,
+              value = it.amount,
+              colorInt = ContextCompat.getColor(requireContext() , it.color)
+          )
+        }
+    setUpAccountOverview(RallyLineIndicatorData(portions = portions))
   }
 
-
-  private fun setUpBillOverview(){
+  private fun setUpBillOverview() {
     val rallyLineIndicatorPortions = listOf(
         RallyLineIndicatorPortion(
             "A", 100f, ContextCompat.getColor(requireContext(), color.rally_green_500)
@@ -104,9 +102,8 @@ class OverviewFragment : Fragment() {
         )
     )
     bill_line_indicator.setData(RallyLineIndicatorData(rallyLineIndicatorPortions))
-    tv_bill_amount.text = DataProvider.billOverView.total
+    tv_bill_amount.text = DataProvider.billOverView.total.toMoneyFormatted()
   }
-
 
   private fun setUpBillRecyclerView() {
     rv_bill_overview.apply {
@@ -118,7 +115,7 @@ class OverviewFragment : Fragment() {
     billAdapter.submitList(DataProvider.billOverView.bills.take(3))
   }
 
-  private fun setUpBudgetOverview(){
+  private fun setUpBudgetOverview() {
     val rallyLineIndicatorPortions = listOf(
         RallyLineIndicatorPortion(
             "A", 100f, ContextCompat.getColor(requireContext(), color.rally_green_500)
@@ -180,7 +177,6 @@ class OverviewFragment : Fragment() {
 
     }
   }
-
 
 }
 

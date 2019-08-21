@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.fragment_account.rv_account
 
 class AccountFragment : Fragment() {
 
-  private val accountAdapter by lazy { AccountOverviewAdapter() }
+  private val accountAdapter by lazy { AccountOverviewAdapter(isSingleLine = false) }
 
   override fun onCreateView(
     inflater: LayoutInflater,

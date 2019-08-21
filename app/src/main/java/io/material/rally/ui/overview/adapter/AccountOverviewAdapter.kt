@@ -20,7 +20,7 @@ import io.material.rally_line_indicator.RallyVerticalBarData
 /**
  * Created by Chan Myae Aung on 7/31/19.
  */
-class AccountOverviewAdapter : ListAdapter<Account, AccountOverviewViewHolder>(object : DiffUtil.ItemCallback<Account>() {
+class AccountOverviewAdapter(val isSingleLine : Boolean) : ListAdapter<Account, AccountOverviewViewHolder>(object : DiffUtil.ItemCallback<Account>() {
   override fun areItemsTheSame(
     oldItem: Account,
     newItem: Account
@@ -34,12 +34,15 @@ class AccountOverviewAdapter : ListAdapter<Account, AccountOverviewViewHolder>(o
   ): Boolean {
     return oldItem == newItem
   }
-
 }) {
+
   override fun onCreateViewHolder(
     parent: ViewGroup,
     viewType: Int
   ): AccountOverviewViewHolder {
+    if(parent.context.resources.configuration.smallestScreenWidthDp >= 600){
+      return AccountOverviewViewHolder(parent.inflate(R.layout.item_account_single_row))
+    }
     return AccountOverviewViewHolder(parent.inflate(R.layout.item_account))
   }
 

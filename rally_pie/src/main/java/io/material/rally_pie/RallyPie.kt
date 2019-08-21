@@ -7,6 +7,8 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.Animation
+import androidx.appcompat.widget.ViewUtils
+import com.google.android.material.internal.ViewUtils.dpToPx
 
 /**
  * Created by lin min phyo on 2019-07-29.
@@ -31,7 +33,7 @@ class RallyPie : View {
     )
             : super(context, attrs, defStyleAttr)
 
-    private val STROKE = 15f
+    private val STROKE = context.dpToPx(6f)
     private var rect = RectF()
     private var chartRadius = 500f
 
