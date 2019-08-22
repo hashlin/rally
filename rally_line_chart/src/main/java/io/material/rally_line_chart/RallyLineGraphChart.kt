@@ -6,8 +6,11 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.PointF
+import android.os.Handler
+import android.os.HandlerThread
 import android.util.AttributeSet
 import android.view.View
+import android.widget.Toast
 
 /**
  * Created by Chan Myae Aung on 8/22/19.
@@ -43,7 +46,6 @@ class RallyLineGraphChart : View {
   }
 
   private fun init() {
-    data.addAll(getSampleDataPoints())
     barPaint.apply {
       isAntiAlias = true
       strokeWidth = BAR_WIDTH
@@ -65,6 +67,13 @@ class RallyLineGraphChart : View {
 //  private fun measureHeight(heightMeasureSpec: Int): Int {
 //    return resolveSizeAndState(MeasureSpec.getSize(heightMeasureSpec), heightMeasureSpec, 0)
 //  }
+
+  override fun onMeasure(
+    widthMeasureSpec: Int,
+    heightMeasureSpec: Int
+  ) {
+    super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+  }
 
   override fun onDraw(canvas: Canvas?) {
     super.onDraw(canvas)
@@ -95,8 +104,6 @@ class RallyLineGraphChart : View {
   }
 
   private fun drawBezierCurve(canvas: Canvas?) {
-    calculatePointsForData()
-    calculateConnectionPointsForBezierCurve()
     path.reset() //reset existing path just in case
 
     if (points.isEmpty() && conPoint1.isEmpty() && conPoint2.isEmpty()) return
@@ -137,6 +144,20 @@ class RallyLineGraphChart : View {
 
   private fun getLargeBarHeight() = height / 3 * 2f
 
+  fun addDataPoints(data: List<DataPoint>) {
+    //do calculation in worker thread // Note: You should use some safe thread mechanism
+    post {
+      Thread(Runnable {
+        this.data.clear()
+        this.data.addAll(data.toList())
+        calculatePointsForData()
+        calculateConnectionPointsForBezierCurve()
+        postInvalidate()
+
+      }).start()
+    }
+  }
+
   companion object {
     private const val INDEX_OF_LARGE_BAR = 7
     private const val VERTICAL_BARS = (INDEX_OF_LARGE_BAR * 7) + 1 // add fixed bars size
@@ -147,38 +168,5 @@ class RallyLineGraphChart : View {
 
   }
 }
-
-fun getSampleDataPoints() = listOf(
-    DataPoint(1000f),
-    DataPoint(500f),
-    DataPoint(300f),
-    DataPoint(0f),
-    DataPoint(1000f),
-    DataPoint(700f),
-    DataPoint(800f),
-    DataPoint(1000f),
-    DataPoint(500f),
-    DataPoint(300f),
-    DataPoint(0f),
-    DataPoint(1000f),
-    DataPoint(700f),
-    DataPoint(800f),
-    DataPoint(1000f),
-    DataPoint(500f),
-    DataPoint(300f),
-    DataPoint(0f),
-    DataPoint(1000f),
-    DataPoint(700f),
-    DataPoint(800f),
-    DataPoint(1000f),
-    DataPoint(500f),
-    DataPoint(300f),
-    DataPoint(0f),
-    DataPoint(1000f),
-    DataPoint(700f),
-    DataPoint(800f),
-    DataPoint(700f),
-    DataPoint(800f)
-)
 
 data class DataPoint(val amount: Float)
