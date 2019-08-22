@@ -68,13 +68,6 @@ class RallyLineGraphChart : View {
 //    return resolveSizeAndState(MeasureSpec.getSize(heightMeasureSpec), heightMeasureSpec, 0)
 //  }
 
-  override fun onMeasure(
-    widthMeasureSpec: Int,
-    heightMeasureSpec: Int
-  ) {
-    super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-  }
-
   override fun onDraw(canvas: Canvas?) {
     super.onDraw(canvas)
 
@@ -104,10 +97,10 @@ class RallyLineGraphChart : View {
   }
 
   private fun drawBezierCurve(canvas: Canvas?) {
-    path.reset() //reset existing path just in case
 
     if (points.isEmpty() && conPoint1.isEmpty() && conPoint2.isEmpty()) return
 
+    path.reset()
     path.moveTo(points.first().x, points.first().y)
 
     for (i in 1 until points.size) {
@@ -148,7 +141,7 @@ class RallyLineGraphChart : View {
     //do calculation in worker thread // Note: You should use some safe thread mechanism
     post {
       Thread(Runnable {
-        this.data.clear()
+        resetDataPoints()
         this.data.addAll(data.toList())
         calculatePointsForData()
         calculateConnectionPointsForBezierCurve()
@@ -156,6 +149,13 @@ class RallyLineGraphChart : View {
 
       }).start()
     }
+  }
+
+  private fun resetDataPoints() {
+    this.data.clear()
+    points.clear()
+    conPoint1.clear()
+    conPoint2.clear()
   }
 
   companion object {
