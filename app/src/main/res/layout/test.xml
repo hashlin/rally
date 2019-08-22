@@ -5,10 +5,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-  <io.material.rally_line_chart.RallyLineChart
+  <io.material.rally_line_chart.RallyLineGraphChart
       android:id="@+id/rallyLine"
       android:layout_width="match_parent"
-      android:layout_height="400dp"
+      android:layout_height="200dp"
       android:layout_gravity="center"
       />
 </LinearLayout>
