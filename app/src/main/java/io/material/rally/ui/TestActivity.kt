@@ -1,11 +1,9 @@
 package io.material.rally.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import io.material.rally.R
+import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
 import io.material.rally_line_chart.DataPoint
-import kotlinx.android.synthetic.main.test.btn
 import kotlinx.android.synthetic.main.test.rallyLine
 
 /**
@@ -18,13 +16,29 @@ class TestActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.test)
+    setContentView(io.material.rally.R.layout.test)
 
     rallyLine.addDataPoints(getPoints())
 
-    btn.setOnClickListener {
-      rallyLine.addDataPoints(getPoints())
+//    btn.setOnClickListener {
+//      rallyLine.addDataPoints(getPoints())
+//    }
+
+    val handler = Handler()
+    val runnable = object : Runnable {
+
+      override fun run() {
+        try {
+          rallyLine.addDataPoints(getPoints())
+        } catch (e: Exception) {
+        } finally {
+          handler.postDelayed(this, 800)
+        }
+      }
     }
+
+//runnable must be execute once
+    handler.post(runnable)
   }
 
   fun getPoints():List<DataPoint>{

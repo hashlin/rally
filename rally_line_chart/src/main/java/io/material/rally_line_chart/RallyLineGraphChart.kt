@@ -217,13 +217,7 @@ class RallyLineGraphChart : View {
           points.add(third[i])
           calculateConnectionPointsForBezierCurve()
           postInvalidate()
-          Thread.sleep(60)
-
-          /*
-          1s = 16
-
-
-           */
+          Thread.sleep(16)
         }
 
       }).start()
