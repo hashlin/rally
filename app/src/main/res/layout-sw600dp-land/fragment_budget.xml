@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+
+  <androidx.core.widget.NestedScrollView
+      android:layout_weight="5"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:overScrollMode="never"
+      tools:context=".ui.budget.BudgetFragment"
+      >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+      <androidx.constraintlayout.widget.Guideline
+          android:id="@+id/guideline_start"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          app:layout_constraintGuide_percent=".1"
+          />
+
+
+      <androidx.constraintlayout.widget.Guideline
+          android:id="@+id/guideline_end"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          app:layout_constraintGuide_percent=".9"
+          />
+
+
+      <io.material.rally_pie.RallyPie
+          android:id="@+id/rallyPie"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:layout_marginTop="@dimen/spacing_small"
+          app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+          app:layout_constraintStart_toStartOf="@+id/guideline_start"
+          app:layout_constraintTop_toTopOf="parent"
+          />
+
+      <TextView
+          android:id="@+id/tvAmount"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="$12,132,34"
+          app:layout_constraintBottom_toBottomOf="@id/rallyPie"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="@id/rallyPie"
+          style="@style/TextAppearance.Rally.Headline3"
+          />
+
+      <TextView
+          android:id="@+id/label_alert"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="@dimen/spacing_medium"
+          android:text="Left"
+          app:layout_constraintBottom_toTopOf="@id/tvAmount"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          style="?attr/textAppearanceSubtitle1"
+          />
+
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/material_icon_button"
+          android:layout_width="48dp"
+          android:layout_height="48dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/tvAmount"
+          app:icon="@drawable/ic_info_outline"
+          style="@style/Widget.Rally.Button.IconOnly"
+          />
+
+      <com.google.android.material.card.MaterialCardView
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/spacing_medium"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/rallyPie"
+          >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_budget"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/spacing_keyline"
+            android:layout_marginEnd="@dimen/spacing_keyline"
+            android:overScrollMode="never"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_account"
+            />
+      </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout
+>
+  </androidx.core.widget.NestedScrollView>
+  <View
+      android:background="?attr/colorSecondaryVariant"
+      android:layout_weight="2"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"/>
+</LinearLayout>

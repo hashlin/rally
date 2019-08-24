@@ -2,21 +2,18 @@ package io.material.rally.ui.overview.adapter
 
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import io.material.rally.R
 import io.material.rally.data.model.Budget
 import io.material.rally.extension.inflate
-import io.material.rally.extension.toMoneyFormatted
-import io.material.rally_line_indicator.RallyVerticalBar
-import io.material.rally_line_indicator.RallyVerticalBarData
 
 /**
  * Created by Chan Myae Aung on 7/31/19.
  */
-class BudgetAdapter : ListAdapter<Budget, BudgetViewHolder>(object : DiffUtil.ItemCallback<Budget>() {
+class BudgetAdapter(private val isLargeUI: Boolean) : ListAdapter<Budget, BudgetViewHolder>(object :
+    DiffUtil.ItemCallback<Budget>() {
   override fun areItemsTheSame(
     oldItem: Budget,
     newItem: Budget
@@ -36,7 +33,11 @@ class BudgetAdapter : ListAdapter<Budget, BudgetViewHolder>(object : DiffUtil.It
     parent: ViewGroup,
     viewType: Int
   ): BudgetViewHolder {
-    return BudgetViewHolder(parent.inflate(R.layout.item_budget))
+    return if (isLargeUI) {
+      BudgetLongViewHolder(parent.inflate(R.layout.item_budget_long))
+    } else {
+      BudgetShortViewHolder(parent.inflate(R.layout.item_budget_short))
+    }
   }
 
   override fun onBindViewHolder(
@@ -47,18 +48,7 @@ class BudgetAdapter : ListAdapter<Budget, BudgetViewHolder>(object : DiffUtil.It
   }
 }
 
-class BudgetViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-  private val barView: RallyVerticalBar = view.findViewById(R.id.bar)
-  private val tvName:TextView = view.findViewById(R.id.tvName)
-  private val tvUsed:TextView = view.findViewById(R.id.tvUsed)
-  private val tvTotal:TextView = view.findViewById(R.id.tvTotal)
-  private val tvLeftAmount:TextView = view.findViewById(R.id.tvLeft)
 
-  fun bind(model: Budget) {
-    tvName.text = model.name
-    tvUsed.text = model.desc
-//    tvTotal.text = model.total.toMoneyFormatted()
-    tvLeftAmount.text = model.left.toString()
-    barView.renderData(RallyVerticalBarData(model.spend,model.total,model.color))
-  }
+abstract class BudgetViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+  abstract fun bind(model: Budget)
 }

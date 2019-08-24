@@ -17,16 +17,17 @@ import io.material.rally.ui.overview.adapter.BudgetAdapter
 import io.material.rally_pie.RallyPieAnimation
 import io.material.rally_pie.RallyPieData
 import io.material.rally_pie.RallyPiePortion
+import io.material.rally_pie.pxToDp
 import kotlinx.android.synthetic.main.fragment_budget.rallyPie
 import kotlinx.android.synthetic.main.fragment_budget.rv_budget
+import kotlinx.android.synthetic.main.layout_budget_overview.rv_budget_overview
 
 /**
  * Created by Chan Myae Aung on 8/13/19.
  */
 class BudgetFragment : Fragment() {
 
-  private val budgetAdapter by lazy { BudgetAdapter() }
-
+  private lateinit var budgetAdapter : BudgetAdapter
   override fun onCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
@@ -79,6 +80,10 @@ class BudgetFragment : Fragment() {
   }
 
   private fun setUpRecyclerView() {
+    val isTwoLine = requireContext().pxToDp(rv_budget.measuredWidth) >= 400
+    Log.i("Width" , requireContext().pxToDp(requireView().measuredWidth).toString() )
+    budgetAdapter = BudgetAdapter(isTwoLine)
+
     rv_budget.apply {
       layoutManager = LinearLayoutManager(requireContext())
       setHasFixedSize(true)

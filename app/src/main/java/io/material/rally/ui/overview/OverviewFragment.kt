@@ -3,6 +3,7 @@ package io.material.rally.ui.overview
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +22,7 @@ import io.material.rally.ui.overview.adapter.BudgetAdapter
 import io.material.rally.ui.widgets.RallyAlert
 import io.material.rally_line_indicator.data.RallyLineIndicatorData
 import io.material.rally_line_indicator.data.RallyLineIndicatorPortion
+import io.material.rally_pie.pxToDp
 import kotlinx.android.synthetic.main.fragment_overview.content
 import kotlinx.android.synthetic.main.layout_account_overview.account_line_indicator
 import kotlinx.android.synthetic.main.layout_account_overview.rv_account_overview
@@ -39,7 +41,7 @@ class OverviewFragment : Fragment() {
 
   private val accountAdapter by lazy { AccountOverviewAdapter(isSingleLine = false) }
   private val billAdapter by lazy { BillAdapter() }
-  private val budgetAdapter by lazy { BudgetAdapter() }
+  private lateinit var budgetAdapter : BudgetAdapter
 
   override fun onCreateView(
     inflater: LayoutInflater,
@@ -83,7 +85,7 @@ class OverviewFragment : Fragment() {
           RallyLineIndicatorPortion(
               name = it.name,
               value = it.amount,
-              colorInt = ContextCompat.getColor(requireContext() , it.color)
+              colorInt = ContextCompat.getColor(requireContext(), it.color)
           )
         }
     setUpAccountOverview(RallyLineIndicatorData(portions = portions))
@@ -132,6 +134,10 @@ class OverviewFragment : Fragment() {
   }
 
   private fun setUpBudgetRecyclerView() {
+
+    val isTwoLine = requireContext().resources.configuration.smallestScreenWidthDp >= 600
+    budgetAdapter = BudgetAdapter(isTwoLine)
+
     rv_budget_overview.apply {
       layoutManager = LinearLayoutManager(requireContext())
       setHasFixedSize(true)
