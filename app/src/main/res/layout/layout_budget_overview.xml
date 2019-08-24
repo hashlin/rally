@@ -46,27 +46,28 @@
           android:layout_height="wrap_content"
           android:layout_marginStart="@dimen/spacing_medium"
           android:text="Left"
-          style="?attr/textAppearanceBody2"
+          style="?attr/textAppearanceSubtitle1"
           />
 
       <TextView
-          android:alpha=".5"
+          android:id="@+id/tv_total_budget"
+          android:textColor="#5f5f66"
           android:visibility="@integer/visibility_total_amount_budget_overview"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginStart="@dimen/spacing_medium"
-          android:text="/ $1600.00"
+          tools:text="/ $1600.00"
           style="?attr/textAppearanceHeadline3"
           />
 
       <TextView
-          android:alpha=".5"
+          android:textColor="#5f5f66"
           android:visibility="@integer/visibility_total_amount_budget_overview"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginStart="@dimen/spacing_medium"
           android:text="Total"
-          style="?attr/textAppearanceBody2"
+          style="?attr/textAppearanceSubtitle1"
           />
 
     </LinearLayout>
@@ -75,8 +76,8 @@
         android:id="@+id/budget_line_indicator"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        tools:background="@color/rally_green_300"
-        android:background="@color/rally_green_300"
+        tools:background="?attr/colorSecondary"
+        android:background="?attr/colorSecondary"
         />
 
     <androidx.recyclerview.widget.RecyclerView

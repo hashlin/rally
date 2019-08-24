@@ -27,28 +27,28 @@ object DataProvider {
   )
 
   private val bills = listOf(
-      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_blue),
+      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_yellow),
       Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_orange),
-      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_purple),
+      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_yellow_500),
       Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_yellow),
-      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_blue_700),
-      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_green_300),
-      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_blue_700),
-      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_orange_200),
+      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_orange),
+      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_yellow_500),
       Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_yellow),
-      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_blue)
+      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_orange),
+      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_yellow_500),
+      Bill("RedPay Credit", "Due Feb 9", 1200.00f, R.color.rally_yellow)
   )
 
   private val budgets = listOf(
       Budget("Coffee Shops", 1000f, 500f, R.color.rally_blue),
-      Budget("Coffee Shops", 1000f, 200f, R.color.rally_orange),
+      Budget("Coffee Shops", 1000f, 200f, R.color.rally_purple),
+      Budget("Coffee Shops", 1000f, 100f, R.color.rally_blue_100),
+      Budget("Coffee Shops", 1000f, 800f, R.color.rally_blue),
+      Budget("Coffee Shops", 1000f, 1000f, R.color.rally_purple),
+      Budget("Coffee Shops", 1000f, 400f, R.color.rally_blue_100),
+      Budget("Coffee Shops", 1000f, 50f, R.color.rally_blue),
       Budget("Coffee Shops", 1000f, 100f, R.color.rally_purple),
-      Budget("Coffee Shops", 1000f, 800f, R.color.rally_yellow),
-      Budget("Coffee Shops", 1000f, 1000f, R.color.rally_blue_700),
-      Budget("Coffee Shops", 1000f, 400f, R.color.rally_green_300),
-      Budget("Coffee Shops", 1000f, 50f, R.color.rally_blue_700),
-      Budget("Coffee Shops", 1000f, 100f, R.color.rally_orange_200),
-      Budget("Coffee Shops", 1000f, 500f, R.color.rally_yellow),
+      Budget("Coffee Shops", 1000f, 500f, R.color.rally_blue_100),
       Budget("Coffee Shops", 1000f, 600f, R.color.rally_blue)
   )
 
@@ -57,5 +57,5 @@ object DataProvider {
 
   val billOverView = BillOverView(bills.sumByDouble { it.amount.toDouble() }.toFloat(), bills)
 
-  val budgetOverView = BudgetOverview("717.12", budgets)
+  val budgetOverView = BudgetOverview(budgets , budgets.sumByDouble { it.total.toDouble() }.toFloat())
 }

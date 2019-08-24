@@ -12,10 +12,10 @@ data class Budget(
   val spend: Float, @ColorRes val color: Int
 ) {
   val left = total - spend
-  val desc = "$${spend.toMoneyFormatted()} / $${total.toMoneyFormatted()}"
+  val desc = "$${spend.toMoneyFormatted(true)} / $${total.toMoneyFormatted(true)}"
 }
 
 data class BudgetOverview(
-  val total: String,
-  val budgets: List<Budget>
+  val budgets: List<Budget>,
+  val total: Float
 )

@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import io.material.rally.R
 import java.text.DecimalFormat
+import java.text.NumberFormat
+import java.util.Locale
 
 /**
  * Created by Chan Myae Aung on 7/31/19.
@@ -29,6 +31,14 @@ fun RecyclerView.getRallyItemDecoration() =
   }
 
 
-fun Float.toMoneyFormatted() : String {
-  return DecimalFormat("###,###,##0.00").format(this).removeSuffix(".00")
+fun Float.toMoneyFormatted(removeSuffix : Boolean = false) : String {
+  return DecimalFormat("###,###,##0.00").format(this).apply {
+    if(removeSuffix){
+      return this.removeSuffix(".00")
+    }
+  }
+}
+
+fun Float.toUSDFormatted() : String {
+  return NumberFormat.getCurrencyInstance(Locale.US).format(this)
 }

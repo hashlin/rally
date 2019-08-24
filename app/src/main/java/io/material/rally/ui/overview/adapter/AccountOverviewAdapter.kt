@@ -40,7 +40,7 @@ class AccountOverviewAdapter(val isSingleLine : Boolean) : ListAdapter<Account, 
     parent: ViewGroup,
     viewType: Int
   ): AccountOverviewViewHolder {
-    if(parent.context.resources.configuration.smallestScreenWidthDp >= 600){
+    if(isSingleLine){
       return AccountOverviewViewHolder(parent.inflate(R.layout.item_account_single_row))
     }
     return AccountOverviewViewHolder(parent.inflate(R.layout.item_account))

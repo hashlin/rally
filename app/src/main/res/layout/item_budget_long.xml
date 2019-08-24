@@ -26,13 +26,12 @@
   <ProgressBar
       android:id="@+id/bar"
       android:layout_width="0dp"
-      android:layout_height="2dp"
+      android:layout_height="3dp"
       style="@style/Widget.AppCompat.ProgressBar.Horizontal"
       app:layout_constraintTop_toTopOf="@id/tvName"
       app:layout_constraintBottom_toBottomOf="@id/tvUsed"
       app:layout_constraintEnd_toEndOf="@+id/guide_vertical_75"
       app:layout_constraintStart_toStartOf="@+id/guide_vertical_20"
-      android:background="?attr/colorSecondary"
       android:layout_marginTop="4dp"
       android:layout_marginBottom="4dp"
       android:layout_marginStart="@dimen/spacing_medium"/>
@@ -97,7 +96,7 @@
       app:layout_constraintBottom_toBottomOf="@id/tvUsed"
       app:layout_constraintEnd_toStartOf="@id/ivArrow"
       android:layout_marginStart="@dimen/spacing_medium"
-      android:layout_marginEnd="@dimen/spacing_small"
+      android:layout_marginEnd="@dimen/spacing_medium"
       style="?attr/textAppearanceMoney1"/>
 
   <TextView
