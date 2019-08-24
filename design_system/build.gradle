@@ -37,12 +37,12 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    api 'com.google.android.material:material:1.1.0-alpha08'
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+  api 'com.google.android.material:material:1.1.0-alpha09'
+  api 'androidx.appcompat:appcompat:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-  compile "androidx.core:core-ktx:+"
+  api 'androidx.core:core-ktx:1.0.2'
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {

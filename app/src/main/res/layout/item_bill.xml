@@ -35,11 +35,12 @@
 
   <TextView
       android:id="@+id/text_view_dollar"
-      android:text="-$"
+      android:text="-$ "
       style="?attr/textAppearanceMoney1"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent"
+      android:textAlignment="textEnd"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintHorizontal_bias=".55"
       android:layout_width="wrap_content"

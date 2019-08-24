@@ -35,11 +35,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':design_system')
+  implementation project(':design_system')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
-    testImplementation 'junit:junit:4.12'
+  testImplementation 'junit:junit:4.12'
     testImplementation "com.google.truth:truth:1.0"
     testImplementation "org.mockito:mockito-core:3.0.0"
     androidTestImplementation 'androidx.test:runner:1.2.0'
