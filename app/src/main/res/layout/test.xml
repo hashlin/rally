@@ -8,7 +8,7 @@
   <io.material.rally_line_chart.RallyLineGraphChart
       android:id="@+id/rallyLine"
       android:layout_width="match_parent"
-      android:layout_height="400dp"
+      android:layout_height="200dp"
       android:layout_gravity="center"
       />
 
@@ -17,5 +17,6 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_gravity="bottom|center"
-      android:text="Random"/>
+      android:text="Random"
+      android:layout_marginTop="100dp"/>
 </LinearLayout>

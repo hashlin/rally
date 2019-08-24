@@ -1,6 +1,7 @@
 package io.material.rally_line_chart
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
@@ -28,6 +29,10 @@ class RallyLineGraphChart : View {
   private val path = Path()
   private val barPaint = Paint()
   private val pathPaint = Paint()
+
+  private var viewCanvas:Canvas? = null
+  private var bitmap:Bitmap? = null
+  private val bitmapPaint = Paint(Paint.DITHER_FLAG)
 
   constructor(context: Context?) : super(context) {
     init()
@@ -71,10 +76,25 @@ class RallyLineGraphChart : View {
 //    return resolveSizeAndState(MeasureSpec.getSize(heightMeasureSpec), heightMeasureSpec, 0)
 //  }
 
+  override fun onSizeChanged(
+    w: Int,
+    h: Int,
+    oldw: Int,
+    oldh: Int
+  ) {
+    super.onSizeChanged(w, h, oldw, oldh)
+
+    bitmap = Bitmap.createBitmap(w,h,Bitmap.Config.ARGB_8888)
+    viewCanvas = Canvas(bitmap!!)
+    drawVerticalBars(viewCanvas)
+  }
+
   override fun onDraw(canvas: Canvas?) {
     super.onDraw(canvas)
 
-    //drawVerticalBars(canvas)
+    bitmap?.let {
+      canvas?.drawBitmap(it,0f,0f,bitmapPaint)
+    }
     drawBezierCurve(canvas)
   }
 
@@ -141,7 +161,8 @@ class RallyLineGraphChart : View {
         conPoint1.add(PointF((points[i].x + points[i - 1].x) / 2, points[i - 1].y))
         conPoint2.add(PointF((points[i].x + points[i - 1].x) / 2, points[i].y))
       }
-    }catch (e:Exception){}
+    } catch (e: Exception) {
+    }
   }
 
   private fun getLargeBarHeight() = height / 3 * 2f
@@ -176,7 +197,7 @@ class RallyLineGraphChart : View {
           if (abs > maxDiffY) maxDiffY = abs
         }
 
-        val loopCount = maxDiffY / 32
+        val loopCount = maxDiffY / 16
 
         val tempPointsForAnimation = mutableListOf<MutableList<PointF>>()
 
@@ -184,7 +205,7 @@ class RallyLineGraphChart : View {
           val old = oldPoints[i]
           val new = newPoints[i]
 
-          val plusOrMinusAmount = abs(new.y-old.y) / maxDiffY * 32
+          val plusOrMinusAmount = abs(new.y - old.y) / maxDiffY * 16
 
           var tempY = old.y
           val tempList = mutableListOf<PointF>()
@@ -211,7 +232,7 @@ class RallyLineGraphChart : View {
 
         }
 
-        if(tempPointsForAnimation.isEmpty()) return@Runnable
+        if (tempPointsForAnimation.isEmpty()) return@Runnable
 
         val first = tempPointsForAnimation[0]
         val length = first.size
@@ -223,10 +244,8 @@ class RallyLineGraphChart : View {
           points.addAll(tempPointsForAnimation.map { it[i] })
           calculateConnectionPointsForBezierCurve()
           postInvalidate()
-          Thread.sleep(8)
+          Thread.sleep(16)
         }
-
-
 
       }).start()
     }
