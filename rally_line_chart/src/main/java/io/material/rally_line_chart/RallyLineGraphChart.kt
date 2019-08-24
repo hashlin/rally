@@ -176,13 +176,15 @@ class RallyLineGraphChart : View {
           if (abs > maxDiffY) maxDiffY = abs
         }
 
-        val loopCount = maxDiffY / 16
+        val loopCount = maxDiffY / 32
 
         val tempPointsForAnimation = mutableListOf<MutableList<PointF>>()
 
         for (i in 0 until size) {
           val old = oldPoints[i]
           val new = newPoints[i]
+
+          val plusOrMinusAmount = abs(new.y-old.y) / maxDiffY * 32
 
           var tempY = old.y
           val tempList = mutableListOf<PointF>()
@@ -194,12 +196,12 @@ class RallyLineGraphChart : View {
             } else {
 
               if (new.y > old.y) {
-                tempY += 16
+                tempY += plusOrMinusAmount
                 tempY = min(tempY, new.y)
                 tempList.add(PointF(new.x, tempY))
 
               } else {
-                tempY -= 16
+                tempY -= plusOrMinusAmount
                 tempY = max(tempY, new.y)
                 tempList.add(PointF(new.x, tempY))
               }
@@ -221,7 +223,7 @@ class RallyLineGraphChart : View {
           points.addAll(tempPointsForAnimation.map { it[i] })
           calculateConnectionPointsForBezierCurve()
           postInvalidate()
-          Thread.sleep(16)
+          Thread.sleep(8)
         }
 
 
