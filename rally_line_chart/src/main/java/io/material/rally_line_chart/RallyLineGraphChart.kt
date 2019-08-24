@@ -101,19 +101,23 @@ class RallyLineGraphChart : View {
 
   private fun drawBezierCurve(canvas: Canvas?) {
 
-    if (points.isEmpty() && conPoint1.isEmpty() && conPoint2.isEmpty()) return
+    try {
 
-    path.reset()
-    path.moveTo(points.first().x, points.first().y)
+      if (points.isEmpty() && conPoint1.isEmpty() && conPoint2.isEmpty()) return
 
-    for (i in 1 until points.size) {
-      path.cubicTo(
-          conPoint1[i - 1].x, conPoint1[i - 1].y, conPoint2[i - 1].x, conPoint2[i - 1].y,
-          points[i].x, points[i].y
-      )
+      path.reset()
+      path.moveTo(points.first().x, points.first().y)
+
+      for (i in 1 until points.size) {
+        path.cubicTo(
+            conPoint1[i - 1].x, conPoint1[i - 1].y, conPoint2[i - 1].x, conPoint2[i - 1].y,
+            points[i].x, points[i].y
+        )
+      }
+
+      canvas?.drawPath(path, pathPaint)
+    } catch (e: Exception) {
     }
-
-    canvas?.drawPath(path, pathPaint)
   }
 
   private fun calculatePointsForData() {
@@ -132,16 +136,19 @@ class RallyLineGraphChart : View {
   }
 
   private fun calculateConnectionPointsForBezierCurve() {
-    for (i in 1 until points.size) {
-      conPoint1.add(PointF((points[i].x + points[i - 1].x) / 2, points[i - 1].y))
-      conPoint2.add(PointF((points[i].x + points[i - 1].x) / 2, points[i].y))
-    }
+    try {
+      for (i in 1 until points.size) {
+        conPoint1.add(PointF((points[i].x + points[i - 1].x) / 2, points[i - 1].y))
+        conPoint2.add(PointF((points[i].x + points[i - 1].x) / 2, points[i].y))
+      }
+    }catch (e:Exception){}
   }
 
   private fun getLargeBarHeight() = height / 3 * 2f
 
   fun addDataPoints(data: List<DataPoint>) {
     //do calculation in worker thread // Note: You should use some safe thread mechanism
+    //Calculation logic here are not fine, should updated when more time available
     post {
       Thread(Runnable {
 
@@ -202,23 +209,22 @@ class RallyLineGraphChart : View {
 
         }
 
-        val first = tempPointsForAnimation[0]
-        val second = tempPointsForAnimation[1]
-        val third = tempPointsForAnimation[2]
+        if(tempPointsForAnimation.isEmpty()) return@Runnable
 
+        val first = tempPointsForAnimation[0]
         val length = first.size
 
         for (i in 0 until length) {
           conPoint1.clear()
           conPoint2.clear()
           points.clear()
-          points.add(first[i])
-          points.add(second[i])
-          points.add(third[i])
+          points.addAll(tempPointsForAnimation.map { it[i] })
           calculateConnectionPointsForBezierCurve()
           postInvalidate()
           Thread.sleep(16)
         }
+
+
 
       }).start()
     }
