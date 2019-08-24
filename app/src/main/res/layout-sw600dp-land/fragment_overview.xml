@@ -35,7 +35,8 @@
 
 
 
-    <io.material.rally.ui.widgets.RallyAlert
+    <include
+        layout="@layout/layout_alert"
         android:layout_marginTop="@dimen/vertical_gutters"
         android:id="@+id/rally_alert"
         app:layout_constraintTop_toTopOf="parent"

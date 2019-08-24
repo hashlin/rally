@@ -3,6 +3,7 @@ package io.material.rally.data
 import io.material.rally.R
 import io.material.rally.data.model.Account
 import io.material.rally.data.model.AccountOverView
+import io.material.rally.data.model.Alert
 import io.material.rally.data.model.Bill
 import io.material.rally.data.model.BillOverView
 import io.material.rally.data.model.Budget
@@ -12,6 +13,18 @@ import io.material.rally.data.model.BudgetOverview
  * Created by Chan Myae Aung on 8/15/19.
  */
 object DataProvider {
+
+  val alerts = listOf(
+      Alert(
+          "Heads up, you've used up 90% of your Shopping budget for this month.", R.drawable.ic_sort
+      ),
+      Alert(
+          "You've spent $120 on Restaurants this week.", R.drawable.ic_sort
+      ),
+      Alert(
+          "You've spent $24 in ATM fees this month", R.drawable.ic_credit_card
+      )
+  )
 
   private val accounts = listOf(
       Account("Home Savings", "......1234", 2_215.13f, R.color.rally_green_700),
@@ -57,5 +70,7 @@ object DataProvider {
 
   val billOverView = BillOverView(bills.sumByDouble { it.amount.toDouble() }.toFloat(), bills)
 
-  val budgetOverView = BudgetOverview(budgets , budgets.sumByDouble { it.total.toDouble() }.toFloat())
+  val budgetOverView =
+    BudgetOverview(budgets, budgets.sumByDouble { it.total.toDouble() }.toFloat())
+
 }

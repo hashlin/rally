@@ -9,13 +9,14 @@ import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.material.rally.R
 import io.material.rally.data.DataProvider
 import io.material.rally.extension.getRallyItemDecoration
-import io.material.rally.extension.toMoneyFormatted
 import io.material.rally.extension.toUSDFormatted
 import io.material.rally.ui.overview.adapter.AccountOverviewAdapter
+import io.material.rally.ui.overview.adapter.AlertAdapter
 import io.material.rally.ui.overview.adapter.BillAdapter
 import io.material.rally.ui.overview.adapter.BudgetAdapter
 import io.material.rally_line_indicator.data.RallyLineIndicatorData
@@ -24,6 +25,7 @@ import kotlinx.android.synthetic.main.fragment_overview.content
 import kotlinx.android.synthetic.main.layout_account_overview.account_line_indicator
 import kotlinx.android.synthetic.main.layout_account_overview.rv_account_overview
 import kotlinx.android.synthetic.main.layout_account_overview.tv_account_amount
+import kotlinx.android.synthetic.main.layout_alert.rv_alerts
 import kotlinx.android.synthetic.main.layout_bill_overview.bill_line_indicator
 import kotlinx.android.synthetic.main.layout_bill_overview.rv_bill_overview
 import kotlinx.android.synthetic.main.layout_bill_overview.tv_bill_amount
@@ -40,6 +42,7 @@ class OverviewFragment : Fragment() {
   private val accountAdapter by lazy { AccountOverviewAdapter(isSingleLine = false) }
   private val billAdapter by lazy { BillAdapter() }
   private lateinit var budgetAdapter: BudgetAdapter
+  private val alertsAdapter by lazy { AlertAdapter() }
 
   override fun onCreateView(
     inflater: LayoutInflater,
@@ -55,11 +58,24 @@ class OverviewFragment : Fragment() {
   ) {
     super.onViewCreated(view, savedInstanceState)
 
+    setUpAlertRecyclerView()
     setUpAccountRecyclerView()
     setUpBillRecyclerView()
     setUpBudgetRecyclerView()
 
     if (savedInstanceState == null) runEnterAnimation()
+  }
+
+  private fun setUpAlertRecyclerView() {
+    rv_alerts.apply {
+        layoutManager =   LinearLayoutManager(requireContext(), GridLayoutManager.HORIZONTAL , false )
+        setHasFixedSize(true)
+
+      adapter = alertsAdapter
+    }
+
+    val alerts = DataProvider.alerts
+    alertsAdapter.submitList(alerts)
   }
 
   private fun setUpAccountOverview(lineIndicatorData: RallyLineIndicatorData) {
@@ -110,7 +126,8 @@ class OverviewFragment : Fragment() {
               value = it.amount,
               colorInt = ContextCompat.getColor(requireContext(), it.color)
           )
-        }.sortedBy{ it.colorInt }
+        }
+        .sortedBy { it.colorInt }
     setUpBillOverview(RallyLineIndicatorData(portions))
   }
 
