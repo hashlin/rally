@@ -11,6 +11,9 @@ import android.os.HandlerThread
 import android.util.AttributeSet
 import android.view.View
 import android.widget.Toast
+import kotlin.math.abs
+import kotlin.math.max
+import kotlin.math.min
 
 /**
  * Created by Chan Myae Aung on 8/22/19.
@@ -71,7 +74,7 @@ class RallyLineGraphChart : View {
   override fun onDraw(canvas: Canvas?) {
     super.onDraw(canvas)
 
-    drawVerticalBars(canvas)
+    //drawVerticalBars(canvas)
     drawBezierCurve(canvas)
   }
 
@@ -141,11 +144,87 @@ class RallyLineGraphChart : View {
     //do calculation in worker thread // Note: You should use some safe thread mechanism
     post {
       Thread(Runnable {
+
+        val oldPoints = points.toList()
+
+        if (oldPoints.isEmpty()) {
+          this.data.addAll(data.toList())
+          calculatePointsForData()
+          calculateConnectionPointsForBezierCurve()
+          postInvalidate()
+          return@Runnable
+        }
+
         resetDataPoints()
         this.data.addAll(data.toList())
         calculatePointsForData()
         calculateConnectionPointsForBezierCurve()
-        postInvalidate()
+
+        val newPoints = points.toList()
+
+        val size = oldPoints.size
+        var maxDiffY = 0f
+        for (i in 0 until size) {
+          val abs = abs(oldPoints[i].y - newPoints[i].y)
+          if (abs > maxDiffY) maxDiffY = abs
+        }
+
+        val loopCount = maxDiffY / 16
+
+        val tempPointsForAnimation = mutableListOf<MutableList<PointF>>()
+
+        for (i in 0 until size) {
+          val old = oldPoints[i]
+          val new = newPoints[i]
+
+          var tempY = old.y
+          val tempList = mutableListOf<PointF>()
+
+          for (j in 0..loopCount.toInt()) {
+            if (tempY == new.y) {
+              tempList.add(PointF(new.x, new.y))
+
+            } else {
+
+              if (new.y > old.y) {
+                tempY += 16
+                tempY = min(tempY, new.y)
+                tempList.add(PointF(new.x, tempY))
+
+              } else {
+                tempY -= 16
+                tempY = max(tempY, new.y)
+                tempList.add(PointF(new.x, tempY))
+              }
+            }
+          }
+          tempPointsForAnimation.add(tempList)
+
+        }
+
+        val first = tempPointsForAnimation[0]
+        val second = tempPointsForAnimation[1]
+        val third = tempPointsForAnimation[2]
+
+        val length = first.size
+
+        for (i in 0 until length) {
+          conPoint1.clear()
+          conPoint2.clear()
+          points.clear()
+          points.add(first[i])
+          points.add(second[i])
+          points.add(third[i])
+          calculateConnectionPointsForBezierCurve()
+          postInvalidate()
+          Thread.sleep(60)
+
+          /*
+          1s = 16
+
+
+           */
+        }
 
       }).start()
     }

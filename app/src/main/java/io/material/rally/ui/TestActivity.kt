@@ -13,17 +13,32 @@ import kotlinx.android.synthetic.main.test.rallyLine
  */
 
 class TestActivity : AppCompatActivity() {
+
+  var i = 0
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.test)
 
-    rallyLine.addDataPoints(getRandomPoints())
+    rallyLine.addDataPoints(getPoints())
 
     btn.setOnClickListener {
-      rallyLine.addDataPoints(getRandomPoints())
+      rallyLine.addDataPoints(getPoints())
     }
   }
+
+  fun getPoints():List<DataPoint>{
+    i++
+    return if(i % 2 != 0){
+      listOf(DataPoint(1000f),DataPoint(1000f),DataPoint(500f))
+    }else{
+      listOf(DataPoint(1000f),DataPoint(500f),DataPoint(0f))
+    }
+  }
+
 }
+
+
 
 fun getRandomPoints(): MutableList<DataPoint> {
   val list = mutableListOf<DataPoint>()
