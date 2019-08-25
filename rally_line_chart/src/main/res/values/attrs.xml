@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="RallyLineGraphChart">
+    <attr name="barColor" format="color"/>
+    <attr name="curveBorderColor" format="color"/>
+    <attr name="curveFillColor" format="color"/>
+  </declare-styleable>
+</resources>

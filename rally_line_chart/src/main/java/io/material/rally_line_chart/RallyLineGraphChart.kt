@@ -34,14 +34,14 @@ class RallyLineGraphChart : View {
   private val bitmapPaint = Paint(Paint.DITHER_FLAG)
 
   constructor(context: Context?) : super(context) {
-    init()
+    init(null)
   }
 
   constructor(
     context: Context?,
     attrs: AttributeSet?
   ) : super(context, attrs) {
-    init()
+    init(attrs)
   }
 
   constructor(
@@ -49,26 +49,35 @@ class RallyLineGraphChart : View {
     attrs: AttributeSet?,
     defStyleAttr: Int
   ) : super(context, attrs, defStyleAttr) {
-    init()
+    init(attrs)
   }
 
-  private fun init() {
+  private fun init(set: AttributeSet?) {
+
+    val ta = context.obtainStyledAttributes(set, R.styleable.RallyLineGraphChart)
+    val barColor = ta.getColor(R.styleable.RallyLineGraphChart_barColor, Color.GRAY)
+    val fillColor =
+      ta.getColor(R.styleable.RallyLineGraphChart_curveFillColor, Color.parseColor("#ff2A2931"))
+    val borderColor =
+      ta.getColor(R.styleable.RallyLineGraphChart_curveBorderColor, Color.parseColor("#ff21AF6C"))
+    ta.recycle()
+
     barPaint.apply {
       isAntiAlias = true
       strokeWidth = BAR_WIDTH
       style = Paint.Style.STROKE
-      color = Color.GRAY
+      color = barColor
     }
     pathPaint.apply {
       isAntiAlias = true
       style = Paint.Style.FILL
-      color = Color.parseColor("#ff202020")
+      color = fillColor
     }
     borderPathPaint.apply {
       isAntiAlias = true
       strokeWidth = 12f
       style = Paint.Style.STROKE
-      color = Color.parseColor("#ff21AF6C")
+      color = borderColor
     }
   }
 
