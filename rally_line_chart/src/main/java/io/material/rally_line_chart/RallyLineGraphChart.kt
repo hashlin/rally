@@ -7,11 +7,8 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.PointF
-import android.os.Handler
-import android.os.HandlerThread
 import android.util.AttributeSet
 import android.view.View
-import android.widget.Toast
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
@@ -27,11 +24,13 @@ class RallyLineGraphChart : View {
   private val conPoint2 = mutableListOf<PointF>()
 
   private val path = Path()
+  private val borderPath = Path()
   private val barPaint = Paint()
   private val pathPaint = Paint()
+  private val borderPathPaint = Paint()
 
-  private var viewCanvas:Canvas? = null
-  private var bitmap:Bitmap? = null
+  private var viewCanvas: Canvas? = null
+  private var bitmap: Bitmap? = null
   private val bitmapPaint = Paint(Paint.DITHER_FLAG)
 
   constructor(context: Context?) : super(context) {
@@ -62,6 +61,11 @@ class RallyLineGraphChart : View {
     }
     pathPaint.apply {
       isAntiAlias = true
+      style = Paint.Style.FILL
+      color = Color.parseColor("#ff202020")
+    }
+    borderPathPaint.apply {
+      isAntiAlias = true
       strokeWidth = 12f
       style = Paint.Style.STROKE
       color = Color.parseColor("#ff21AF6C")
@@ -84,7 +88,7 @@ class RallyLineGraphChart : View {
   ) {
     super.onSizeChanged(w, h, oldw, oldh)
 
-    bitmap = Bitmap.createBitmap(w,h,Bitmap.Config.ARGB_8888)
+    bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
     viewCanvas = Canvas(bitmap!!)
     drawVerticalBars(viewCanvas)
   }
@@ -92,10 +96,10 @@ class RallyLineGraphChart : View {
   override fun onDraw(canvas: Canvas?) {
     super.onDraw(canvas)
 
-    bitmap?.let {
-      canvas?.drawBitmap(it,0f,0f,bitmapPaint)
-    }
     drawBezierCurve(canvas)
+    bitmap?.let {
+      canvas?.drawBitmap(it, 0f, 0f, bitmapPaint)
+    }
   }
 
   private fun drawVerticalBars(canvas: Canvas?) {
@@ -135,7 +139,15 @@ class RallyLineGraphChart : View {
         )
       }
 
+      borderPath.set(path)
+
+      path.lineTo(width.toFloat(), height.toFloat())
+      path.lineTo(0f, height.toFloat())
+
       canvas?.drawPath(path, pathPaint)
+
+      canvas?.drawPath(borderPath, borderPathPaint)
+
     } catch (e: Exception) {
     }
   }
@@ -263,7 +275,7 @@ class RallyLineGraphChart : View {
     private const val VERTICAL_BARS = (INDEX_OF_LARGE_BAR * 7) + 1 // add fixed bars size
 
     private const val BAR_WIDTH = 6f // get from attribute for more flexibility
-    private const val CURVE_BOTTOM_MARGIN = 16f
+    private const val CURVE_BOTTOM_MARGIN = 32f
     private const val CURVE_TOP_MARGIN = 200f
 
   }
