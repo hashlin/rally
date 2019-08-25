@@ -10,7 +10,9 @@ import android.view.ViewTreeObserver.OnPreDrawListener
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import io.material.rally.R
+import io.material.rally.ui.getRandomPoints
 import kotlinx.android.synthetic.main.activity_detail.content
+import kotlinx.android.synthetic.main.activity_detail.rallyLine
 import kotlinx.android.synthetic.main.activity_detail.tab
 import kotlinx.android.synthetic.main.activity_detail.toolbar
 import kotlinx.android.synthetic.main.activity_detail.viewPager
@@ -24,12 +26,7 @@ class DetailActivity : AppCompatActivity() {
 
     setUpToolbar()
     setUpTab()
-    content.viewTreeObserver.addOnPreDrawListener(object:OnPreDrawListener{
-      override fun onPreDraw(): Boolean {
-        content.viewTreeObserver.removeOnPreDrawListener(this)
-        return true
-      }
-    })
+    rallyLine.addDataPoints(getRandomPoints())
   }
 
   private fun setUpToolbar(){
@@ -46,8 +43,8 @@ class DetailActivity : AppCompatActivity() {
             "Aug 2018","Sep 2018","Oct 2018","Nov 2018","Dec 2018"
             )
     )
-    tab.addOnTabListener {
-      Log.i("TAG","position $it")
+    tab.addOnPageChangeListener {
+      rallyLine.addDataPoints(getRandomPoints())
     }
 
     viewPager.adapter = MyPagerAdapter(supportFragmentManager)

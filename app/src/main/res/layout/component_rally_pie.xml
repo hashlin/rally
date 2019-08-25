@@ -31,12 +31,6 @@
         />
 
 
-    <io.material.rally_line_chart.RallyLineChart
-        android:id="@+id/rallyLine"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:layout_gravity="center"
-        />
 
 
     <io.material.rally_line_indicator.RallyLineIndicator

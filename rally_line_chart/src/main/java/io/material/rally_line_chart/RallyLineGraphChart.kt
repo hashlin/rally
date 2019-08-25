@@ -33,6 +33,8 @@ class RallyLineGraphChart : View {
   private var bitmap: Bitmap? = null
   private val bitmapPaint = Paint(Paint.DITHER_FLAG)
 
+  private var curveTopMargin = 32
+
   constructor(context: Context?) : super(context) {
     init(null)
   }
@@ -60,6 +62,8 @@ class RallyLineGraphChart : View {
       ta.getColor(R.styleable.RallyLineGraphChart_curveFillColor, Color.parseColor("#ff2A2931"))
     val borderColor =
       ta.getColor(R.styleable.RallyLineGraphChart_curveBorderColor, Color.parseColor("#ff21AF6C"))
+
+    curveTopMargin = ta.getDimensionPixelSize(R.styleable.RallyLineGraphChart_curveTopMargin, 0)
     ta.recycle()
 
     barPaint.apply {
@@ -171,7 +175,7 @@ class RallyLineGraphChart : View {
     val maxData = data.maxBy { it.amount }!!.amount
 
     for (i in 0 until data.size) {
-      val y = bottomY - (data[i].amount / maxData * (bottomY - CURVE_TOP_MARGIN))
+      val y = bottomY - (data[i].amount / maxData * (bottomY - curveTopMargin))
       points.add(PointF(xDiff * i, y))
     }
   }
@@ -280,12 +284,11 @@ class RallyLineGraphChart : View {
   }
 
   companion object {
-    private const val INDEX_OF_LARGE_BAR = 7
-    private const val VERTICAL_BARS = (INDEX_OF_LARGE_BAR * 7) + 1 // add fixed bars size
+    private const val INDEX_OF_LARGE_BAR = 6
+    private const val VERTICAL_BARS = (INDEX_OF_LARGE_BAR * 6) + 1 // add fixed bars size
 
     private const val BAR_WIDTH = 6f // get from attribute for more flexibility
     private const val CURVE_BOTTOM_MARGIN = 32f
-    private const val CURVE_TOP_MARGIN = 200f
 
   }
 }

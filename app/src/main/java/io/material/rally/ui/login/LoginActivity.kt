@@ -37,9 +37,6 @@ class LoginActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_login)
 
-    startActivity(Intent(this,TestActivity::class.java))
-    finish()
-
     (application as RallyApp).preferenceRepository
         .nightModeLive.observe(this, Observer { nightMode ->
       nightMode?.let { delegate.localNightMode = it }

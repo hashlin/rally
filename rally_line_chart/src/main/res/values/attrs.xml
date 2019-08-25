@@ -4,5 +4,6 @@
     <attr name="barColor" format="color"/>
     <attr name="curveBorderColor" format="color"/>
     <attr name="curveFillColor" format="color"/>
+    <attr name="curveTopMargin" format="dimension"/>
   </declare-styleable>
 </resources>
