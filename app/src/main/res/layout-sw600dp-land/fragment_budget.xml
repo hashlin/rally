@@ -55,7 +55,7 @@
           android:id="@+id/tvAmount"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="$12,132,34"
+          tools:text="$12,132,34"
           app:layout_constraintBottom_toBottomOf="@id/rallyPie"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"

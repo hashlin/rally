@@ -13,6 +13,8 @@ import io.material.design_system.R.color
 import io.material.rally.R
 import io.material.rally.data.DataProvider
 import io.material.rally.extension.getRallyItemDecoration
+import io.material.rally.extension.toMoneyFormatted
+import io.material.rally.extension.toUSDFormatted
 import io.material.rally.ui.overview.adapter.BudgetAdapter
 import io.material.rally_pie.RallyPieAnimation
 import io.material.rally_pie.RallyPieData
@@ -20,6 +22,7 @@ import io.material.rally_pie.RallyPiePortion
 import io.material.rally_pie.pxToDp
 import kotlinx.android.synthetic.main.fragment_budget.rallyPie
 import kotlinx.android.synthetic.main.fragment_budget.rv_budget
+import kotlinx.android.synthetic.main.fragment_budget.tvAmount
 import kotlinx.android.synthetic.main.layout_budget_overview.rv_budget_overview
 
 /**
@@ -52,6 +55,9 @@ class BudgetFragment : Fragment() {
 //  }
 
   private fun setUpPieView() {
+    tvAmount.text = DataProvider.budgetOverView.budgets.sumByDouble { it.spend.toDouble() }
+        .toFloat()
+        .toUSDFormatted()
     val rallyPiePortions = listOf(
         RallyPiePortion(
             "A", 100f, ContextCompat.getColor(requireContext(), color.rally_blue_100)
