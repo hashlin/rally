@@ -4,6 +4,8 @@
   <dimen name="spacing_medium">16dp</dimen>
   <dimen name="spacing_large">24dp</dimen>
   <dimen name="spacing_x_large">32dp</dimen>
+  <dimen name="spacing_xxlarge">64dp</dimen>
+  <dimen name="spacing_xxxlarge">128dp</dimen>
 
 
   <dimen name="spacing_keyline">16dp</dimen>

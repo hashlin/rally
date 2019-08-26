@@ -18,22 +18,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!--Top level DayNight theme to be used in AndroidManifest.xml-->
-    <style name="Rally.DayNight" parent="Base.Rally">
-        <item name="android:windowSharedElementsUseOverlay">false</item>
-    </style>
-
-    <style name="Rally.DayNight.Main" parent="Base.Rally">
-        <item name="android:windowContentTransitions">true</item>
-        <item name="android:windowSharedElementsUseOverlay">false</item>
-    </style>
-    <style name="Rally.DayNight.Detail" parent="Base.Rally">
-        <item name="android:windowContentTransitions">true</item>
-        <item name="android:windowEnterTransition">@transition/detail_enter</item>
-        <item name="android:windowReturnTransition">@transition/detail_return</item>
-        <item name="android:windowSharedElementEnterTransition">@transition/detail_share_enter</item>
-        <item name="android:windowSharedElementReturnTransition">@transition/detail_share_return</item>
-        <item name="android:windowSharedElementsUseOverlay">false</item>
-    </style>
 
     <!--Base custom theme which will be shared between both light and dark theme variants-->
     <style name="Base.Rally" parent="Base.MaterialThemeBuilder">

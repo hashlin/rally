@@ -19,10 +19,6 @@ import androidx.viewpager.widget.ViewPager
 /**
  * Created by Chan Myae Aung on 8/4/19.
  */
-/**
- * Currently only support tab item click,
- * but not trigger event when tab item are scrolled and selected
- */
 class RallyScrollableTab : RecyclerView {
 
   private val tabAdapter by lazy { TabAdapter(style = tabTextStyle) }
@@ -33,6 +29,7 @@ class RallyScrollableTab : RecyclerView {
   private var viewPager: ViewPager? = null
   private var isRVScrolling = true
   private var listener: ((position: Int) -> Unit)? = null
+  private var pageChangeListener: ((position: Int) -> Unit)? = null
 
   constructor(
     context: Context,
@@ -134,6 +131,10 @@ class RallyScrollableTab : RecyclerView {
     this.listener = listener
   }
 
+  fun addOnPageChangeListener(pageChangeListener: (position: Int) -> Unit){
+    this.pageChangeListener = pageChangeListener
+  }
+
   @SuppressLint("ClickableViewAccessibility") fun setUpWithViewPager(viewPager: ViewPager) {
     if (viewPager.adapter == null) throw IllegalStateException(
         "ViewPager does not have pager adapter"
@@ -160,6 +161,7 @@ class RallyScrollableTab : RecyclerView {
 
       override fun onPageSelected(position: Int) {
         smoothScrollToPosition(position)
+        pageChangeListener?.invoke(position)
       }
     })
   }
@@ -179,6 +181,8 @@ class RallyScrollableTab : RecyclerView {
     tabAdapter.onTabClick(null)
     viewPager = null
   }
+
+
 }
 
 data class TabStyle(@StyleRes val tabTextStyle: Int)

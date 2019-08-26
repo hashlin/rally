@@ -1,7 +1,8 @@
 package io.material.rally.ui
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -43,6 +44,14 @@ class MainActivity : AppCompatActivity() {
           .alpha(1f)
           .setDuration(300)
           .start()
+    }
+  }
+
+  companion object{
+    fun start(context: Context){
+      val intent = Intent(context,MainActivity::class.java)
+      intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+      context.startActivity(intent)
     }
   }
 }

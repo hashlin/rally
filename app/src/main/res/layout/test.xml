@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    app:layoutDescription="@xml/test_states"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     >
-
-  <ImageView
-      android:id="@+id/iv_one"
-      android:layout_width="100dp"
-      android:layout_height="100dp"
-      android:background="@color/rally_blue_100"
+  <io.material.rally_line_chart.RallyLineGraphChart
+      android:id="@+id/rallyLine"
+      android:layout_width="match_parent"
+      android:layout_height="200dp"
+      android:layout_gravity="center"
       />
 
-  <ImageView
-      android:background="@color/rally_blue_200"
-      android:id="@+id/iv_two"
-      android:layout_width="100dp"
-      android:layout_height="100dp"
-      />
-</androidx.constraintlayout.motion.widget.MotionLayout>
+  <Button
+      android:id="@+id/btn"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="bottom|center"
+      android:text="Random"
+      android:layout_marginTop="100dp"/>
+</LinearLayout>
