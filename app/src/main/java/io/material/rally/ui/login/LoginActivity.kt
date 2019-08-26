@@ -3,22 +3,17 @@ package io.material.rally.ui.login
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import androidx.core.animation.addListener
-import androidx.core.widget.addTextChangedListener
-import androidx.interpolator.view.animation.FastOutLinearInInterpolator
+import androidx.appcompat.app.AppCompatActivity
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.lifecycle.Observer
 import io.material.rally.R
 import io.material.rally.ui.MainActivity
 import io.material.rally.ui.RallyApp
-import io.material.rally.ui.TestActivity
 import kotlinx.android.synthetic.main.activity_login.et_email
 import kotlinx.android.synthetic.main.activity_login.et_pwd
 import kotlinx.android.synthetic.main.activity_login.imgLogo
@@ -26,7 +21,6 @@ import kotlinx.android.synthetic.main.activity_login.input_email
 import kotlinx.android.synthetic.main.activity_login.input_pwd
 import kotlinx.android.synthetic.main.activity_login.iv_fingerprint
 import kotlinx.android.synthetic.main.activity_login.label_login_id
-import kotlinx.android.synthetic.main.activity_main.logo
 
 /**
  * Created by Chan Myae Aung on 8/18/19.
@@ -49,9 +43,26 @@ class LoginActivity : AppCompatActivity() {
 
   private fun setUpInputField() {
     input_email.isEndIconVisible = false
-    et_email.addTextChangedListener {
-      input_email.isEndIconVisible = it?.toString()?.trim() == "user@rally"
-    }
+    et_email.addTextChangedListener(object:TextWatcher{
+      override fun afterTextChanged(editable: Editable?) {
+        input_email.isEndIconVisible = editable?.toString()?.trim() == "user@rally"
+
+      }
+      override fun beforeTextChanged(
+        p0: CharSequence?,
+        p1: Int,
+        p2: Int,
+        p3: Int
+      ) {}
+
+      override fun onTextChanged(
+        p0: CharSequence?,
+        p1: Int,
+        p2: Int,
+        p3: Int
+      ) {}
+
+    })
     et_email.setText("user@rally")
 
 
