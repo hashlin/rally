@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.lifecycle.Observer
 import io.material.rally.R
+import io.material.rally.data.Authenticator
 import io.material.rally.ui.MainActivity
 import io.material.rally.ui.RallyApp
 import kotlinx.android.synthetic.main.activity_login.et_email
@@ -27,14 +28,22 @@ import kotlinx.android.synthetic.main.activity_login.label_login_id
  */
 class LoginActivity : AppCompatActivity() {
 
+  private lateinit var authenticator: Authenticator
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_login)
+
+    authenticator = Authenticator(applicationContext)
+    if (authenticator.isLoggedIn()) {
+      navigateToMain()
+    }
 
     (application as RallyApp).preferenceRepository
         .nightModeLive.observe(this, Observer { nightMode ->
       nightMode?.let { delegate.localNightMode = it }
     })
+
 
     if (savedInstanceState == null) runEnterAnimation()
 
@@ -43,24 +52,27 @@ class LoginActivity : AppCompatActivity() {
 
   private fun setUpInputField() {
     input_email.isEndIconVisible = false
-    et_email.addTextChangedListener(object:TextWatcher{
+    et_email.addTextChangedListener(object : TextWatcher {
       override fun afterTextChanged(editable: Editable?) {
         input_email.isEndIconVisible = editable?.toString()?.trim() == "user@rally"
 
       }
+
       override fun beforeTextChanged(
         p0: CharSequence?,
         p1: Int,
         p2: Int,
         p3: Int
-      ) {}
+      ) {
+      }
 
       override fun onTextChanged(
         p0: CharSequence?,
         p1: Int,
         p2: Int,
         p3: Int
-      ) {}
+      ) {
+      }
 
     })
     et_email.setText("user@rally")
@@ -81,8 +93,14 @@ class LoginActivity : AppCompatActivity() {
     val password = et_pwd.text?.toString()
         ?.trim()
     if (email == "user@rally" && password == "1234") {
-      MainActivity.start(this)
+      authenticator.login()
+      navigateToMain()
     }
+  }
+
+  private fun navigateToMain(){
+    MainActivity.start(this)
+    finish()
   }
 
   private fun runEnterAnimation() {

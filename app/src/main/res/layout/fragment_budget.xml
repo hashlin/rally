@@ -47,7 +47,7 @@
         android:id="@+id/tvAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="$12,132,34"
+        tools:text="$12,132,34"
         style="@style/TextAppearance.Rally.Headline3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

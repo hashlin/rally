@@ -44,7 +44,9 @@ class RallyVerticalBar : View {
 
     data?.let {
       paint.color = ContextCompat.getColor(context, it.color)
-      canvas?.drawRect(0f, it.percent / 100 * height, width.toFloat(), height.toFloat(), paint)
+      canvas?.drawRect(
+          0f, height - (it.percent / 100 * height), width.toFloat(), height.toFloat(), paint
+      )
     }
   }
 
@@ -60,7 +62,7 @@ data class RallyVerticalBarData(
   @ColorRes val color: Int
 ) {
   val percent = if (current == total) {
-    0f
+    100f
   } else {
     current / total * 100f
 

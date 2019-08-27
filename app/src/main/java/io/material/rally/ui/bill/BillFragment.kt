@@ -11,12 +11,15 @@ import io.material.design_system.R.color
 import io.material.rally.R
 import io.material.rally.data.DataProvider
 import io.material.rally.extension.getRallyItemDecoration
+import io.material.rally.extension.toMoneyFormatted
+import io.material.rally.extension.toUSDFormatted
 import io.material.rally.ui.overview.adapter.BillAdapter
 import io.material.rally_pie.RallyPieAnimation
 import io.material.rally_pie.RallyPieData
 import io.material.rally_pie.RallyPiePortion
 import kotlinx.android.synthetic.main.fragment_bill.rallyPie
 import kotlinx.android.synthetic.main.fragment_bill.rv_bill
+import kotlinx.android.synthetic.main.fragment_bill.tvAmount
 
 /**
  * Created by Chan Myae Aung on 8/13/19.
@@ -45,6 +48,7 @@ class BillFragment : Fragment() {
 
 
   private fun setUpPieView() {
+    tvAmount.text = DataProvider.billOverView.total.toUSDFormatted()
     val rallyPiePortions = listOf(
         RallyPiePortion(
             "A", 50f, ContextCompat.getColor(requireContext(), color.rally_yellow_300)
