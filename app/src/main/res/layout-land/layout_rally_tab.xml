@@ -34,6 +34,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:padding="16dp"
+      app:iconTint="?attr/colorPrimaryVariant"
       app:icon="@drawable/ic_attach_money"
       style="@style/Widget.Rally.Button.IconOnly"
       />
@@ -45,6 +46,8 @@
       android:layout_height="wrap_content"
       android:padding="16dp"
       app:icon="@drawable/ic_money_off"
+      app:iconTint="?attr/colorPrimaryVariant"
+
       style="@style/Widget.Rally.Button.IconOnly"
       />
 
@@ -52,6 +55,8 @@
   <com.google.android.material.button.MaterialButton
       android:id="@+id/image4"
       android:layout_width="wrap_content"
+      app:iconTint="?attr/colorPrimaryVariant"
+
       android:layout_height="wrap_content"
       android:padding="16dp"
       app:icon="@drawable/ic_budget"
@@ -62,6 +67,8 @@
   <com.google.android.material.button.MaterialButton
       android:id="@+id/image5"
       android:layout_width="wrap_content"
+      app:iconTint="?attr/colorPrimaryVariant"
+
       android:layout_height="wrap_content"
       style="@style/Widget.Rally.Button.IconOnly"
       android:padding="16dp"

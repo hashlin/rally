@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="300dp"
+    android:layout_width="280dp"
     android:padding="@dimen/spacing_medium"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     >
+
 
   <TextView
       android:id="@+id/tv_alert"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_weight="1"
-      android:lines="3"
+      android:lines="2"
       android:ellipsize="end"
       android:layout_marginEnd="@dimen/spacing_medium"
+      android:textAppearance="?attr/textAppearanceSubtitle1"
       android:text="Somethings"
       tools:text="@tools:sample/lorem/random"
       />
 
   <ImageView
-      android:tint="?attr/colorSecondary"
       android:id="@+id/iv_icon"
+      android:tint="@color/color_on_surface_20"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:src="@drawable/ic_sort"

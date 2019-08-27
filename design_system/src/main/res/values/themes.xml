@@ -82,7 +82,6 @@
     </style>
 
 
-
     <style name="Widget.Rally.CompoundButton.Switch" parent="@style/Widget.MaterialComponents.CompoundButton.Switch">
         <item name="android:colorButtonNormal">@color/rally_green_700</item>
         <item name="android:colorControlActivated">@color/rally_green_300</item>
@@ -120,4 +119,8 @@
         <item name="colorAccent">?colorSecondary</item>
     </style>
 
+
+    <style name="ThemeOverlay.Rally.Switch" parent="">
+        <item name="colorSecondary">@color/rally_green_500</item>
+    </style>
 </resources>

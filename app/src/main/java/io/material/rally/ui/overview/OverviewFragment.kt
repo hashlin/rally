@@ -11,6 +11,8 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
+import androidx.recyclerview.widget.SnapHelper
 import io.material.rally.R
 import io.material.rally.data.DataProvider
 import io.material.rally.extension.getRallyItemDecoration
@@ -68,9 +70,12 @@ class OverviewFragment : Fragment() {
 
   private fun setUpAlertRecyclerView() {
     rv_alerts.apply {
-        layoutManager =   LinearLayoutManager(requireContext(), GridLayoutManager.HORIZONTAL , false )
-        setHasFixedSize(true)
+        layoutManager =  LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL , false )
 
+        val snapHelper = PagerSnapHelper()
+        snapHelper.attachToRecyclerView(this)
+
+        setHasFixedSize(true)
       adapter = alertsAdapter
     }
 

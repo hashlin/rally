@@ -16,13 +16,14 @@
       android:lines="2"
       android:ellipsize="end"
       android:layout_marginEnd="@dimen/spacing_medium"
+      android:textAppearance="?attr/textAppearanceSubtitle1"
       android:text="Somethings"
       tools:text="@tools:sample/lorem/random"
       />
 
   <ImageView
       android:id="@+id/iv_icon"
-      android:tint="?attr/colorSecondary"
+      android:tint="@color/color_on_surface_20"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:src="@drawable/ic_sort"
