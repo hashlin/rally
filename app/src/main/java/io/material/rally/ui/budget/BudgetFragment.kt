@@ -58,26 +58,12 @@ class BudgetFragment : Fragment() {
     tvAmount.text = DataProvider.budgetOverView.budgets.sumByDouble { it.spend.toDouble() }
         .toFloat()
         .toUSDFormatted()
-    val rallyPiePortions = listOf(
-        RallyPiePortion(
-            "A", 100f, ContextCompat.getColor(requireContext(), color.rally_blue_100)
-        ),
-        RallyPiePortion(
-            "A", 50f, ContextCompat.getColor(requireContext(), color.rally_purple)
-        ),
-        RallyPiePortion(
-            "A", 300f, ContextCompat.getColor(requireContext(), color.rally_blue)
-        ),
-        RallyPiePortion(
-            "A", 100f, ContextCompat.getColor(requireContext(), color.rally_blue_700)
-        ),
-        RallyPiePortion(
-            "A", 50f, ContextCompat.getColor(requireContext(), color.rally_purple_300)
-        ),
-        RallyPiePortion(
-            "A", 200f, ContextCompat.getColor(requireContext(), color.rally_orange_50)
-        )
-    )
+    val rallyPiePortions = DataProvider.budgetOverView.budgets.map {
+      RallyPiePortion(
+          it.name, it.spend, ContextCompat.getColor(requireContext(), it.color)
+      )
+    }
+        .toList()
     val rallyPieData = RallyPieData(portions = rallyPiePortions)
     val rallyPieAnimation = RallyPieAnimation(rallyPie)
     rallyPieAnimation.duration = 600

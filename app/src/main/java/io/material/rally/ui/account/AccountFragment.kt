@@ -48,22 +48,17 @@ class AccountFragment : Fragment() {
     setUpRecyclerView()
   }
 
-
   private fun setUpPieView() {
 
     tvAmount.text = DataProvider.accountOverView.total.toUSDFormatted()
 
-    val rallyPiePortions = listOf(
-        RallyPiePortion(
-            "A", 100f, ContextCompat.getColor(requireContext(), color.rally_green_500)
-        ),
-        RallyPiePortion(
-            "A", 500f, ContextCompat.getColor(requireContext(), color.rally_green_700)
-        ),
-        RallyPiePortion(
-            "A", 300f, ContextCompat.getColor(requireContext(), color.rally_green_300)
-        )
-    )
+    val rallyPiePortions = DataProvider.accountOverView.accounts.map {
+      RallyPiePortion(
+          it.name, it.amount, ContextCompat.getColor(requireContext(), it.color)
+      )
+    }
+        .toList()
+
     val rallyPieData = RallyPieData(portions = rallyPiePortions)
     val rallyPieAnimation = RallyPieAnimation(rallyPie)
     rallyPieAnimation.duration = 600
