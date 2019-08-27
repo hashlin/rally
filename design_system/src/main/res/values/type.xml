@@ -79,6 +79,7 @@
     <style name="TextAppearance.Rally.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
         <item name="fontFamily">@font/roboto_condensed_regular</item>
         <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">.05</item>
         <item name="android:lineSpacingExtra">2dp</item>
     </style>
 
