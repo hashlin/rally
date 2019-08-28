@@ -284,8 +284,8 @@ class RallyLineGraphChart : View {
   }
 
   companion object {
-    private const val INDEX_OF_LARGE_BAR = 6
-    private const val VERTICAL_BARS = (INDEX_OF_LARGE_BAR * 6) + 1 // add fixed bars size
+    private const val INDEX_OF_LARGE_BAR = 7
+    private const val VERTICAL_BARS = (INDEX_OF_LARGE_BAR * 7) + 1 // add fixed bars size
 
     private const val BAR_WIDTH = 6f // get from attribute for more flexibility
     private const val CURVE_BOTTOM_MARGIN = 32f

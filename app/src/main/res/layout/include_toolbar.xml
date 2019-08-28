@@ -10,6 +10,5 @@
       android:layout_height="wrap_content"
       android:text="Checking"
       android:layout_gravity="center"
-      style="@style/TextAppearance.Rally.Subtitle1"
       />
 </androidx.appcompat.widget.Toolbar>

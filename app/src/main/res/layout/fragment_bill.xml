@@ -65,7 +65,7 @@
         app:layout_constraintBottom_toTopOf="@id/tvAmount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        style="?attr/textAppearanceSubtitle1"
+        style="?attr/textAppearanceSubtitle2"
         />
 
     <com.google.android.material.button.MaterialButton

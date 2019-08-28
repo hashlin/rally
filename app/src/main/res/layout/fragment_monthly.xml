@@ -3,16 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.detail.DetailFragment"
+    tools:context=".ui.detail.MonthlyFragment"
     >
 
   <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/rv_account"
+      android:id="@+id/rv_monthly"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:overScrollMode="never"
       tools:itemCount="3"
-      tools:listitem="@layout/item_account"
+      tools:listitem="@layout/item_monthly"
       />
 
 </FrameLayout>

@@ -8,6 +8,9 @@ import io.material.rally.data.model.Bill
 import io.material.rally.data.model.BillOverView
 import io.material.rally.data.model.Budget
 import io.material.rally.data.model.BudgetOverview
+import io.material.rally.data.model.ItemType.DECREASE
+import io.material.rally.data.model.ItemType.INCREASE
+import io.material.rally.data.model.MonthlyItem
 
 /**
  * Created by Chan Myae Aung on 8/15/19.
@@ -84,6 +87,17 @@ object DataProvider {
       Budget("Mobile Data", 1000f, 600f, R.color.rally_blue)
   )
 
+  fun monthlyItems(month: Int): List<MonthlyItem> {
+    return listOf(
+        MonthlyItem(month, "Genoe", 12.54f, DECREASE),
+        MonthlyItem(month, "ABC Payroll", 1141.12f, INCREASE),
+        MonthlyItem(month, "Farmer John's", 11.69f, DECREASE),
+        MonthlyItem(month, "Pilrose", 23.44f, DECREASE),
+        MonthlyItem(month, "Mainstom", 12.54f, DECREASE),
+        MonthlyItem(month, "Foodmates", 11.69f, DECREASE),
+        MonthlyItem(month, "Shrine", 23.44f, DECREASE)
+    )
+  }
 
   val accountOverView =
     AccountOverView(accounts.sumByDouble { it.amount.toDouble() }.toFloat(), accounts)

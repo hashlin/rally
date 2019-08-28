@@ -9,48 +9,27 @@
     android:background="?attr/selectableItemBackground"
     >
 
-  <View
-      android:id="@+id/shareView"
-      android:layout_width="0dp"
-      android:layout_height="0dp"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintBottom_toBottomOf="parent"/>
-
-  <io.material.rally_line_indicator.RallyVerticalBar
-      android:id="@+id/bar"
-      android:layout_width="4dp"
-      android:layout_height="0dp"
-      app:layout_constraintTop_toTopOf="@id/tvName"
-      app:layout_constraintBottom_toBottomOf="@id/tvDesc"
-      app:layout_constraintStart_toStartOf="parent"
-      android:background="?attr/colorSecondary"
-      android:layout_marginTop="4dp"
-      android:layout_marginBottom="4dp"
-      android:layout_marginStart="@dimen/spacing_medium"/>
-
   <TextView
       android:id="@+id/tvName"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      tools:text="Home Savings"
+      tools:text="Genoe"
       android:layout_marginTop="@dimen/spacing_medium"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintStart_toEndOf="@id/bar"
+      app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toStartOf="@id/tvAmount"
       android:layout_marginStart="@dimen/spacing_medium"
       style="?attr/textAppearanceSubtitle1"/>
 
   <TextView
-      android:id="@+id/tvDesc"
+      android:id="@+id/tvDate"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      tools:text="••••••1234"
+      tools:text="12/30/18"
       android:layout_marginBottom="@dimen/spacing_medium"
       app:layout_constraintTop_toBottomOf="@id/tvName"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintStart_toEndOf="@id/bar"
+      app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toStartOf="@id/tvAmount"
       android:layout_marginStart="@dimen/spacing_medium"
       style="?attr/textAppearanceBody2"/>
@@ -61,15 +40,15 @@
       android:layout_height="wrap_content"
       tools:text="2,215.13"
       app:layout_constraintTop_toTopOf="@id/tvName"
-      app:layout_constraintBottom_toBottomOf="@id/tvDesc"
-      app:layout_constraintEnd_toStartOf="@id/ivArrow"
+      app:layout_constraintBottom_toBottomOf="@id/tvDate"
+      app:layout_constraintEnd_toEndOf="parent"
       android:layout_marginStart="@dimen/spacing_medium"
       android:layout_marginEnd="@dimen/spacing_small"
       style="?attr/textAppearanceMoney1"/>
 
   <TextView
       android:id="@+id/text_view_dollar"
-      android:text="$"
+      tools:text="-$"
       style="?attr/textAppearanceMoney1"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
@@ -78,19 +57,7 @@
       app:layout_constraintHorizontal_bias=".55"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      />
-
-
-  <ImageView
-      android:id="@+id/ivArrow"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      app:layout_constraintTop_toTopOf="@id/tvName"
-      app:layout_constraintBottom_toBottomOf="@id/tvDesc"
-      app:layout_constraintEnd_toEndOf="parent"
-      android:layout_marginEnd="@dimen/spacing_medium"
-      android:src="@drawable/ic_right_arrow"
-      android:tint="?attr/colorPrimaryVariant"
+      android:textColor="#33DDDDDD"
       />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

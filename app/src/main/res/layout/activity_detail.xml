@@ -32,7 +32,7 @@
         android:layout_height="180dp"
         android:layout_gravity="center"
         app:curveTopMargin="@dimen/spacing_large"
-        app:curveFillColor="?attr/colorOnBackground"
+        app:curveFillColor="#2A2931"
         app:curveBorderColor="@color/rally_dark_green"
         app:barColor="#55AEAEB1"
         />
@@ -41,7 +41,7 @@
         android:id="@+id/tab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorOnPrimary"
+        android:background="#2A2931"
         app:selectedColor="@android:color/white"
         app:tabTextStyle="@style/TextAppearance.RallyScrollableTab"
         app:unSelectedColor="#33DDDDDD"
