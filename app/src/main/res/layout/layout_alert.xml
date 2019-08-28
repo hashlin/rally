@@ -27,7 +27,7 @@
         android:layout_marginStart="@dimen/spacing_medium"
         app:layout_constraintBottom_toBottomOf="@+id/materialButton"
         app:layout_constraintTop_toTopOf="@+id/materialButton"
-        style="?attr/textAppearanceSubtitle1"
+        style="?attr/textAppearanceSubtitle2"
         />
 
 

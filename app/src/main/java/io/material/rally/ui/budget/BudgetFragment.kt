@@ -1,5 +1,6 @@
 package io.material.rally.ui.budget
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -58,27 +59,11 @@ class BudgetFragment : Fragment() {
     tvAmount.text = DataProvider.budgetOverView.budgets.sumByDouble { it.spend.toDouble() }
         .toFloat()
         .toUSDFormatted()
-    val rallyPiePortions = listOf(
-        RallyPiePortion(
-            "A", 100f, ContextCompat.getColor(requireContext(), color.rally_blue_100)
-        ),
-        RallyPiePortion(
-            "A", 50f, ContextCompat.getColor(requireContext(), color.rally_purple)
-        ),
-        RallyPiePortion(
-            "A", 300f, ContextCompat.getColor(requireContext(), color.rally_blue)
-        ),
-        RallyPiePortion(
-            "A", 100f, ContextCompat.getColor(requireContext(), color.rally_blue_700)
-        ),
-        RallyPiePortion(
-            "A", 50f, ContextCompat.getColor(requireContext(), color.rally_purple_300)
-        ),
-        RallyPiePortion(
-            "A", 200f, ContextCompat.getColor(requireContext(), color.rally_orange_50)
-        )
-    )
-    val rallyPieData = RallyPieData(portions = rallyPiePortions)
+    val rallyPiePortions = DataProvider.budgetOverView.budgets.map {
+      RallyPiePortion(it.name , it.spend , ContextCompat.getColor(requireContext() , it.color))
+    }
+
+    val rallyPieData = RallyPieData(portions = rallyPiePortions, maxValue = DataProvider.budgetOverView.total)
     val rallyPieAnimation = RallyPieAnimation(rallyPie)
     rallyPieAnimation.duration = 600
 

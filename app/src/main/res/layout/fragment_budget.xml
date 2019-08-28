@@ -35,6 +35,7 @@
     <io.material.rally_pie.RallyPie
         android:id="@+id/rallyPie"
         android:layout_width="0dp"
+        app:pieBackgroundColor="@color/color_on_background"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/spacing_small"
