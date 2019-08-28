@@ -9,7 +9,9 @@ import android.view.ViewTreeObserver
 import android.view.ViewTreeObserver.OnPreDrawListener
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.Observer
 import io.material.rally.R
+import io.material.rally.ui.RallyApp
 import io.material.rally.ui.getRandomPoints
 import kotlinx.android.synthetic.main.activity_detail.content
 import kotlinx.android.synthetic.main.activity_detail.rallyLine
@@ -22,7 +24,13 @@ class DetailActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+    (application as RallyApp).preferenceRepository
+        .nightModeLive.observe(this, Observer { nightMode ->
+      nightMode?.let { delegate.localNightMode = it }
+    })
     setContentView(R.layout.activity_detail)
+
+
 
     setUpToolbar()
     setUpTab()

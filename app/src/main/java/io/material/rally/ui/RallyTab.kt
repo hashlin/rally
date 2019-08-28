@@ -82,7 +82,7 @@ class RallyTab @JvmOverloads constructor(
 
   val tabNames = listOf("Overview", "Accounts", "Bills", "Budgets", "Settings")
 
-  private fun clickedItem(position: Int) {
+  fun clickedItem(position: Int) {
     TransitionManager.beginDelayedTransition(cl, transition)
     previousClickedPosition = lastClickedPosition
     lastClickedPosition = position

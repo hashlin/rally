@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
   }
 
   fun navigateToTabs(item: TabItem) {
+    tab_layout.clickedItem(item.position)
     view_pager.setCurrentItem(item.position, true)
   }
 

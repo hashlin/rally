@@ -13,10 +13,17 @@ class Authenticator(val context: Context) {
     return pref.getBoolean(KEY_LOGIN, false)
   }
 
-  fun login() {
-    pref.edit()
-        .putBoolean(KEY_LOGIN, true)
-        .apply()
+  fun login(
+    email: String?,
+    password: String?
+  ): Boolean {
+    if (email == "user@rally" && password == "1234") {
+      pref.edit()
+          .putBoolean(KEY_LOGIN, true)
+          .apply()
+      return true
+    }
+    return false
   }
 
   companion object {
