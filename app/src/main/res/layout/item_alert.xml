@@ -5,6 +5,8 @@
     android:padding="@dimen/spacing_medium"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:clickable="true"
+    android:background="?attr/selectableItemBackground"
     >
 
 
@@ -23,7 +25,7 @@
 
   <ImageView
       android:id="@+id/iv_icon"
-      android:tint="@color/color_on_surface_20"
+      android:tint="@color/color_primary_variant"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:src="@drawable/ic_sort"
