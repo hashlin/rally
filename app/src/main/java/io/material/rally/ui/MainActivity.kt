@@ -7,6 +7,9 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import io.material.rally.R
+import io.material.rally.ui.TabItem.ACCOUNT
+import io.material.rally.ui.TabItem.BILL
+import io.material.rally.ui.TabItem.BUDGET
 import kotlinx.android.synthetic.main.activity_main.tab_layout
 import kotlinx.android.synthetic.main.activity_main.view_pager
 
@@ -27,12 +30,16 @@ class MainActivity : AppCompatActivity() {
 
   private fun setUpViewPager() {
     val tabs = generateTabs()
-    view_pager.adapter = RallyPagerAdapter(this , tabs)
-    tab_layout.setUpWithViewPager2(view_pager , false)
+    view_pager.adapter = RallyPagerAdapter(this, tabs)
+    tab_layout.setUpWithViewPager2(view_pager, false)
 
-    view_pager.setCurrentItem( 0 , true)
+    view_pager.setCurrentItem(0, true)
   }
 
+  fun navigateToTabs(item: TabItem) {
+    tab_layout.clickedItem(item.position)
+    view_pager.setCurrentItem(item.position, true)
+  }
 
   private fun runEnterAnimation() {
     tab_layout.post {
@@ -47,11 +54,17 @@ class MainActivity : AppCompatActivity() {
     }
   }
 
-  companion object{
-    fun start(context: Context){
-      val intent = Intent(context,MainActivity::class.java)
+  companion object {
+    fun start(context: Context) {
+      val intent = Intent(context, MainActivity::class.java)
       //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
       context.startActivity(intent)
     }
   }
+}
+
+enum class TabItem(val position: Int) {
+  ACCOUNT(1),
+  BILL(2),
+  BUDGET(3)
 }

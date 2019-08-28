@@ -46,26 +46,14 @@ class BillFragment : Fragment() {
     setUpRecyclerView()
   }
 
-
   private fun setUpPieView() {
     tvAmount.text = DataProvider.billOverView.total.toUSDFormatted()
-    val rallyPiePortions = listOf(
-        RallyPiePortion(
-            "A", 50f, ContextCompat.getColor(requireContext(), color.rally_yellow_300)
-        ),
-        RallyPiePortion(
-            "A", 500f, ContextCompat.getColor(requireContext(), color.rally_orange_200)
-        ),
-        RallyPiePortion(
-            "A", 100f, ContextCompat.getColor(requireContext(), color.rally_orange_50)
-        ),
-        RallyPiePortion(
-            "A", 200f, ContextCompat.getColor(requireContext(), color.rally_yellow_200)
-        ),
-        RallyPiePortion(
-            "A", 80f, ContextCompat.getColor(requireContext(), color.rally_orange_50)
-        )
-    )
+    val rallyPiePortions = DataProvider.billOverView.bills.map {
+      RallyPiePortion(
+          it.name, it.amount, ContextCompat.getColor(requireContext(), it.color)
+      )
+    }
+        .toList()
     val rallyPieData = RallyPieData(portions = rallyPiePortions)
     val rallyPieAnimation = RallyPieAnimation(rallyPie)
     rallyPieAnimation.duration = 600

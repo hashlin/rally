@@ -31,7 +31,7 @@ import kotlinx.android.synthetic.main.layout_budget_overview.rv_budget_overview
  */
 class BudgetFragment : Fragment() {
 
-  private lateinit var budgetAdapter : BudgetAdapter
+  private lateinit var budgetAdapter: BudgetAdapter
   override fun onCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
@@ -60,10 +60,12 @@ class BudgetFragment : Fragment() {
         .toFloat()
         .toUSDFormatted()
     val rallyPiePortions = DataProvider.budgetOverView.budgets.map {
-      RallyPiePortion(it.name , it.spend , ContextCompat.getColor(requireContext() , it.color))
+      RallyPiePortion(it.name, it.spend, ContextCompat.getColor(requireContext(), it.color))
     }
 
-    val rallyPieData = RallyPieData(portions = rallyPiePortions, maxValue = DataProvider.budgetOverView.total)
+    val rallyPieData =
+      RallyPieData(portions = rallyPiePortions, maxValue = DataProvider.budgetOverView.total)
+
     val rallyPieAnimation = RallyPieAnimation(rallyPie)
     rallyPieAnimation.duration = 600
 
@@ -72,7 +74,7 @@ class BudgetFragment : Fragment() {
 
   private fun setUpRecyclerView() {
     val isTwoLine = requireContext().pxToDp(rv_budget.measuredWidth) >= 400
-    Log.i("Width" , requireContext().pxToDp(requireView().measuredWidth).toString() )
+    Log.i("Width", requireContext().pxToDp(requireView().measuredWidth).toString())
     budgetAdapter = BudgetAdapter(isTwoLine)
 
     rv_budget.apply {

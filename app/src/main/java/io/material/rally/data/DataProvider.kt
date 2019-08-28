@@ -46,16 +46,16 @@ object DataProvider {
   )
 
   private val accounts = listOf(
-      Account("Home Savings", "......1234", 2_215.13f, R.color.rally_green_700),
-      Account("Car Savings", "......5678", 8676.88f, R.color.rally_green_500),
-      Account("Vacations", "......1234", 987.48f, R.color.rally_green_300),
-      Account("KBZ Saving", "......5678", 253.13f, R.color.rally_dark_green),
-      Account("AYA Saving", "......1234", 100.00f, R.color.rally_green_700),
-      Account("Home Savings", "......5678", 2_215.13f, R.color.rally_green_500),
-      Account("Trips", "......1234", 52.00f, R.color.rally_green_300),
-      Account("ABC Bank Deposit", "......5678", 1000.00f, R.color.rally_dark_green),
-      Account("IRA Savings", "......1234", 200.50f, R.color.rally_green_500),
-      Account("Yoma Savings", "......5678", 1000.00f, R.color.rally_green_300)
+      Account("Home Savings", "••••••1234", 2_215.13f, R.color.rally_green_700),
+      Account("Car Savings", "••••••5678", 8676.88f, R.color.rally_green_500),
+      Account("Vacations", "••••••1234", 987.48f, R.color.rally_green_300),
+      Account("KBZ Saving", "••••••5678", 253.13f, R.color.rally_dark_green),
+      Account("AYA Saving", "••••••1234", 100.00f, R.color.rally_green_700),
+      Account("Home Savings", "••••••5678", 2_215.13f, R.color.rally_green_500),
+      Account("Trips", "••••••1234", 52.00f, R.color.rally_green_300),
+      Account("ABC Bank Deposit", "••••••5678", 1000.00f, R.color.rally_dark_green),
+      Account("IRA Savings", "••••••1234", 200.50f, R.color.rally_green_500),
+      Account("Yoma Savings", "••••••5678", 1000.00f, R.color.rally_green_300)
   )
 
   private val bills = listOf(

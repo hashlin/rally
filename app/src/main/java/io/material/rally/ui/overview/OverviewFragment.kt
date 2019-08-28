@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
@@ -17,6 +18,10 @@ import io.material.rally.R
 import io.material.rally.data.DataProvider
 import io.material.rally.extension.getRallyItemDecoration
 import io.material.rally.extension.toUSDFormatted
+import io.material.rally.ui.MainActivity
+import io.material.rally.ui.TabItem.ACCOUNT
+import io.material.rally.ui.TabItem.BILL
+import io.material.rally.ui.TabItem.BUDGET
 import io.material.rally.ui.overview.adapter.AccountOverviewAdapter
 import io.material.rally.ui.overview.adapter.AlertAdapter
 import io.material.rally.ui.overview.adapter.BillAdapter
@@ -25,12 +30,15 @@ import io.material.rally_line_indicator.data.RallyLineIndicatorData
 import io.material.rally_line_indicator.data.RallyLineIndicatorPortion
 import kotlinx.android.synthetic.main.fragment_overview.content
 import kotlinx.android.synthetic.main.layout_account_overview.account_line_indicator
+import kotlinx.android.synthetic.main.layout_account_overview.btn_acc_see_all
 import kotlinx.android.synthetic.main.layout_account_overview.rv_account_overview
 import kotlinx.android.synthetic.main.layout_account_overview.tv_account_amount
 import kotlinx.android.synthetic.main.layout_alert.rv_alerts
 import kotlinx.android.synthetic.main.layout_bill_overview.bill_line_indicator
+import kotlinx.android.synthetic.main.layout_bill_overview.btn_bill_see_all
 import kotlinx.android.synthetic.main.layout_bill_overview.rv_bill_overview
 import kotlinx.android.synthetic.main.layout_bill_overview.tv_bill_amount
+import kotlinx.android.synthetic.main.layout_budget_overview.btn_budget_see_all
 import kotlinx.android.synthetic.main.layout_budget_overview.budget_line_indicator
 import kotlinx.android.synthetic.main.layout_budget_overview.rv_budget_overview
 import kotlinx.android.synthetic.main.layout_budget_overview.tv_budget_amount
@@ -64,18 +72,31 @@ class OverviewFragment : Fragment() {
     setUpAccountRecyclerView()
     setUpBillRecyclerView()
     setUpBudgetRecyclerView()
+    setUpClickListener()
 
     if (savedInstanceState == null) runEnterAnimation()
   }
 
+  private fun setUpClickListener() {
+    btn_acc_see_all.setOnClickListener {
+      getParentActivity<MainActivity>().navigateToTabs(ACCOUNT)
+    }
+    btn_bill_see_all.setOnClickListener {
+      getParentActivity<MainActivity>().navigateToTabs(BILL)
+    }
+    btn_budget_see_all.setOnClickListener {
+      getParentActivity<MainActivity>().navigateToTabs(BUDGET)
+    }
+  }
+
   private fun setUpAlertRecyclerView() {
     rv_alerts.apply {
-        layoutManager =  LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL , false )
+      layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
-        val snapHelper = PagerSnapHelper()
-        snapHelper.attachToRecyclerView(this)
+      val snapHelper = PagerSnapHelper()
+      snapHelper.attachToRecyclerView(this)
 
-        setHasFixedSize(true)
+      setHasFixedSize(true)
       adapter = alertsAdapter
     }
 
@@ -199,5 +220,9 @@ class OverviewFragment : Fragment() {
     }
   }
 
+}
+
+fun <T> Fragment.getParentActivity(): T {
+  return requireActivity() as T
 }
 

@@ -92,13 +92,12 @@ class LoginActivity : AppCompatActivity() {
         ?.trim()
     val password = et_pwd.text?.toString()
         ?.trim()
-    if (email == "user@rally" && password == "1234") {
-      authenticator.login()
+    if (authenticator.login(email, password)) {
       navigateToMain()
     }
   }
 
-  private fun navigateToMain(){
+  private fun navigateToMain() {
     MainActivity.start(this)
     finish()
   }
