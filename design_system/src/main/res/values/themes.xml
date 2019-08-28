@@ -72,7 +72,7 @@
 
         <item name="android:statusBarColor">@color/color_status_bar</item>
         <item name="android:windowLightStatusBar">false</item>
-        <item name="android:iconTint">?attr/colorPrimaryVariant</item>
+        <item name="android:forceDarkAllowed">true</item>
     </style>
 
 
