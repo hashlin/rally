@@ -2,18 +2,19 @@ package io.material.rally.ui.overview
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.view.animation.DecelerateInterpolator
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
-import androidx.recyclerview.widget.SnapHelper
+import com.google.android.material.button.MaterialButton
 import io.material.rally.R
 import io.material.rally.data.DataProvider
 import io.material.rally.extension.getRallyItemDecoration
@@ -52,7 +53,7 @@ class OverviewFragment : Fragment() {
   private val accountAdapter by lazy { AccountOverviewAdapter(isSingleLine = false) }
   private val billAdapter by lazy { BillAdapter() }
   private lateinit var budgetAdapter: BudgetAdapter
-  private val alertsAdapter by lazy { AlertAdapter() }
+  private lateinit var alertsAdapter: AlertAdapter
 
   override fun onCreateView(
     inflater: LayoutInflater,
@@ -90,6 +91,7 @@ class OverviewFragment : Fragment() {
   }
 
   private fun setUpAlertRecyclerView() {
+    alertsAdapter = AlertAdapter(clickListener = { showDialogForAlert(it) })
     rv_alerts.apply {
       layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
@@ -194,6 +196,19 @@ class OverviewFragment : Fragment() {
             maxValue = DataProvider.budgetOverView.total
         )
     )
+  }
+
+  private fun showDialogForAlert(alert: String) {
+    val dialog = Dialog(requireContext(),R.style.Widget_Rally_AlertDialog).apply {
+      setCancelable(true)
+      setContentView(R.layout.dialog_alert)
+
+      findViewById<TextView>(R.id.tv_alert_title).text = alert
+      findViewById<MaterialButton>(R.id.btnDismiss).setOnClickListener {
+        dismiss()
+      }
+    }
+    dialog.show()
   }
 
   private fun runEnterAnimation() {

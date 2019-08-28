@@ -15,7 +15,9 @@ import io.material.rally.extension.inflate
  * Created by lin min phyo on 2019-08-24.
  */
 
-class AlertAdapter : ListAdapter<Alert, AlertViewHolder>(object :
+class AlertAdapter(
+  private var clickListener: (model: String) -> Unit
+) : ListAdapter<Alert, AlertViewHolder>(object :
     DiffUtil.ItemCallback<Alert>() {
   override fun areItemsTheSame(
     oldItem: Alert,
@@ -32,6 +34,7 @@ class AlertAdapter : ListAdapter<Alert, AlertViewHolder>(object :
   }
 
 }) {
+
   override fun onCreateViewHolder(
     parent: ViewGroup,
     viewType: Int
@@ -44,12 +47,16 @@ class AlertAdapter : ListAdapter<Alert, AlertViewHolder>(object :
     position: Int
   ) {
     holder.bind(getItem(position))
+    holder.itemView.setOnClickListener {
+      clickListener.invoke(getItem(position).alert)
+    }
   }
 }
 
 class AlertViewHolder(view: View) : RecyclerView.ViewHolder(view) {
   private val alert: TextView = view.findViewById(R.id.tv_alert)
   private val image: ImageView = view.findViewById(R.id.iv_icon)
+
   fun bind(model: Alert) {
     alert.text = model.alert
     image.setImageResource(model.drawableRes)
