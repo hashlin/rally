@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewGroup.LayoutParams
 import android.view.Window
 import android.view.animation.DecelerateInterpolator
 import android.widget.TextView
@@ -199,9 +200,13 @@ class OverviewFragment : Fragment() {
   }
 
   private fun showDialogForAlert(alert: String) {
-    val dialog = Dialog(requireContext(),R.style.Widget_Rally_AlertDialog).apply {
+    val dialog = Dialog(requireContext(), R.style.Widget_Rally_AlertDialog).apply {
       setCancelable(true)
       setContentView(R.layout.dialog_alert)
+
+      val width = resources.displayMetrics.widthPixels * 0.65
+
+      window?.setLayout(width.toInt(), LayoutParams.WRAP_CONTENT)
 
       findViewById<TextView>(R.id.tv_alert_title).text = alert
       findViewById<MaterialButton>(R.id.btnDismiss).setOnClickListener {
