@@ -123,4 +123,8 @@
     <style name="ThemeOverlay.Rally.Switch" parent="">
         <item name="colorSecondary">@color/rally_green_500</item>
     </style>
+
+    <style name="ThemeOverlay.Rally.InputBox" parent="">
+        <item name="colorSecondaryVariant">@color/color_secondary</item>
+    </style>
 </resources>

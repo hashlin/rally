@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground"
     tools:context=".ui.login.LoginActivity"
     >
 
@@ -32,7 +33,10 @@
       app:hintEnabled="false"
       app:endIconMode="custom"
       app:endIconDrawable="@drawable/ic_done"
-      app:endIconTint="@color/rally_green_300"
+      app:endIconTint="@color/rally_green_500"
+      app:boxBackgroundColor="?attr/colorSecondary"
+      app:boxStrokeColor="@color/color_list_input"
+      style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
       app:layout_constraintVertical_chainStyle="packed"
       >
 
@@ -57,6 +61,9 @@
       app:layout_constraintTop_toBottomOf="@id/input_email"
       app:layout_constraintBottom_toBottomOf="parent"
       app:hintEnabled="false"
+      app:boxBackgroundColor="?attr/colorSecondary"
+      app:boxStrokeColor="@color/color_list_input"
+      style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
       app:endIconMode="password_toggle">
 
     <com.google.android.material.textfield.TextInputEditText
@@ -74,14 +81,14 @@
   <ImageView
       android:id="@+id/iv_fingerprint"
       android:layout_width="0dp"
-      android:layout_height="0dp"
+      android:layout_height="wrap_content"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toBottomOf="@id/input_pwd"
       app:layout_constraintBottom_toTopOf="@+id/label_login_id"
       app:layout_constraintVertical_chainStyle="packed"
       app:layout_constraintWidth_percent="0.3"
-      app:layout_constraintDimensionRatio="1:0.7"
+      android:tint="?attr/colorSecondaryVariant"
       android:src="@drawable/ic_fingerprint"
       />
 
