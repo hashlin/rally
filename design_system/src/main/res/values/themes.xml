@@ -61,7 +61,7 @@
 
         <!--Component styles-->
         <item name="materialAlertDialogTheme">@style/Widget.Rally.AlertDialog</item>
-        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.Rally.BottomSheetDialog</item>
+<!--        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.Rally.BottomSheetDialog</item>-->
         <item name="navigationViewStyle">@style/Widget.Rally.NavigationView</item>
         <item name="materialCardViewStyle">@style/Widget.Rally.CardView</item>
         <item name="tabStyle">@style/Widget.Rally.TabLayout</item>

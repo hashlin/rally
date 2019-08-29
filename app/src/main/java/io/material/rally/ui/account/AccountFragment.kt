@@ -1,23 +1,22 @@
 package io.material.rally.ui.account
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import io.material.design_system.R.color
 import io.material.rally.R
 import io.material.rally.data.DataProvider
 import io.material.rally.extension.getRallyItemDecoration
-import io.material.rally.extension.toMoneyFormatted
 import io.material.rally.extension.toUSDFormatted
+import io.material.rally.ui.info.InfoFragment
 import io.material.rally.ui.overview.adapter.AccountOverviewAdapter
 import io.material.rally_pie.RallyPieAnimation
 import io.material.rally_pie.RallyPieData
 import io.material.rally_pie.RallyPiePortion
+import kotlinx.android.synthetic.main.fragment_account.btn_info
 import kotlinx.android.synthetic.main.fragment_account.rallyPie
 import kotlinx.android.synthetic.main.fragment_account.rv_account
 import kotlinx.android.synthetic.main.fragment_account.tvAmount
@@ -46,6 +45,10 @@ class AccountFragment : Fragment() {
 
     setUpPieView()
     setUpRecyclerView()
+    btn_info.setOnClickListener {
+      val infoFragment = InfoFragment()
+      infoFragment.show(childFragmentManager, "AccountInfo")
+    }
   }
 
   private fun setUpPieView() {

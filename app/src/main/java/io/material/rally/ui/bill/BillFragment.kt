@@ -7,16 +7,16 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import io.material.design_system.R.color
 import io.material.rally.R
 import io.material.rally.data.DataProvider
 import io.material.rally.extension.getRallyItemDecoration
-import io.material.rally.extension.toMoneyFormatted
 import io.material.rally.extension.toUSDFormatted
+import io.material.rally.ui.info.InfoFragment
 import io.material.rally.ui.overview.adapter.BillAdapter
 import io.material.rally_pie.RallyPieAnimation
 import io.material.rally_pie.RallyPieData
 import io.material.rally_pie.RallyPiePortion
+import kotlinx.android.synthetic.main.fragment_bill.btn_info
 import kotlinx.android.synthetic.main.fragment_bill.rallyPie
 import kotlinx.android.synthetic.main.fragment_bill.rv_bill
 import kotlinx.android.synthetic.main.fragment_bill.tvAmount
@@ -44,6 +44,10 @@ class BillFragment : Fragment() {
 
     setUpPieView()
     setUpRecyclerView()
+    btn_info.setOnClickListener {
+      val infoFragment = InfoFragment()
+      infoFragment.show(childFragmentManager, "BillInfo")
+    }
   }
 
   private fun setUpPieView() {
