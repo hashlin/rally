@@ -30,14 +30,13 @@ class MainActivity : AppCompatActivity() {
 
   private fun setUpViewPager() {
     val tabs = generateTabs()
-    view_pager.adapter = RallyPagerAdapter(this, tabs)
+    view_pager.adapter = RallyPagerAdapter(supportFragmentManager, tabs)
     tab_layout.setUpWithViewPager2(view_pager, false)
 
     view_pager.setCurrentItem(0, true)
   }
 
   fun navigateToTabs(item: TabItem) {
-    tab_layout.clickedItem(item.position)
     view_pager.setCurrentItem(item.position, true)
   }
 

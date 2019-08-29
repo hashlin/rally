@@ -13,6 +13,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.transition.AutoTransition
 import androidx.transition.Slide
 import androidx.transition.TransitionManager
+import androidx.viewpager.widget.ViewPager
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.button.MaterialButton
 import io.material.rally.R
@@ -35,7 +37,7 @@ class RallyTab @JvmOverloads constructor(
   defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
-  var viewPager: ViewPager2? = null
+  var viewPager: ViewPager? = null
   var previousClickedPosition = 0
   var lastClickedPosition = 0
   var isInTransition = false
@@ -112,6 +114,7 @@ class RallyTab @JvmOverloads constructor(
       refs.add(position + 1, R.id.textView)
 
       flow.referencedIds = refs.toIntArray()
+      requestLayout()
 
 
       textView.text = tabNames[position]
@@ -147,15 +150,26 @@ class RallyTab @JvmOverloads constructor(
   }
 
   fun setUpWithViewPager2(
-    viewPager: ViewPager2,
+    viewPager: ViewPager,
     allowSwipe: Boolean
   ) {
     this.viewPager = viewPager
-    this.viewPager?.isUserInputEnabled = allowSwipe
+    // this.viewPager?.scroll = allowSwipe
 
-    viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+    this.viewPager?.addOnPageChangeListener(object : OnPageChangeListener {
+      override fun onPageScrollStateChanged(state: Int) {
+
+      }
+
+      override fun onPageScrolled(
+        position: Int,
+        positionOffset: Float,
+        positionOffsetPixels: Int
+      ) {
+
+      }
+
       override fun onPageSelected(position: Int) {
-        super.onPageSelected(position)
         clickedItem(position)
       }
     })
