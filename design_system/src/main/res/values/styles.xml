@@ -42,8 +42,7 @@
     <style name="Widget.Rally.AlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog.Centered">
         <item name="android:windowBackground">?attr/colorSecondaryVariant</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="android:windowMinWidthMajor">30%</item>
-        <item name="android:windowMinWidthMinor">30%</item>
+        <item name="android:backgroundDimAmount">0.85</item>
     </style>
 
 
