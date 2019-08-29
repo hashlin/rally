@@ -20,29 +20,22 @@
     <!--Components-->
 
     <!--Bottom Sheets-->
-<!--    <style name="ThemeOverlay.Rally.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.Dialog">-->
-<!--        <item name="android:windowIsFloating">false</item>-->
-<!--        <item name="android:windowBackground">@android:color/transparent</item>-->
-<!--        <item name="android:windowAnimationStyle">@style/Animation.MyTheme.BottomSheet.Modal</item>-->
-<!--        <item name="android:statusBarColor">@android:color/transparent</item>-->
-<!--        <item name="bottomSheetStyle">@style/Widget.Rally.BottomSheet.Modal</item>-->
-<!--        <item name="android:navigationBarColor">?colorSurface</item>-->
-<!--        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">@android:color/transparent</item>-->
-<!--    </style>-->
-<!--    <style name="Widget.Rally.BottomSheet.Modal" parent="Widget.MaterialComponents.BottomSheet.Modal">-->
-<!--        <item name="shapeAppearanceOverlay">?shapeAppearanceLargeComponent</item>-->
-<!--    </style>-->
+    <style name="ThemeOverlay.Rally.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.Dialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/Animation.MyTheme.BottomSheet.Modal</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="bottomSheetStyle">@style/Widget.Rally.BottomSheet.Modal</item>
+        <item name="android:navigationBarColor">?colorSurface</item>
+        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">@android:color/transparent</item>
+    </style>
+    <style name="Widget.Rally.BottomSheet.Modal" parent="Widget.MaterialComponents.BottomSheet.Modal">
+        <item name="shapeAppearanceOverlay">?shapeAppearanceLargeComponent</item>
+    </style>
 
     <!--Navigation Drawer-->
     <style name="Widget.Rally.NavigationView" parent="Widget.MaterialComponents.NavigationView">
         <item name="itemTextAppearance">?textAppearanceBody2</item>
-    </style>
-
-    <!--Alert Dialog-->
-    <style name="Widget.Rally.AlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog.Centered">
-        <item name="android:windowBackground">?attr/colorSecondaryVariant</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:backgroundDimAmount">0.85</item>
     </style>
 
 
