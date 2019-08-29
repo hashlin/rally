@@ -99,6 +99,7 @@
         <item name="fontFamily">@font/roboto_condensed_bold</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.175</item>
     </style>
 
     <style name="TextAppearance.Rally.Caption" parent="TextAppearance.MaterialComponents.Caption">
@@ -111,12 +112,12 @@
         <item name="android:textSize">10sp</item>
     </style>
 
-    <style name="TextAppearance.RallyScrollableTab" parent="TextAppearance.Design.Tab">
-        <item name="android:letterSpacing">0.2</item>
+    <style name="TextAppearance.RallyScrollableTab" parent="TextAppearance.Rally.Button" >
     </style>
 
 
     <attr name="textAppearanceMoney1" format="reference"/>
+
     <style name="TextAppearance.Rally.Money1" parent="">
         <item name="fontFamily">@font/eczar</item>
         <item name="android:textColor">?attr/colorPrimary</item>

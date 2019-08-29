@@ -6,6 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/content"
+    android:background="?android:attr/colorBackground"
+    android:theme="@style/ThemeOverlay.Rally.AccountDetail"
     tools:context=".ui.detail.DetailActivity"
     >
 
@@ -32,32 +34,26 @@
         android:layout_height="180dp"
         android:layout_gravity="center"
         app:curveTopMargin="@dimen/spacing_large"
-        app:curveFillColor="#2A2931"
+        app:barColor="@color/color_on_surface_20"
+        app:curveFillColor="?attr/colorSurface"
         app:curveBorderColor="@color/rally_dark_green"
-        app:barColor="#55AEAEB1"
         />
 
     <com.example.rally_scrollable_tab.RallyScrollableTab
         android:id="@+id/tab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#2A2931"
-        app:selectedColor="@android:color/white"
-        app:tabTextStyle="@style/TextAppearance.RallyScrollableTab"
-        app:unSelectedColor="#33DDDDDD"
+        app:selectedColor="?attr/colorOnSurface"
+        app:unSelectedColor="@color/color_on_surface_20"
+        android:background="?attr/colorSurface"
+        app:tabTextAppearance="?attr/textAppearanceButton"
         />
-
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
       <androidx.viewpager.widget.ViewPager
           android:id="@+id/viewPager"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           />
-
-    </com.google.android.material.card.MaterialCardView>
 
   </LinearLayout>
 

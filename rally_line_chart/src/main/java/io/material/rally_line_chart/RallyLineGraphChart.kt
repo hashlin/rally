@@ -8,6 +8,7 @@ import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.PointF
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.View
 import kotlin.math.abs
 import kotlin.math.max
@@ -34,6 +35,13 @@ class RallyLineGraphChart : View {
   private val bitmapPaint = Paint(Paint.DITHER_FLAG)
 
   private var curveTopMargin = 32
+
+  private val barWidth by lazy {
+    TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP, .5f, resources.displayMetrics
+    )
+  }
+
 
   constructor(context: Context?) : super(context) {
     init(null)
@@ -68,7 +76,7 @@ class RallyLineGraphChart : View {
 
     barPaint.apply {
       isAntiAlias = true
-      strokeWidth = BAR_WIDTH
+      strokeWidth = barWidth
       style = Paint.Style.STROKE
       color = barColor
     }
@@ -118,14 +126,14 @@ class RallyLineGraphChart : View {
   private fun drawVerticalBars(canvas: Canvas?) {
     val largeBarHeight = getLargeBarHeight()
     val smallBarHeight = height - largeBarHeight / 3
-    val barMargin = (width - (BAR_WIDTH * VERTICAL_BARS)) / VERTICAL_BARS
+    val barMargin = (width - (barWidth * VERTICAL_BARS)) / VERTICAL_BARS
     var startX = 0f
     val startY = height.toFloat()
     var endX: Float
     var endY: Float
 
     for (i in 0 until VERTICAL_BARS) {
-      startX += BAR_WIDTH + barMargin
+      startX += barWidth + barMargin
       endX = startX
       endY = if (i % INDEX_OF_LARGE_BAR != 0) {
         smallBarHeight
@@ -287,7 +295,7 @@ class RallyLineGraphChart : View {
     private const val INDEX_OF_LARGE_BAR = 7
     private const val VERTICAL_BARS = (INDEX_OF_LARGE_BAR * 7) + 1 // add fixed bars size
 
-    private const val BAR_WIDTH = 6f // get from attribute for more flexibility
+
     private const val CURVE_BOTTOM_MARGIN = 32f
 
   }

@@ -127,4 +127,9 @@
     <style name="ThemeOverlay.Rally.InputBox" parent="">
         <item name="colorSecondaryVariant">@color/color_secondary</item>
     </style>
+
+    <style name="ThemeOverlay.Rally.AccountDetail" parent="">
+        <item name="android:colorBackground">@color/color_surface</item>
+        <item name="colorSurface">@color/color_background</item>
+    </style>
 </resources>

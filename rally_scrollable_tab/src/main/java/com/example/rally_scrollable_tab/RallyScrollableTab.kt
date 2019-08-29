@@ -24,7 +24,7 @@ class RallyScrollableTab : RecyclerView {
   private val tabAdapter by lazy { TabAdapter(style = tabTextStyle) }
   private var selectedColor = Color.WHITE
   private var unSelectedColor = Color.GRAY
-  private var tabTextStyle = TabStyle(R.style.TabTextStyle)
+  private var tabTextStyle = TabStyle(R.style.TabTextAppearance)
   private val layoutManager = LinearLayoutManager(context, HORIZONTAL, false)
   private var viewPager: ViewPager? = null
   private var isRVScrolling = true
@@ -110,7 +110,7 @@ class RallyScrollableTab : RecyclerView {
     selectedColor = ta.getColor(R.styleable.RallyScrollableTab_selectedColor, Color.WHITE)
     unSelectedColor = ta.getColor(R.styleable.RallyScrollableTab_unSelectedColor, Color.GRAY)
     tabTextStyle =
-      TabStyle(ta.getResourceId(R.styleable.RallyScrollableTab_tabTextStyle, R.style.TabTextStyle))
+      TabStyle(ta.getResourceId(R.styleable.RallyScrollableTab_tabTextAppearance, R.style.TabTextAppearance))
     ta.recycle()
 
   }

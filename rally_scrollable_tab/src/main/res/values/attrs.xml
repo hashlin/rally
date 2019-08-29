@@ -3,6 +3,6 @@
   <declare-styleable name="RallyScrollableTab">
     <attr name="selectedColor" format="color"/>
     <attr name="unSelectedColor" format="color"/>
-    <attr name="tabTextStyle" format="reference"/>
+    <attr name="tabTextAppearance" format="reference"/>
   </declare-styleable>
 </resources>

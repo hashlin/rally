@@ -18,7 +18,7 @@
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toStartOf="@id/tvAmount"
-      android:layout_marginStart="@dimen/spacing_medium"
+      android:layout_marginStart="@dimen/spacing_large"
       style="?attr/textAppearanceSubtitle1"/>
 
   <TextView
@@ -31,7 +31,7 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toStartOf="@id/tvAmount"
-      android:layout_marginStart="@dimen/spacing_medium"
+      android:layout_marginStart="@dimen/spacing_large"
       style="?attr/textAppearanceBody2"/>
 
   <TextView
@@ -43,21 +43,21 @@
       app:layout_constraintBottom_toBottomOf="@id/tvDate"
       app:layout_constraintEnd_toEndOf="parent"
       android:layout_marginStart="@dimen/spacing_medium"
-      android:layout_marginEnd="@dimen/spacing_small"
+      android:layout_marginEnd="@dimen/spacing_large"
       style="?attr/textAppearanceMoney1"/>
 
   <TextView
       android:id="@+id/text_view_dollar"
       tools:text="-$"
+      android:textColor="@color/color_on_surface_20"
       style="?attr/textAppearanceMoney1"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintHorizontal_bias=".55"
+      app:layout_constraintHorizontal_bias=".6"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:textColor="#33DDDDDD"
       />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
