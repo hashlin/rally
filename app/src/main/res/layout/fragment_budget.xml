@@ -69,7 +69,7 @@
         />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/material_icon_button"
+        android:id="@+id/btn_info"
         android:layout_width="48dp"
         android:layout_height="48dp"
         app:icon="@drawable/ic_info_outline"
