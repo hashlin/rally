@@ -217,27 +217,22 @@ class OverviewFragment : Fragment() {
   }
 
   private fun runEnterAnimation() {
-    content.post {
-      var duration = 300L
-      for (i in 0 until content.childCount) {
-        duration += 100
-        val child = content.getChildAt(i)
-        child.translationY += 400
-        child.alpha = 0f
-        child.animate()
-            .translationY(0f)
-            .alpha(1f)
-            .setDuration(duration)
-            .setInterpolator(DecelerateInterpolator())
-            .setListener(object : AnimatorListenerAdapter() {
-              override fun onAnimationEnd(animation: Animator?) {
-                super.onAnimationEnd(animation)
-              }
-            })
-            .start()
-      }
-
-    }
+//    content.post {
+//      var duration = 300L
+//      for (i in 0 until content.childCount) {
+//        duration += 100
+//        val child = content.getChildAt(i)
+//        child.translationY += 400
+//        child.alpha = 0f
+//        child.animate()
+//            .translationY(0f)
+//            .alpha(1f)
+//            .setDuration(duration)
+//            .setInterpolator(DecelerateInterpolator())
+//            .start()
+//      }
+//
+//    }
   }
 
 }

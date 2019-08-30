@@ -6,11 +6,12 @@
         <item name="android:navigationBarDividerColor" tools:ignore="NewApi">@android:color/transparent</item>
     </style>
 
-    <style name="Rally.DayNight.Main" parent="Base.Rally">
+    <style name="Rally.DayNight.Main">
         <item name="android:windowContentTransitions">true</item>
         <item name="android:windowSharedElementsUseOverlay">false</item>
     </style>
-    <style name="Rally.DayNight.Detail" parent="Base.Rally">
+
+    <style name="Rally.DayNight.Detail">
         <item name="android:windowContentTransitions">true</item>
         <item name="android:windowEnterTransition">@transition/detail_enter</item>
         <item name="android:windowReturnTransition">@transition/detail_return</item>
@@ -19,7 +20,7 @@
         <item name="android:windowSharedElementsUseOverlay">false</item>
     </style>
 
-    <style name="Rally.DayNight.Login" parent="Base.Rally">
+    <style name="Rally.DayNight.Login">
         <item name="android:windowBackground">@drawable/bg_splash</item>
     </style>
 

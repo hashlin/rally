@@ -78,36 +78,40 @@
           android:id="@+id/btn_info"
           android:layout_width="48dp"
           android:layout_height="48dp"
+          android:visibility="gone"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toBottomOf="@id/tvAmount"
           app:icon="@drawable/ic_info_outline"
-          app:strokeColor="@android:color/transparent"
-          style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+          style="@style/Widget.Rally.Button.IconOnly"
           />
 
+      <com.google.android.material.card.MaterialCardView
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          app:layout_constraintEnd_toEndOf="parent"
+          android:layout_marginTop="@dimen/spacing_large"
+          android:layout_marginStart="@dimen/spacing_keyline"
+          android:layout_marginEnd="@dimen/spacing_keyline"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/rallyPie"
+          >
 
       <androidx.recyclerview.widget.RecyclerView
           android:id="@+id/rv_account"
-          android:layout_width="0dp"
+          android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="@dimen/spacing_medium"
-          android:layout_marginStart="@dimen/spacing_keyline"
-          android:layout_marginEnd="@dimen/spacing_keyline"
-          android:background="@color/color_secondary"
           android:overScrollMode="never"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@id/rallyPie"
           tools:itemCount="3"
           tools:listitem="@layout/item_account"
           />
 
+      </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
   </androidx.core.widget.NestedScrollView>
 
-  <View
-      android:background="?attr/colorSecondaryVariant"
+  <include
+      layout="@layout/sheet_info"
       android:layout_weight="2"
       android:layout_width="0dp"
       android:layout_height="match_parent"/>

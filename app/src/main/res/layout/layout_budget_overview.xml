@@ -67,7 +67,7 @@
           android:layout_height="wrap_content"
           android:layout_marginStart="@dimen/spacing_medium"
           android:text="Total"
-          style="?attr/textAppearanceSubtitle1"
+          style="?attr/textAppearanceSubtitle2"
           />
 
     </LinearLayout>

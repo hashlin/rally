@@ -107,8 +107,7 @@
             tools:listitem="@layout/item_account"
             />
       </com.google.android.material.card.MaterialCardView>
-    </androidx.constraintlayout.widget.ConstraintLayout
->
+    </androidx.constraintlayout.widget.ConstraintLayout>
   </androidx.core.widget.NestedScrollView>
   <View
       android:background="?attr/colorSecondaryVariant"
