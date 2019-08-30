@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
   private fun setUpViewPager() {
     val tabs = generateTabs()
     view_pager.adapter = RallyPagerAdapter(supportFragmentManager, tabs)
+    view_pager.offscreenPageLimit = 0
     tab_layout.setUpWithViewPager2(view_pager, false)
 
     view_pager.setCurrentItem(0, true)
