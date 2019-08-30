@@ -13,11 +13,10 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.transition.AutoTransition
 import androidx.transition.Slide
 import androidx.transition.TransitionManager
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
-import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.button.MaterialButton
 import io.material.rally.R
+import io.material.rally.ui.viewpager.SwipeControllableViewPager
 import kotlinx.android.synthetic.main.layout_rally_tab.view.cl
 import kotlinx.android.synthetic.main.layout_rally_tab.view.flow
 import kotlinx.android.synthetic.main.layout_rally_tab.view.image1
@@ -26,6 +25,7 @@ import kotlinx.android.synthetic.main.layout_rally_tab.view.image3
 import kotlinx.android.synthetic.main.layout_rally_tab.view.image4
 import kotlinx.android.synthetic.main.layout_rally_tab.view.image5
 import kotlinx.android.synthetic.main.layout_rally_tab.view.textView
+
 
 /**
  * Created by lin min phyo on 2019-08-12.
@@ -37,12 +37,11 @@ class RallyTab @JvmOverloads constructor(
   defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
-  var viewPager: ViewPager? = null
+  var viewPager: SwipeControllableViewPager? = null
   var previousClickedPosition = 0
   var lastClickedPosition = 0
-  var isInTransition = false
 
-  val transition by lazy {
+  private val transition by lazy {
     AutoTransition().apply {
       excludeTarget(textView, true)
     }
@@ -64,8 +63,6 @@ class RallyTab @JvmOverloads constructor(
     image2.setOnClickListener {
       viewPager?.setCurrentItem(1, false)
     }
-
-
 
     image3.setOnClickListener {
       viewPager?.setCurrentItem(2, false)
@@ -126,7 +123,6 @@ class RallyTab @JvmOverloads constructor(
         val slide = ObjectAnimator.ofFloat(
             textView, "translationX", slideInX.toFloat(), 0f
         )
-//          slide.interpolator = transition.interpolator
         val set = AnimatorSet()
 
         set.playTogether(alpha, slide)
@@ -149,12 +145,12 @@ class RallyTab @JvmOverloads constructor(
     return color
   }
 
-  fun setUpWithViewPager2(
-    viewPager: ViewPager,
+  fun setUpWithViewPager(
+    viewPager: SwipeControllableViewPager,
     allowSwipe: Boolean
   ) {
     this.viewPager = viewPager
-    // this.viewPager?.scroll = allowSwipe
+    this.viewPager?.swipeEnabled = allowSwipe
 
     this.viewPager?.addOnPageChangeListener(object : OnPageChangeListener {
       override fun onPageScrollStateChanged(state: Int) {
@@ -174,4 +170,6 @@ class RallyTab @JvmOverloads constructor(
       }
     })
   }
+
+
 }

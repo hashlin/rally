@@ -7,9 +7,6 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import io.material.rally.R
-import io.material.rally.ui.TabItem.ACCOUNT
-import io.material.rally.ui.TabItem.BILL
-import io.material.rally.ui.TabItem.BUDGET
 import kotlinx.android.synthetic.main.activity_main.tab_layout
 import kotlinx.android.synthetic.main.activity_main.view_pager
 
@@ -32,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     val tabs = generateTabs()
     view_pager.adapter = RallyPagerAdapter(supportFragmentManager, tabs)
     view_pager.offscreenPageLimit = 0
-    tab_layout.setUpWithViewPager2(view_pager, false)
+    tab_layout.setUpWithViewPager(view_pager, false)
 
     view_pager.setCurrentItem(0, true)
   }

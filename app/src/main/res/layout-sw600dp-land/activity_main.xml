@@ -28,7 +28,7 @@
       app:layout_constraintTop_toBottomOf="@+id/logo"
       />
 
-  <androidx.viewpager.widget.ViewPager
+  <io.material.rally.ui.viewpager.SwipeControllableViewPager
       android:id="@+id/view_pager"
       android:layout_width="0dp"
       android:layout_height="0dp"
