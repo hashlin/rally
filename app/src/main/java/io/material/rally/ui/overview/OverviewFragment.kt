@@ -11,7 +11,10 @@ import android.view.ViewGroup.LayoutParams
 import android.view.Window
 import android.view.animation.DecelerateInterpolator
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.Guideline
 import androidx.core.content.ContextCompat
+import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
@@ -30,7 +33,6 @@ import io.material.rally.ui.overview.adapter.BillAdapter
 import io.material.rally.ui.overview.adapter.BudgetAdapter
 import io.material.rally_line_indicator.data.RallyLineIndicatorData
 import io.material.rally_line_indicator.data.RallyLineIndicatorPortion
-import kotlinx.android.synthetic.main.fragment_overview.content
 import kotlinx.android.synthetic.main.layout_account_overview.account_line_indicator
 import kotlinx.android.synthetic.main.layout_account_overview.btn_acc_see_all
 import kotlinx.android.synthetic.main.layout_account_overview.rv_account_overview
@@ -55,6 +57,10 @@ class OverviewFragment : Fragment() {
   private val billAdapter by lazy { BillAdapter() }
   private lateinit var budgetAdapter: BudgetAdapter
   private lateinit var alertsAdapter: AlertAdapter
+
+  private val content by lazy {
+    requireView().findViewById<ViewGroup>(R.id.content)
+  }
 
   override fun onCreateView(
     inflater: LayoutInflater,
@@ -217,27 +223,27 @@ class OverviewFragment : Fragment() {
   }
 
   private fun runEnterAnimation() {
-//    content.post {
-//      var duration = 300L
-//      for (i in 0 until content.childCount) {
-//        duration += 100
-//        val child = content.getChildAt(i)
-//        child.translationY += 400
-//        child.alpha = 0f
-//        child.animate()
-//            .translationY(0f)
-//            .alpha(1f)
-//            .setDuration(duration)
-//            .setInterpolator(DecelerateInterpolator())
-//            .start()
-//      }
-//
-//    }
+    content.post {
+      var duration = 300L
+      content.children.filterNot { it is Guideline }.forEach { child ->
+        duration += 100
+        child.translationY += 400
+        child.alpha = 0f
+        child.animate()
+            .translationY(0f)
+            .alpha(1f)
+            .setDuration(duration)
+            .setInterpolator(DecelerateInterpolator())
+            .setListener(object : AnimatorListenerAdapter() {
+            })
+            .start()
+      }
+    }
   }
 
 }
 
-fun <T> Fragment.getParentActivity(): T {
+fun <T : AppCompatActivity> Fragment.getParentActivity(): T {
   return requireActivity() as T
 }
 

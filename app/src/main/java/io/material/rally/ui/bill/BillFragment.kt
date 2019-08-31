@@ -42,8 +42,11 @@ class BillFragment : Fragment() {
   ) {
     super.onViewCreated(view, savedInstanceState)
 
+
     setUpPieView()
     setUpRecyclerView()
+
+
     btn_info.setOnClickListener {
       val infoFragment = InfoFragment()
       infoFragment.show(childFragmentManager, "BillInfo")
@@ -59,8 +62,10 @@ class BillFragment : Fragment() {
     }
         .toList()
     val rallyPieData = RallyPieData(portions = rallyPiePortions)
-    val rallyPieAnimation = RallyPieAnimation(rallyPie)
-    rallyPieAnimation.duration = 600
+    val rallyPieAnimation = RallyPieAnimation(rallyPie).apply {
+      duration = 600
+    }
+
 
     rallyPie.setPieData(pieData = rallyPieData, animation = rallyPieAnimation)
   }

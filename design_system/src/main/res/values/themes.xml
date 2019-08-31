@@ -73,7 +73,6 @@
 
         <item name="android:statusBarColor">@color/color_status_bar</item>
         <item name="android:windowLightStatusBar">false</item>
-        <item name="android:forceDarkAllowed">true</item>
     </style>
     <style name="Widget.Rally.CardView" parent="Widget.MaterialComponents.CardView">
         <item name="cardElevation">@dimen/card_elevation</item>
@@ -102,7 +101,7 @@
     </style>
 
 
-    <style name="Base.MaterialThemeBuilder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Base.MaterialThemeBuilder" parent="Theme.MaterialComponents.NoActionBar">
         <item name="alphaEmphasisHigh">@dimen/alpha_emphasis_high</item>
         <item name="alphaEmphasisMedium">@dimen/alpha_emphasis_medium</item>
         <item name="alphaEmphasisDisabled">@dimen/alpha_emphasis_disabled</item>

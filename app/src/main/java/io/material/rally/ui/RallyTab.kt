@@ -41,10 +41,24 @@ class RallyTab @JvmOverloads constructor(
   var previousClickedPosition = 0
   var lastClickedPosition = 0
 
+
   private val transition by lazy {
     AutoTransition().apply {
       excludeTarget(textView, true)
     }
+  }
+
+
+  private val titleAlphaAnimator by lazy {
+    ObjectAnimator.ofFloat(textView, "alpha", 0f, 1f).apply {
+      startDelay = duration / 2
+    }
+  }
+
+  private val titleSlideAnimator by lazy {
+    ObjectAnimator.ofFloat(
+        textView, "translationX", 60.toFloat(), 0f
+    )
   }
 
   init {
@@ -108,28 +122,24 @@ class RallyTab @JvmOverloads constructor(
       )
 
 
-      refs.add(position + 1, R.id.textView)
-
-      flow.referencedIds = refs.toIntArray()
-      requestLayout()
+      //requestLayout()
 
 
       textView.text = tabNames[position]
-      val alpha = ObjectAnimator.ofFloat(textView, "alpha", 0f, 1f)
-      alpha.startDelay = alpha.duration / 2
 
       if (previousClickedPosition < lastClickedPosition) {
-        val slideInX = textView.width - image1.width / 3 - image1.paddingStart
-        val slide = ObjectAnimator.ofFloat(
-            textView, "translationX", slideInX.toFloat(), 0f
-        )
         val set = AnimatorSet()
 
-        set.playTogether(alpha, slide)
+        set.playTogether(titleAlphaAnimator, titleSlideAnimator)
         set.start()
       } else {
-        alpha.start()
+        titleAlphaAnimator.start()
       }
+
+
+      refs.add(position + 1, R.id.textView)
+
+      flow.referencedIds = refs.toIntArray()
     }
 
   }

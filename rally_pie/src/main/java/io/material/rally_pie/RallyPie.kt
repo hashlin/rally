@@ -16,8 +16,7 @@ import androidx.core.content.res.TypedArrayUtils.getResourceId
 import androidx.core.graphics.drawable.DrawableCompat.setTint
 import android.content.res.TypedArray
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
-
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 
 /**
  * Created by lin min phyo on 2019-07-29.
@@ -109,6 +108,7 @@ class RallyPie @JvmOverloads constructor(
         rallyPieFinalRenderData = pieData.portions.toPoints(totalPortionValues)
         if (animation != null) {
             animation.addData(rallyPieFinalRenderData)
+            animation.interpolator = FastOutSlowInInterpolator()
             this.startAnimation(animation)
         } else {
             rallyPieProgressRenderData = rallyPieFinalRenderData

@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.fragment.app.FragmentStatePagerAdapter
 import io.material.rally.R
 import io.material.rally.ui.account.AccountFragment
 import io.material.rally.ui.bill.BillFragment
@@ -17,7 +18,7 @@ import io.material.rally.ui.settings.CustomViewFragment
 class RallyPagerAdapter(
   fm: FragmentManager,
   private val tabs: List<TabUiModel>
-) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
   override fun getItem(position: Int): Fragment {
     return when (position) {
       0 -> OverviewFragment()

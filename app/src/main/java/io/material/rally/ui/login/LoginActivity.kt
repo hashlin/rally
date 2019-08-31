@@ -30,15 +30,17 @@ class LoginActivity : AppCompatActivity() {
 
   private lateinit var authenticator: Authenticator
 
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-
-    setContentView(R.layout.activity_login)
 
     authenticator = Authenticator(applicationContext)
     if (authenticator.isLoggedIn()) {
       navigateToMain()
     }
+
+
+    setContentView(R.layout.activity_login)
 
 
     (application as RallyApp).preferenceRepository

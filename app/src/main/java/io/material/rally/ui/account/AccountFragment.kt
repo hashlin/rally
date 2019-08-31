@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.material.rally.R
 import io.material.rally.data.DataProvider
@@ -63,8 +64,10 @@ class AccountFragment : Fragment() {
         .toList()
 
     val rallyPieData = RallyPieData(portions = rallyPiePortions)
-    val rallyPieAnimation = RallyPieAnimation(rallyPie)
-    rallyPieAnimation.duration = 600
+    val rallyPieAnimation = RallyPieAnimation(rallyPie).apply {
+      duration = 600
+    }
+
 
     rallyPie.setPieData(pieData = rallyPieData, animation = rallyPieAnimation)
   }

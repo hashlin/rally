@@ -1,27 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="horizontal"
     >
 
   <androidx.core.widget.NestedScrollView
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
       android:layout_weight="5"
       android:layout_width="0dp"
       android:layout_height="match_parent"
       android:overScrollMode="never"
-      tools:context=".ui.budget.BudgetFragment"
+      tools:context=".ui.bill.BillFragment"
       >
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:focusableInTouchMode="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:focusableInTouchMode="true"
         >
+
+
+      <TextView
+          android:id="@+id/tvAmount"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:layout_constraintBottom_toBottomOf="@id/rallyPie"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="@id/rallyPie"
+          tools:text="$12,132,34"
+          style="@style/TextAppearance.Rally.Headline3"
+          />
+
+
+      <TextView
+          android:id="@+id/label_alert"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="@dimen/spacing_medium"
+          android:text="Due"
+          app:layout_constraintBottom_toTopOf="@id/tvAmount"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          style="?attr/textAppearanceSubtitle2"
+          />
 
       <androidx.constraintlayout.widget.Guideline
           android:id="@+id/guideline_start"
@@ -40,50 +65,13 @@
           app:layout_constraintGuide_percent=".8"
           />
 
-
-      <io.material.rally_pie.RallyPie
-          android:id="@+id/rallyPie"
-          android:layout_width="0dp"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center"
-          android:layout_marginTop="@dimen/spacing_x_large"
-          app:pieBackgroundColor="?attr/colorOnBackground"
-          app:layout_constraintEnd_toEndOf="@+id/guideline_end"
-          app:layout_constraintStart_toStartOf="@+id/guideline_start"
-          app:layout_constraintTop_toTopOf="parent"
-          />
-
-      <TextView
-          android:id="@+id/tvAmount"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          tools:text="$12,132,34"
-          app:layout_constraintBottom_toBottomOf="@id/rallyPie"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="@id/rallyPie"
-          style="@style/TextAppearance.Rally.Headline3"
-          />
-
-      <TextView
-          android:id="@+id/label_alert"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="@dimen/spacing_medium"
-          android:text="Left"
-          app:layout_constraintBottom_toTopOf="@id/tvAmount"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="parent"
-          style="?attr/textAppearanceSubtitle2"
-          />
-
       <com.google.android.material.button.MaterialButton
           android:id="@+id/btn_info"
           android:layout_width="48dp"
           android:layout_height="48dp"
-          android:visibility="gone"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
+          android:visibility="gone"
           app:layout_constraintTop_toBottomOf="@id/tvAmount"
           app:icon="@drawable/ic_info_outline"
           style="@style/Widget.Rally.Button.IconOnly"
@@ -99,21 +87,36 @@
           >
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_budget"
+            android:id="@+id/rv_bill"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/spacing_keyline"
-            android:layout_marginEnd="@dimen/spacing_keyline"
+            android:layoutAnimation="@anim/layout_anim_slide_up"
             android:overScrollMode="never"
             tools:itemCount="3"
             tools:listitem="@layout/item_account"
             />
+
       </com.google.android.material.card.MaterialCardView>
+
+
+      <io.material.rally_pie.RallyPie
+          android:id="@+id/rallyPie"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:layout_marginTop="@dimen/spacing_x_large"
+          app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+          app:layout_constraintStart_toStartOf="@+id/guideline_start"
+          app:layout_constraintTop_toTopOf="parent"
+          />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
   </androidx.core.widget.NestedScrollView>
+
   <View
-      android:background="?attr/colorSecondaryVariant"
-      android:layout_weight="2"
+      android:background="?attr/colorSecondary"
       android:layout_width="0dp"
-      android:layout_height="match_parent"/>
+      android:layout_height="match_parent"
+      android:layout_weight="2"
+      />
 </LinearLayout>
