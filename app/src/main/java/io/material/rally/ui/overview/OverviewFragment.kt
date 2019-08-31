@@ -1,6 +1,5 @@
 package io.material.rally.ui.overview
 
-import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.app.Dialog
 import android.os.Bundle
@@ -8,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams
-import android.view.Window
 import android.view.animation.DecelerateInterpolator
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -210,7 +208,11 @@ class OverviewFragment : Fragment() {
       setCancelable(true)
       setContentView(R.layout.dialog_alert)
 
-      val width = resources.displayMetrics.widthPixels * 0.65
+      val width = if (resources.configuration.smallestScreenWidthDp >= 600) {
+        resources.displayMetrics.widthPixels * 0.65
+      }else{
+        resources.displayMetrics.widthPixels * 0.8
+      }
 
       window?.setLayout(width.toInt(), LayoutParams.WRAP_CONTENT)
 
@@ -225,19 +227,20 @@ class OverviewFragment : Fragment() {
   private fun runEnterAnimation() {
     content.post {
       var duration = 300L
-      content.children.filterNot { it is Guideline }.forEach { child ->
-        duration += 100
-        child.translationY += 400
-        child.alpha = 0f
-        child.animate()
-            .translationY(0f)
-            .alpha(1f)
-            .setDuration(duration)
-            .setInterpolator(DecelerateInterpolator())
-            .setListener(object : AnimatorListenerAdapter() {
-            })
-            .start()
-      }
+      content.children.filterNot { it is Guideline }
+          .forEach { child ->
+            duration += 100
+            child.translationY += 400
+            child.alpha = 0f
+            child.animate()
+                .translationY(0f)
+                .alpha(1f)
+                .setDuration(duration)
+                .setInterpolator(DecelerateInterpolator())
+                .setListener(object : AnimatorListenerAdapter() {
+                })
+                .start()
+          }
     }
   }
 

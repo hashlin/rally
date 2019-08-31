@@ -39,6 +39,9 @@
     <item name="colorOnSurface">@color/color_on_surface</item>
     <item name="colorOnError">@color/color_on_error</item>
 
+    <item name="android:textColorLink">@color/color_primary_variant</item>
+    <item name="android:textColorLinkInverse">@color/color_secondary_variant</item>
+
     <!--Material type attributes-->
     <item name="textAppearanceHeadline1">@style/TextAppearance.Rally.Headline1</item>
     <item name="textAppearanceHeadline2">@style/TextAppearance.Rally.Headline2</item>

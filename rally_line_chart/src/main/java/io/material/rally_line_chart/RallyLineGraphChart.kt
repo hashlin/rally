@@ -44,6 +44,12 @@ class RallyLineGraphChart : View {
     )
   }
 
+  private val borderPathWidth by lazy {
+    TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP, 4f, resources.displayMetrics
+    )
+  }
+
   constructor(context: Context?) : super(context) {
     init(null)
   }
@@ -88,7 +94,7 @@ class RallyLineGraphChart : View {
     }
     borderPathPaint.apply {
       isAntiAlias = true
-      strokeWidth = 12f
+      strokeWidth = borderPathWidth
       style = Paint.Style.STROKE
       color = borderColor
     }
@@ -297,9 +303,9 @@ class RallyLineGraphChart : View {
   }
 
   companion object {
-    private const val INDEX_OF_LARGE_BAR = 7
-    private const val VERTICAL_BARS = (INDEX_OF_LARGE_BAR * 7) + 1 // add fixed bars size
-
+    private const val INDEX_OF_LARGE_BAR = 8
+    private const val VERTICAL_BARS =
+      (INDEX_OF_LARGE_BAR * INDEX_OF_LARGE_BAR) + 1 // add fixed bars size
     private const val CURVE_BOTTOM_MARGIN = 32f
 
   }

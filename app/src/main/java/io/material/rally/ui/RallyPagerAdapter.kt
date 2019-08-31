@@ -3,14 +3,13 @@ package io.material.rally.ui
 import androidx.annotation.DrawableRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
 import androidx.fragment.app.FragmentStatePagerAdapter
 import io.material.rally.R
 import io.material.rally.ui.account.AccountFragment
 import io.material.rally.ui.bill.BillFragment
 import io.material.rally.ui.budget.BudgetFragment
 import io.material.rally.ui.overview.OverviewFragment
-import io.material.rally.ui.settings.CustomViewFragment
+import io.material.rally.ui.settings.SettingsFragment
 
 /**
  * Created by Chan Myae Aung on 7/30/19.
@@ -25,7 +24,7 @@ class RallyPagerAdapter(
       1 -> AccountFragment()
       2 -> BillFragment()
       3 -> BudgetFragment()
-      4 -> CustomViewFragment()
+      4 -> SettingsFragment()
       else -> OverviewFragment()
     }
   }
