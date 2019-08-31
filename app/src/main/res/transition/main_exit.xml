@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:duration="@integer/anim_duration">
   <targets>
-    <target android:targetId="@id/tab_layout"/>
+    <target android:excludeId="@+id/shareView"/>
+    <target android:excludeId="@android:id/navigationBarBackground" />
+    <target android:excludeId="@android:id/statusBarBackground" />
   </targets>
   <transition
       class="io.material.design_system.FadeTransition"

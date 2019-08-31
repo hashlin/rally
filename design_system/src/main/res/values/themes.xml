@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 ~ Copyright (C) 2019 The Android Open Source Project
 ~
 ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,117 +16,126 @@
 
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!--Top level DayNight theme to be used in AndroidManifest.xml-->
-    <style name="Rally.DayNight" parent="Base.Rally" />
+  <!--Top level DayNight theme to be used in AndroidManifest.xml-->
+  <style name="Rally.DayNight" parent="Base.Rally" />
 
-    <!--Base custom theme which will be shared between both light and dark theme variants-->
-    <style name="Base.Rally" parent="Base.MaterialThemeBuilder">
-        <!--Material color attributes -->
-        <item name="colorPrimary">@color/color_primary</item>
-        <item name="colorPrimaryVariant">@color/color_primary_variant</item>
-        <item name="colorSecondary">@color/color_secondary</item>
-        <item name="colorSecondaryVariant">@color/color_secondary_variant</item>
+  <!--Top level DayNight theme to be used in AndroidManifest.xml-->
 
-        <item name="android:colorBackground">@color/color_background</item>
-        <item name="colorSurface">@color/color_surface</item>
-        <item name="colorError">@color/color_error</item>
+  <!--Base custom theme which will be shared between both light and dark theme variants-->
+  <style name="Base.Rally" parent="Base.MaterialThemeBuilder">
+    <!--Material color attributes -->
+    <item name="colorPrimary">@color/color_primary</item>
+    <item name="colorPrimaryVariant">@color/color_primary_variant</item>
+    <item name="colorSecondary">@color/color_secondary</item>
+    <item name="colorSecondaryVariant">@color/color_secondary_variant</item>
 
-        <item name="colorOnPrimary">@color/color_on_primary</item>
-        <item name="colorOnSecondary">@color/color_on_secondary</item>
-        <item name="colorOnBackground">@color/color_on_background</item>
-        <item name="colorOnSurface">@color/color_on_surface</item>
-        <item name="colorOnError">@color/color_on_error</item>
+    <item name="android:colorBackground">@color/color_background</item>
+    <item name="colorSurface">@color/color_surface</item>
+    <item name="colorError">@color/color_error</item>
 
-        <!--Material type attributes-->
-        <item name="textAppearanceHeadline1">@style/TextAppearance.Rally.Headline1</item>
-        <item name="textAppearanceHeadline2">@style/TextAppearance.Rally.Headline2</item>
-        <item name="textAppearanceHeadline3">@style/TextAppearance.Rally.Headline3</item>
-        <item name="textAppearanceHeadline4">@style/TextAppearance.Rally.Headline4</item>
-        <item name="textAppearanceHeadline5">@style/TextAppearance.Rally.Headline5</item>
-        <item name="textAppearanceHeadline6">@style/TextAppearance.Rally.Headline6</item>
-        <item name="textAppearanceSubtitle1">@style/TextAppearance.Rally.Subtitle1</item>
-        <item name="textAppearanceSubtitle2">@style/TextAppearance.Rally.Subtitle2</item>
-        <item name="textAppearanceBody1">@style/TextAppearance.Rally.Body1</item>
-        <item name="textAppearanceBody2">@style/TextAppearance.Rally.Body2</item>
-        <item name="textAppearanceButton">@style/TextAppearance.Rally.Button</item>
-        <item name="textAppearanceCaption">@style/TextAppearance.Rally.Caption</item>
-        <item name="textAppearanceOverline">@style/TextAppearance.Rally.Overline</item>
-        <item name="textAppearanceMoney1">@style/TextAppearance.Rally.Money1</item>
-        <item name="textAppearanceCardNumber1">@style/TextAppearance.Rally.CardNumber1</item>
+    <item name="colorOnPrimary">@color/color_on_primary</item>
+    <item name="colorOnSecondary">@color/color_on_secondary</item>
+    <item name="colorOnBackground">@color/color_on_background</item>
+    <item name="colorOnSurface">@color/color_on_surface</item>
+    <item name="colorOnError">@color/color_on_error</item>
 
-        <!--Material shape attributes-->
-        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.MyTheme.SmallComponent</item>
-        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.MyTheme.MediumComponent</item>
-        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.MyTheme.LargeComponent</item>
+    <!--Material type attributes-->
+    <item name="textAppearanceHeadline1">@style/TextAppearance.Rally.Headline1</item>
+    <item name="textAppearanceHeadline2">@style/TextAppearance.Rally.Headline2</item>
+    <item name="textAppearanceHeadline3">@style/TextAppearance.Rally.Headline3</item>
+    <item name="textAppearanceHeadline4">@style/TextAppearance.Rally.Headline4</item>
+    <item name="textAppearanceHeadline5">@style/TextAppearance.Rally.Headline5</item>
+    <item name="textAppearanceHeadline6">@style/TextAppearance.Rally.Headline6</item>
+    <item name="textAppearanceSubtitle1">@style/TextAppearance.Rally.Subtitle1</item>
+    <item name="textAppearanceSubtitle2">@style/TextAppearance.Rally.Subtitle2</item>
+    <item name="textAppearanceBody1">@style/TextAppearance.Rally.Body1</item>
+    <item name="textAppearanceBody2">@style/TextAppearance.Rally.Body2</item>
+    <item name="textAppearanceButton">@style/TextAppearance.Rally.Button</item>
+    <item name="textAppearanceCaption">@style/TextAppearance.Rally.Caption</item>
+    <item name="textAppearanceOverline">@style/TextAppearance.Rally.Overline</item>
+    <item name="textAppearanceMoney1">@style/TextAppearance.Rally.Money1</item>
+    <item name="textAppearanceCardNumber1">@style/TextAppearance.Rally.CardNumber1</item>
 
-        <!--Component styles-->
-        <item name="materialAlertDialogTheme">@style/Widget.Rally.AlertDialog</item>
-        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.Rally.BottomSheetDialog</item>
-        <item name="navigationViewStyle">@style/Widget.Rally.NavigationView</item>
-        <item name="materialCardViewStyle">@style/Widget.Rally.CardView</item>
-        <item name="tabStyle">@style/Widget.Rally.TabLayout</item>
-        <item name="dividerStyle">@style/Widget.Rally.Divider</item>
-        <item name="materialButtonOutlinedStyle">@style/Widget.Rally.Button.OutlinedButton</item>
-        <item name="switchStyle">@style/Widget.Rally.CompoundButton.Switch</item>
+    <!--Material shape attributes-->
+    <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.MyTheme.SmallComponent</item>
+    <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.MyTheme.MediumComponent
+    </item>
+    <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.MyTheme.LargeComponent</item>
 
-
-        <item name="android:statusBarColor">@color/color_status_bar</item>
-        <item name="android:windowLightStatusBar">false</item>
-    </style>
-    <style name="Widget.Rally.CardView" parent="Widget.MaterialComponents.CardView">
-        <item name="cardElevation">@dimen/card_elevation</item>
-        <item name="cardBackgroundColor">?attr/colorSurface</item>
-    </style>
+    <!--Component styles-->
+    <item name="materialAlertDialogTheme">@style/Widget.Rally.AlertDialog</item>
+    <item name="bottomSheetDialogTheme">@style/ThemeOverlay.Rally.BottomSheetDialog</item>
+    <item name="navigationViewStyle">@style/Widget.Rally.NavigationView</item>
+    <item name="materialCardViewStyle">@style/Widget.Rally.CardView</item>
+    <item name="tabStyle">@style/Widget.Rally.TabLayout</item>
+    <item name="dividerStyle">@style/Widget.Rally.Divider</item>
+    <item name="materialButtonOutlinedStyle">@style/Widget.Rally.Button.OutlinedButton</item>
+    <item name="switchStyle">@style/Widget.Rally.CompoundButton.Switch</item>
 
 
-    <style name="Widget.Rally.CompoundButton.Switch" parent="@style/Widget.MaterialComponents.CompoundButton.Switch">
-        <item name="android:colorButtonNormal">@color/rally_green_700</item>
-        <item name="android:colorControlActivated">@color/rally_green_300</item>
-    </style>
+    <item name="android:statusBarColor">@color/color_status_bar</item>
+    <item name="android:windowLightStatusBar">false</item>
+    <item name="android:overScrollMode">never</item>
+    <item name="android:navigationBarDividerColor" tools:ignore="NewApi">
+      @android:color/transparent
+    </item>
+  </style>
 
-    <style name="Widget.Rally.Button.OutlinedButton" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="iconTint">?attr/colorPrimaryVariant</item>
-    </style>
-
-    <style name="Widget.Rally.Button.IconOnly" parent="@style/Widget.MaterialComponents.Button.TextButton.Icon">
-        <item name="iconPadding">0dp</item>
-        <item name="iconGravity">textStart</item>
-        <item name="iconTint">?attr/colorPrimaryVariant</item>
-    </style>
-
-    <style name="Widget.Rally.TabLayout" parent="@style/Widget.MaterialComponents.TabLayout">
-        <item name="android:background">?android:attr/colorBackground</item>
-        <item name="android:elevation">0dp</item>
-    </style>
+  <style name="Widget.Rally.CardView" parent="Widget.MaterialComponents.CardView">
+    <item name="cardElevation">@dimen/card_elevation</item>
+    <item name="cardBackgroundColor">?attr/colorSurface</item>
+  </style>
 
 
-    <style name="Base.MaterialThemeBuilder" parent="Theme.MaterialComponents.NoActionBar">
-        <item name="alphaEmphasisHigh">@dimen/alpha_emphasis_high</item>
-        <item name="alphaEmphasisMedium">@dimen/alpha_emphasis_medium</item>
-        <item name="alphaEmphasisDisabled">@dimen/alpha_emphasis_disabled</item>
+  <style name="Widget.Rally.CompoundButton.Switch" parent="@style/Widget.MaterialComponents.CompoundButton.Switch">
+    <item name="android:colorButtonNormal">@color/rally_green_700</item>
+    <item name="android:colorControlActivated">@color/rally_green_300</item>
+  </style>
 
-        <item name="android:statusBarColor">?colorSurface</item>
-        <item name="android:windowLightStatusBar">true</item>
-        <item name="android:navigationBarColor">?android:colorBackground</item>
-        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
-        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">?colorControlHighlight</item>
+  <style name="Widget.Rally.Button.OutlinedButton" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+    <item name="iconTint">?attr/colorPrimaryVariant</item>
+  </style>
 
-        <!--Remap legacy AppCompat attributes to MaterialComponent attributes-->
-        <item name="colorPrimaryDark">?colorPrimaryVariant</item>
-        <item name="colorAccent">?colorSecondary</item>
-    </style>
+  <style name="Widget.Rally.Button.IconOnly" parent="@style/Widget.MaterialComponents.Button.TextButton.Icon">
+    <item name="iconPadding">0dp</item>
+    <item name="iconGravity">textStart</item>
+    <item name="iconTint">?attr/colorPrimaryVariant</item>
+  </style>
+
+  <style name="Widget.Rally.TabLayout" parent="@style/Widget.MaterialComponents.TabLayout">
+    <item name="android:background">?android:attr/colorBackground</item>
+    <item name="android:elevation">0dp</item>
+  </style>
 
 
-    <style name="ThemeOverlay.Rally.Switch" parent="">
-        <item name="colorSecondary">@color/rally_green_500</item>
-    </style>
+  <style name="Base.MaterialThemeBuilder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <item name="alphaEmphasisHigh">@dimen/alpha_emphasis_high</item>
+    <item name="alphaEmphasisMedium">@dimen/alpha_emphasis_medium</item>
+    <item name="alphaEmphasisDisabled">@dimen/alpha_emphasis_disabled</item>
 
-    <style name="ThemeOverlay.Rally.InputBox" parent="">
-        <item name="colorSecondaryVariant">@color/color_secondary</item>
-    </style>
+    <item name="android:statusBarColor">?colorSurface</item>
+    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:navigationBarColor">?android:colorBackground</item>
+    <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
+    <item name="android:navigationBarDividerColor" tools:ignore="NewApi">?colorControlHighlight
+    </item>
 
-    <style name="ThemeOverlay.Rally.AccountDetail" parent="">
-        <item name="android:colorBackground">@color/color_surface</item>
-        <item name="colorSurface">@color/color_background</item>
-    </style>
+    <!--Remap legacy AppCompat attributes to MaterialComponent attributes-->
+    <item name="colorPrimaryDark">?colorPrimaryVariant</item>
+    <item name="colorAccent">?colorSecondary</item>
+  </style>
+
+
+  <style name="ThemeOverlay.Rally.Switch" parent="">
+    <item name="colorSecondary">@color/rally_green_500</item>
+  </style>
+
+  <style name="ThemeOverlay.Rally.InputBox" parent="">
+    <item name="colorSecondaryVariant">@color/color_secondary</item>
+  </style>
+
+  <style name="ThemeOverlay.Rally.AccountDetail" parent="">
+    <item name="android:colorBackground">@color/color_surface</item>
+    <item name="colorSurface">@color/color_background</item>
+  </style>
 </resources>

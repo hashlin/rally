@@ -3,16 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:duration="@integer/anim_duration">
   <transitionSet>
-    <targets>
-      <target android:targetId="@+id/main_content"/>
-    </targets>
     <transition
         class="io.material.design_system.FadeTransition"
-        app:startAlpha="1.0"
-        app:endAlpha="0.3"/>
+        app:startAlpha="0.3"
+        app:endAlpha="1.0"/>
     <transition
         class="io.material.design_system.PopTransition"
-        app:startScale="1.0"
-        app:endScale="0.9"/>
+        app:startScale="0.9"
+        app:endScale="1.0"/>
   </transitionSet>
 </transitionSet>

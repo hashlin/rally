@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="io.material.rally">
 
   <application
@@ -9,11 +10,15 @@
       android:label="@string/app_name"
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
-      android:theme="@style/Rally.DayNight">
-    <activity android:name=".ui.MainActivity">
+      android:theme="@style/Rally.DayNight"
+      tools:ignore="GoogleAppIndexingWarning">
+
+    <activity android:name=".ui.MainActivity"
+        android:theme="@style/Rally.DayNight.Main">
     </activity>
     <activity
-        android:name=".ui.detail.DetailActivity">
+        android:name=".ui.detail.DetailActivity"
+        android:theme="@style/Rally.DayNight.Detail">
     </activity>
     <activity android:name=".ui.login.LoginActivity"
         android:theme="@style/Rally.DayNight.Login">
