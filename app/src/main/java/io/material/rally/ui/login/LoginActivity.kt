@@ -58,7 +58,6 @@ class LoginActivity : AppCompatActivity() {
     iv_fingerprint.setOnClickListener { login() }
     label_login_id.setOnClickListener { login() }
     imgLogo.setOnClickListener { login() }
-
   }
 
   private fun setUpInputField() {
