@@ -10,11 +10,12 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/Base.Rally">
-    <activity android:name=".ui.MainActivity">
+    <activity android:name=".ui.MainActivity"
+        android:theme="@style/Rally.DayNight.Main">
     </activity>
     <activity
         android:name=".ui.detail.DetailActivity"
-        android:theme="@style/Rally.DayNight">
+        android:theme="@style/Rally.DayNight.Detail">
     </activity>
     <activity android:name=".ui.login.LoginActivity"
         android:theme="@style/Rally.DayNight.Login">

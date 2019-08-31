@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/content"
-    android:background="?android:attr/colorBackground"
     android:theme="@style/ThemeOverlay.Rally.AccountDetail"
     tools:context=".ui.detail.DetailActivity"
     >
@@ -16,6 +15,7 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:transitionName="DetailView"
+      android:background="#373741"
       />
 
   <LinearLayout
