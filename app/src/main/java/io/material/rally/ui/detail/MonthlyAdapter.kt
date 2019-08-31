@@ -16,25 +16,10 @@ import io.material.rally.extension.toUSDFormatted
 /**
  * Created by Chan Myae Aung on 8/28/19.
  */
-class MonthlyAdapter : ListAdapter<MonthlyItem, MonthlyItemViewHolder>(
+class MonthlyAdapter(private val items: List<MonthlyItem>) : RecyclerView.Adapter<MonthlyItemViewHolder>() {
 
-    object : DiffUtil.ItemCallback<MonthlyItem>() {
-      override fun areItemsTheSame(
-        oldItem: MonthlyItem,
-        newItem: MonthlyItem
-      ): Boolean {
-        return oldItem.name == newItem.name
-      }
+  override fun getItemCount() = items.size
 
-      override fun areContentsTheSame(
-        oldItem: MonthlyItem,
-        newItem: MonthlyItem
-      ): Boolean {
-        return oldItem == newItem
-      }
-
-    }
-) {
   override fun onCreateViewHolder(
     parent: ViewGroup,
     viewType: Int
@@ -46,7 +31,7 @@ class MonthlyAdapter : ListAdapter<MonthlyItem, MonthlyItemViewHolder>(
     holder: MonthlyItemViewHolder,
     position: Int
   ) {
-    holder.bind(getItem(position))
+    holder.bind(items[position])
   }
 }
 

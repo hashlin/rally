@@ -1,12 +1,19 @@
 package io.material.rally.ui.detail
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import androidx.annotation.ColorRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.lifecycle.Observer
 import io.material.rally.R
+import io.material.rally.R.id
 import io.material.rally.ui.RallyApp
 import io.material.rally.ui.getRandomPoints
 import kotlinx.android.synthetic.main.activity_detail.rallyLine
@@ -24,6 +31,8 @@ class DetailActivity : AppCompatActivity() {
         .nightModeLive.observe(this, Observer { nightMode ->
       nightMode?.let { delegate.localNightMode = it }
     })
+
+    rallyLine.setCurveBorderColor(intent.getIntExtra(KEY_COLOR, R.color.rally_dark_green))
 
     setUpToolbar()
     setUpTab()
@@ -58,10 +67,31 @@ class DetailActivity : AppCompatActivity() {
   }
 
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
-    if(item.itemId == android.R.id.home){
+    if (item.itemId == android.R.id.home) {
       super.onBackPressed()
       return true
     }
     return super.onOptionsItemSelected(item)
+  }
+
+  companion object {
+    private const val KEY_COLOR = "key-color"
+    fun start(
+      context: Context,
+      shareView: View, @ColorRes color: Int
+    ) {
+      val intent = Intent(context, DetailActivity::class.java)
+      intent.putExtra(KEY_COLOR, color)
+
+      val pair = Pair(shareView.findViewById<View>(id.shareView), "DetailView")
+      val options =
+        ActivityOptionsCompat.makeSceneTransitionAnimation(context as AppCompatActivity, pair)
+
+      val transition = context.window.exitTransition
+      transition.excludeTarget(shareView, true)
+      context.window.exitTransition = transition
+
+      context.startActivity(intent, options.toBundle())
+    }
   }
 }

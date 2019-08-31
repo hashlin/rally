@@ -49,7 +49,7 @@ object DataProvider {
   )
 
   private val accounts = listOf(
-      Account("Home Savings", "••••••1234", 2_215.13f, R.color.rally_green_700),
+      Account("Home Savings", "••••••1234", 2_215.13f, R.color.rally_dark_green),
       Account("Car Savings", "••••••5678", 8676.88f, R.color.rally_green_500),
       Account("Vacations", "••••••1234", 987.48f, R.color.rally_green_300),
       Account("KBZ Saving", "••••••5678", 253.13f, R.color.rally_dark_green),
@@ -96,7 +96,7 @@ object DataProvider {
         MonthlyItem(month, "Mainstom", 12.54f, DECREASE),
         MonthlyItem(month, "Foodmates", 11.69f, DECREASE),
         MonthlyItem(month, "Shrine", 23.44f, DECREASE)
-    )
+    ).shuffled()
   }
 
   val accountOverView =

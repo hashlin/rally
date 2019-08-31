@@ -24,7 +24,8 @@ import io.material.rally_line_indicator.RallyVerticalBarData
 /**
  * Created by Chan Myae Aung on 7/31/19.
  */
-class AccountOverviewAdapter(val isSingleLine : Boolean) : ListAdapter<Account, AccountOverviewViewHolder>(object : DiffUtil.ItemCallback<Account>() {
+class AccountOverviewAdapter(val isSingleLine: Boolean) : ListAdapter<Account, AccountOverviewViewHolder>(object :
+    DiffUtil.ItemCallback<Account>() {
   override fun areItemsTheSame(
     oldItem: Account,
     newItem: Account
@@ -44,7 +45,7 @@ class AccountOverviewAdapter(val isSingleLine : Boolean) : ListAdapter<Account, 
     parent: ViewGroup,
     viewType: Int
   ): AccountOverviewViewHolder {
-    if(isSingleLine){
+    if (isSingleLine) {
       return AccountOverviewViewHolder(parent.inflate(R.layout.item_account_single_row))
     }
     return AccountOverviewViewHolder(parent.inflate(R.layout.item_account))
@@ -63,7 +64,7 @@ class AccountOverviewViewHolder(val view: View) : RecyclerView.ViewHolder(view) 
   private val barView: RallyVerticalBar = view.findViewById(R.id.bar)
   private val tvName: TextView = view.findViewById(R.id.tvName)
   private val tvDescription: TextView = view.findViewById(R.id.tvDesc)
-  private val tvAmount : TextView = view.findViewById(R.id.tvAmount)
+  private val tvAmount: TextView = view.findViewById(R.id.tvAmount)
 
   fun bind(model: Account) {
 
@@ -73,14 +74,7 @@ class AccountOverviewViewHolder(val view: View) : RecyclerView.ViewHolder(view) 
     tvAmount.text = model.amount.toMoneyFormatted()
 
     view.setOnClickListener {
-      val intent = Intent(view.context, DetailActivity::class.java)
-      val pair = Pair(view.findViewById<View>(R.id.shareView), "DetailView")
-      val options =
-        ActivityOptionsCompat.makeSceneTransitionAnimation(view.context as AppCompatActivity, pair)
-      val transition = (view.context as AppCompatActivity).window.exitTransition
-      transition.excludeTarget(view,true)
-      (view.context as AppCompatActivity).window.exitTransition = transition
-      view.context.startActivity(intent, options.toBundle())
+      DetailActivity.start(view.context, view, model.color)
     }
   }
 }

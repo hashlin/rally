@@ -9,6 +9,15 @@
     android:background="?attr/selectableItemBackground"
     >
 
+  <View
+      android:id="@+id/shareView"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"/>
+
   <androidx.constraintlayout.widget.Guideline
       android:id="@+id/guide_vertical_20"
       android:orientation="vertical"

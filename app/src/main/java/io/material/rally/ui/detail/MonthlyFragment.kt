@@ -16,8 +16,6 @@ import kotlinx.android.synthetic.main.fragment_monthly.rv_monthly
  */
 class MonthlyFragment : Fragment() {
 
-  private val monthlyAdapter by lazy { MonthlyAdapter() }
-
   override fun onCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
@@ -40,9 +38,8 @@ class MonthlyFragment : Fragment() {
       layoutManager = LinearLayoutManager(requireContext())
       setHasFixedSize(true)
       addItemDecoration(getRallyItemDecoration())
-      adapter = monthlyAdapter
+      adapter = MonthlyAdapter(DataProvider.monthlyItems(arguments?.getInt(KEY_MONTH) ?: 1))
     }
-    monthlyAdapter.submitList(DataProvider.monthlyItems(arguments?.getInt(KEY_MONTH) ?: 1))
   }
 
   companion object {

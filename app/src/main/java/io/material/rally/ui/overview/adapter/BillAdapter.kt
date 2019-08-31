@@ -10,6 +10,7 @@ import io.material.rally.R
 import io.material.rally.data.model.Bill
 import io.material.rally.extension.inflate
 import io.material.rally.extension.toMoneyFormatted
+import io.material.rally.ui.detail.DetailActivity
 import io.material.rally_line_indicator.RallyVerticalBar
 import io.material.rally_line_indicator.RallyVerticalBarData
 
@@ -47,7 +48,7 @@ class BillAdapter : ListAdapter<Bill, BillViewHolder>(object : DiffUtil.ItemCall
   }
 }
 
-class BillViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class BillViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
   private val barView: RallyVerticalBar = view.findViewById(R.id.bar)
   private val tvName: TextView = view.findViewById(R.id.tvName)
   private val tvDescription: TextView = view.findViewById(R.id.tvDesc)
@@ -58,6 +59,10 @@ class BillViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     tvName.text = model.name
     tvDescription.text = model.desc
     tvAmount.text = model.amount.toMoneyFormatted()
+
+    view.setOnClickListener {
+      DetailActivity.start(view.context, view, model.color)
+    }
   }
 }
 

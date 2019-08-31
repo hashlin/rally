@@ -10,6 +10,8 @@ import android.graphics.PointF
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
+import androidx.annotation.ColorRes
+import androidx.core.content.ContextCompat
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
@@ -41,7 +43,6 @@ class RallyLineGraphChart : View {
         TypedValue.COMPLEX_UNIT_DIP, .5f, resources.displayMetrics
     )
   }
-
 
   constructor(context: Context?) : super(context) {
     init(null)
@@ -291,10 +292,13 @@ class RallyLineGraphChart : View {
     conPoint2.clear()
   }
 
+  fun setCurveBorderColor(@ColorRes color: Int) {
+    borderPathPaint.color = ContextCompat.getColor(context, color)
+  }
+
   companion object {
     private const val INDEX_OF_LARGE_BAR = 7
     private const val VERTICAL_BARS = (INDEX_OF_LARGE_BAR * 7) + 1 // add fixed bars size
-
 
     private const val CURVE_BOTTOM_MARGIN = 32f
 

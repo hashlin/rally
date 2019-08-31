@@ -14,6 +14,7 @@ import android.util.TypedValue
 import android.content.Context
 import io.material.rally.R
 import io.material.rally.R.attr
+import io.material.rally.ui.detail.DetailActivity
 
 /**
  * Created by lin min phyo on 2019-08-21.
@@ -60,6 +61,9 @@ class BudgetLongViewHolder(val view: View) : BudgetViewHolder(view) {
 //          ContextCompat.getColor(itemView.context, model.color), SRC_IN
 //      )
 //    }
+    view.setOnClickListener {
+      DetailActivity.start(view.context, view, model.color)
+    }
   }
 
   private fun fetchPrimaryColor(context : Context): Int {
