@@ -160,8 +160,8 @@ class LoginActivity : AppCompatActivity() {
           PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, 0f),
           PropertyValuesHolder.ofFloat(View.ALPHA, 1f)
       )
-      ivFingerPrintAnimator.startDelay = 400
-      ivFingerPrintAnimator.duration = 100
+      labelAnimator.startDelay = 400
+      labelAnimator.duration = 100
 
       val set = AnimatorSet()
       set.interpolator = FastOutSlowInInterpolator()
