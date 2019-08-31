@@ -5,10 +5,12 @@ import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.res.ColorStateList
 import android.util.AttributeSet
+import android.util.Log
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
 import android.widget.TextView
+import androidx.constraintlayout.helper.widget.Flow
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.transition.AutoTransition
 import androidx.transition.Slide
@@ -18,7 +20,6 @@ import com.google.android.material.button.MaterialButton
 import io.material.rally.R
 import io.material.rally.ui.viewpager.SwipeControllableViewPager
 import kotlinx.android.synthetic.main.layout_rally_tab.view.cl
-import kotlinx.android.synthetic.main.layout_rally_tab.view.flow
 import kotlinx.android.synthetic.main.layout_rally_tab.view.image1
 import kotlinx.android.synthetic.main.layout_rally_tab.view.image2
 import kotlinx.android.synthetic.main.layout_rally_tab.view.image3
@@ -96,6 +97,17 @@ class RallyTab @JvmOverloads constructor(
   val tabNames = listOf("Overview", "Accounts", "Bills", "Budgets", "Settings")
 
   fun clickedItem(position: Int) {
+    val flow = findViewById<Flow>(R.id.flow)
+    val refs = flow.referencedIds.toMutableList()
+
+    // Currently a bug
+    // Found in ConstraintLayout flow that does not have no reference ids after configuration changes
+    // Tweak it by switching tab to zero position
+    if(refs.size < position){
+      viewPager?.currentItem = 0
+      return
+    }
+
     TransitionManager.beginDelayedTransition(cl, transition)
     previousClickedPosition = lastClickedPosition
     lastClickedPosition = position
@@ -104,7 +116,8 @@ class RallyTab @JvmOverloads constructor(
     if (lastClickedPosition != previousClickedPosition) {
       textView.alpha = 0f
 
-      val refs = flow.referencedIds.toMutableList()
+
+
       refs.remove(R.id.textView)
       refs.filterIndexed { index, viewId -> index != position }
           .forEach {
