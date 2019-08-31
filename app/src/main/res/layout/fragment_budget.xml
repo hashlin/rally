@@ -59,7 +59,7 @@
         android:id="@+id/label_alert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Left"
+        android:text="@string/label_left"
         android:layout_marginBottom="@dimen/spacing_medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

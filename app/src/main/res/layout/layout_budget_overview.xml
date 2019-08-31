@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_medium"
         android:layout_marginTop="@dimen/spacing_small"
-        android:text="Budgets"
+        android:text="@string/label_budget"
         style="?attr/textAppearanceSubtitle2"
         />
 
@@ -36,7 +36,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginStart="@dimen/spacing_medium"
-          android:text="$717.12"
+          tools:text="$717.12"
           android:id="@+id/tv_budget_amount"
           style="?attr/textAppearanceHeadline3"
           />
@@ -45,7 +45,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginStart="@dimen/spacing_medium"
-          android:text="Left"
+          android:text="@string/label_left"
           style="?attr/textAppearanceSubtitle2"
           />
 
@@ -66,7 +66,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginStart="@dimen/spacing_medium"
-          android:text="Total"
+          android:text="@string/label_total"
           style="?attr/textAppearanceSubtitle2"
           />
 
@@ -93,7 +93,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="See All"
+        android:text="@string/label_see_all"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         />
 

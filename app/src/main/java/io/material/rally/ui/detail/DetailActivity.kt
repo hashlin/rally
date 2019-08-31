@@ -15,7 +15,7 @@ import androidx.lifecycle.Observer
 import io.material.rally.R
 import io.material.rally.R.id
 import io.material.rally.ui.RallyApp
-import io.material.rally.ui.getRandomPoints
+import io.material.rally_line_chart.DataPoint
 import kotlinx.android.synthetic.main.activity_detail.rallyLine
 import kotlinx.android.synthetic.main.activity_detail.tab
 import kotlinx.android.synthetic.main.activity_detail.toolbar
@@ -94,4 +94,14 @@ class DetailActivity : AppCompatActivity() {
       context.startActivity(intent, options.toBundle())
     }
   }
+}
+
+fun getRandomPoints(): MutableList<DataPoint> {
+  val list = mutableListOf<DataPoint>()
+  val range = (0..10)
+
+  (1..15).forEach { _ ->
+    list.add(DataPoint(range.random()*100f))
+  }
+  return list
 }

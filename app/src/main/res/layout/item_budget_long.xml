@@ -100,7 +100,7 @@
       android:id="@+id/tvLeft"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="1200.00"
+      tools:text="1200.00"
       app:layout_constraintTop_toTopOf="@id/tvName"
       app:layout_constraintBottom_toBottomOf="@id/tvUsed"
       app:layout_constraintEnd_toStartOf="@id/ivArrow"
@@ -116,7 +116,7 @@
       app:layout_constraintBottom_toBottomOf="@id/tvLeft"
       app:layout_constraintEnd_toEndOf="parent"
       android:layout_marginEnd="@dimen/spacing_medium"
-      android:text="Left"
+      android:text="@string/label_left"
       style="?attr/textAppearanceCaption"
       />
 

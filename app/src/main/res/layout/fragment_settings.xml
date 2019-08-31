@@ -10,25 +10,19 @@
       android:padding="@dimen/spacing_medium"
       >
 
-
-
-
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rally is a personal finance app that uses Material Design components and Material Theming to create an on-brand experience with a data-driven aesthetic."
+        android:text="@string/label_about_rally"
         android:textAppearance="?attr/textAppearanceBody1"
         />
-
-
 
     <TextView
         android:id="@+id/tv_about_rally_project"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_large"
-        android:text="Rally is a part of Google's Material Studies. Visit https://material.io/design/material-studies/rally.html to learn more about this project. It is originally a design case study. And no codes."
+        android:text="@string/label_about_rally2"
         android:textAppearance="?attr/textAppearanceBody1"
         />
 
@@ -37,18 +31,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_large"
-        android:text="So, we implement the app, making every single UI components as close as possible. You can check source code at https://github.com/hashlin/rally."
+        android:text="@string/label_about_rally3"
         android:textAppearance="?attr/textAppearanceBody1"
         />
-
-
-
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_x_large"
-        android:text="Meet us on twitter"
+        android:text="@string/label_meet_us_twitter"
         android:textAppearance="?attr/textAppearanceBody2"
         />
 

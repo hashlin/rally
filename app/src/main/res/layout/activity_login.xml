@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@null"
-        android:hint="email"
+        android:hint="@string/hint_email"
         android:padding="0dp"
         android:inputType="textEmailAddress"/>
 
@@ -73,7 +73,7 @@
         android:id="@+id/et_pwd"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="password"
+        android:hint="@string/hint_pwd"
         android:imeOptions="actionDone"
         android:padding="0dp"
         android:inputType="textPassword"
@@ -100,7 +100,7 @@
       android:id="@+id/label_login_id"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:text="Or Login With Touch ID"
+      android:text="@string/label_login_touch_id"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       android:gravity="center"

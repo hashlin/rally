@@ -19,7 +19,6 @@
       android:ellipsize="end"
       android:layout_marginEnd="@dimen/spacing_medium"
       android:textAppearance="?attr/textAppearanceSubtitle2"
-      android:text="Somethings"
       tools:text="@tools:sample/lorem/random"
       />
 
