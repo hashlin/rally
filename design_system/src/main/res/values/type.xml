@@ -66,6 +66,7 @@
     <style name="TextAppearance.Rally.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="fontFamily">@font/roboto_condensed_regular</item>
         <item name="android:textSize">20sp</item>
+        <item name="android:letterSpacing">0.05</item>
         <item name="android:fontWeight">500</item>
 
     </style>

@@ -8,10 +8,9 @@
   <scale
       android:fromXScale="0"
       android:fromYScale="0"
-      android:toXScale="1"
-      android:toYScale="1"
+      android:toXScale="1.05"
+      android:toYScale="1.05"
       android:pivotX="50%"
       android:pivotY="50%"
       android:interpolator="@android:interpolator/overshoot"/>
-
 </set>
