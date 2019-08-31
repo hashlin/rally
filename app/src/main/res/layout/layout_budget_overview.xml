@@ -84,7 +84,6 @@
         android:id="@+id/rv_budget_overview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:overScrollMode="never"
         tools:itemCount="3"
         tools:listitem="@layout/item_budget_short"
         />

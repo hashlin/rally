@@ -12,7 +12,6 @@
       android:layout_weight="5"
       android:layout_width="0dp"
       android:layout_height="match_parent"
-      android:overScrollMode="never"
       tools:context=".ui.budget.BudgetFragment"
       >
 
@@ -104,7 +103,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/spacing_keyline"
             android:layout_marginEnd="@dimen/spacing_keyline"
-            android:overScrollMode="never"
+            android:layoutAnimation="@anim/layout_anim_slide_up"
             tools:itemCount="3"
             tools:listitem="@layout/item_account"
             />

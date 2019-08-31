@@ -10,7 +10,6 @@
       android:layout_weight="5"
       android:layout_width="0dp"
       android:layout_height="match_parent"
-      android:overScrollMode="never"
       tools:context=".ui.account.AccountFragment"
       >
 
@@ -102,8 +101,8 @@
           android:id="@+id/rv_account"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:overScrollMode="never"
           tools:itemCount="3"
+          android:layoutAnimation="@anim/layout_anim_slide_up"
           tools:listitem="@layout/item_account"
           />
 

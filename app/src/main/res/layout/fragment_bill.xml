@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:overScrollMode="never"
     tools:context=".ui.bill.BillFragment"
     >
 
@@ -93,7 +92,6 @@
           android:id="@+id/rv_bill"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:overScrollMode="never"
           android:layoutAnimation="@anim/layout_anim_slide_up"
           tools:itemCount="3"
           tools:listitem="@layout/item_account"

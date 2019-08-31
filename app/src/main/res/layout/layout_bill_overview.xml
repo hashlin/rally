@@ -44,7 +44,6 @@
         android:id="@+id/rv_bill_overview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:overScrollMode="never"
         tools:listitem="@layout/item_bill"
         tools:itemCount="3"
         />

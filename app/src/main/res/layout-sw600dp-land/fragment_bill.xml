@@ -11,7 +11,6 @@
       android:layout_weight="5"
       android:layout_width="0dp"
       android:layout_height="match_parent"
-      android:overScrollMode="never"
       tools:context=".ui.bill.BillFragment"
       >
 
@@ -91,7 +90,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layoutAnimation="@anim/layout_anim_slide_up"
-            android:overScrollMode="never"
             tools:itemCount="3"
             tools:listitem="@layout/item_account"
             />
