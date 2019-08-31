@@ -1,6 +1,8 @@
 package io.material.rally.ui.overview.adapter
 
 import android.content.Intent
+import android.view.Gravity
+import android.view.Gravity.*
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -10,6 +12,7 @@ import androidx.core.util.Pair
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.transition.Slide
 import io.material.rally.R
 import io.material.rally.data.model.Account
 import io.material.rally.extension.inflate
@@ -74,6 +77,9 @@ class AccountOverviewViewHolder(val view: View) : RecyclerView.ViewHolder(view) 
       val pair = Pair(view.findViewById<View>(R.id.shareView), "DetailView")
       val options =
         ActivityOptionsCompat.makeSceneTransitionAnimation(view.context as AppCompatActivity, pair)
+      val transition = (view.context as AppCompatActivity).window.exitTransition
+      transition.excludeTarget(view,true)
+      (view.context as AppCompatActivity).window.exitTransition = transition
       view.context.startActivity(intent, options.toBundle())
     }
   }

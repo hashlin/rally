@@ -5,6 +5,8 @@
 
   <style name="Rally.DayNight.Main" parent="Base.Rally">
     <item name="android:windowContentTransitions">true</item>
+    <item name="android:windowExitTransition">@transition/main_exit</item>
+    <item name="android:windowReenterTransition">@transition/main_reenter</item>
     <item name="android:windowSharedElementsUseOverlay">false</item>
   </style>
 
