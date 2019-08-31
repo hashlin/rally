@@ -15,7 +15,7 @@
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_weight="1"
-      android:lines="2"
+      android:lines="3"
       android:ellipsize="end"
       android:layout_marginEnd="@dimen/spacing_medium"
       android:textAppearance="?attr/textAppearanceSubtitle1"
