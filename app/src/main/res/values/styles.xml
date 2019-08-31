@@ -1,8 +1,9 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Rally.DayNight">
         <item name="android:overScrollMode">never</item>
+        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">@android:color/transparent</item>
     </style>
 
     <style name="Rally.DayNight.Main" parent="Base.Rally">
@@ -20,6 +21,18 @@
 
     <style name="Rally.DayNight.Login" parent="Base.Rally">
         <item name="android:windowBackground">@drawable/bg_splash</item>
+    </style>
+
+    <!--Alert Dialog-->
+    <style name="Widget.Rally.AlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog.Centered">
+        <item name="android:windowBackground">?attr/colorSecondaryVariant</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimAmount">0.85</item>
+        <item name="android:windowAnimationStyle">@style/DialogAnimation</item>
+    </style>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/enter_overshoot_anim</item>
     </style>
 
 </resources>
