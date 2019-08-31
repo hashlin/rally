@@ -16,6 +16,7 @@ class RallyApp : Application() {
     preferenceRepository = PreferenceRepository(
         getSharedPreferences(DEFAULT_PREFERENCES, Context.MODE_PRIVATE)
     )
+    preferenceRepository.isDarkTheme  = true
   }
 
   companion object {

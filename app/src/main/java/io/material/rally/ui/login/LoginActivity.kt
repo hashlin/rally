@@ -15,6 +15,7 @@ import io.material.rally.R
 import io.material.rally.data.Authenticator
 import io.material.rally.ui.MainActivity
 import io.material.rally.ui.RallyApp
+import kotlinx.android.synthetic.main.activity_login.constraint_layout
 import kotlinx.android.synthetic.main.activity_login.et_email
 import kotlinx.android.synthetic.main.activity_login.et_pwd
 import kotlinx.android.synthetic.main.activity_login.imgLogo
@@ -49,11 +50,15 @@ class LoginActivity : AppCompatActivity() {
     })
 
 
-
-
     if (savedInstanceState == null) runEnterAnimation()
 
     setUpInputField()
+
+    constraint_layout.setOnClickListener { login() }
+    iv_fingerprint.setOnClickListener { login() }
+    label_login_id.setOnClickListener { login() }
+    imgLogo.setOnClickListener { login() }
+
   }
 
   private fun setUpInputField() {

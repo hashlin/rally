@@ -19,8 +19,6 @@
   <!--Top level DayNight theme to be used in AndroidManifest.xml-->
   <style name="Rally.DayNight" parent="Base.Rally" />
 
-  <!--Top level DayNight theme to be used in AndroidManifest.xml-->
-
   <!--Base custom theme which will be shared between both light and dark theme variants-->
   <style name="Base.Rally" parent="Base.MaterialThemeBuilder">
     <!--Material color attributes -->
