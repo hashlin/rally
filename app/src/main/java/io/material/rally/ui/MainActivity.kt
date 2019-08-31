@@ -51,6 +51,14 @@ class MainActivity : AppCompatActivity() {
     }
   }
 
+  override fun onBackPressed() {
+    if (view_pager.currentItem != 0) {
+      view_pager.currentItem = 0
+      return
+    }
+    super.onBackPressed()
+  }
+
   companion object {
     fun start(context: Context) {
       val intent = Intent(context, MainActivity::class.java)
