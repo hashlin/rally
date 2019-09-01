@@ -17,25 +17,28 @@ So, we tried to implement the app for Android. We craft it looks like design as 
 
 Here are some highlights:
 
-![Tabs](https://github.com/hashlin/rally/blob/master/highlights/hl-tab.mp4)
+![Tabs](highlights/hl-tab.mp4)
 
 Such kind of tab is not default on Android. We made it possible by using Constraint Layout's Flow.
 
 
+### Graphs
 
-![Graph](https://github.com/hashlin/rally/blob/master/highlights/hl-graph.mp4)
+<video width="320" height="0" controls>
+  <source src="highlights/hl-graph.mp4" type="video/mp4">
+</video>
 
 Meaningful motions and neat animations make the graph unique. Handcrafted the component on canvas.
 
 
-![Pie](https://github.com/hashlin/rally/blob/master/highlights/hl-pie.mp4)
+![Pie](highlights/hl-pie.mp4)
 <iframe src="https://www.youtube.com/embed/enMumwvLAug" frameborder="0" allowfullscreen="true"> </iframe>
 
 Draw the pie chart on canvas and make animation exactly the same with original.
 
 
 
-![Tablet UI](https://github.com/hashlin/rally/blob/master/highlights/hl-tablet.mp4)
+![Tablet UI](highlights/hl-tablet.mp4)
 
 Made Rally unique on tablet, too.
 
