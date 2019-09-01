@@ -28,12 +28,6 @@
         <item name="itemTextAppearance">?textAppearanceBody2</item>
     </style>
 
-    <!--Alert Dialog-->
-    <style name="Widget.Rally.AlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog.Centered">
-        <item name="android:windowBackground">?attr/colorSecondaryVariant</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:backgroundDimAmount">0.85</item>
-    </style>
 
 
     <style name="Widget.Rally.CardView" parent="Widget.MaterialComponents.CardView">

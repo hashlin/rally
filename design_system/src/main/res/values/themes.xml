@@ -67,7 +67,6 @@
     <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.MyTheme.LargeComponent</item>
 
     <!--Component styles-->
-    <item name="materialAlertDialogTheme">@style/Widget.Rally.AlertDialog</item>
     <item name="bottomSheetDialogTheme">@style/ThemeOverlay.Rally.BottomSheetDialog</item>
     <item name="navigationViewStyle">@style/Widget.Rally.NavigationView</item>
     <item name="materialCardViewStyle">@style/Widget.Rally.CardView</item>
