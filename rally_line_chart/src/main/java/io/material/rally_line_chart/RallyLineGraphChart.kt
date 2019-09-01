@@ -142,7 +142,7 @@ class RallyLineGraphChart : View {
     for (i in 0 until VERTICAL_BARS) {
       startX += barWidth + barMargin
       endX = startX
-      endY = if (i % INDEX_OF_LARGE_BAR != 0) {
+      endY = if (i % INDEX_OF_LARGE_BAR != 2) {
         smallBarHeight
       } else {
         largeBarHeight
@@ -305,7 +305,7 @@ class RallyLineGraphChart : View {
   companion object {
     private const val INDEX_OF_LARGE_BAR = 8
     private const val VERTICAL_BARS =
-      (INDEX_OF_LARGE_BAR * INDEX_OF_LARGE_BAR) + 1 // add fixed bars size
+      (INDEX_OF_LARGE_BAR * INDEX_OF_LARGE_BAR) + 6 // add fixed bars size
     private const val CURVE_BOTTOM_MARGIN = 32f
 
   }
