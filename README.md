@@ -11,7 +11,19 @@
 
 Rally is a part of Google's Material Studies. It is originally a design case study and no codes.
 
-So, we tried to implement the app for Android. We craft it looks like design as close as possible and customize a lot of UI components and use [Material Components](https://github.com/material-components/material-components-android) for theming.
+So, we tried to implement the app for Android. We craft it looks like design as close as possible and customize a lot of UI components and use [Material Components](https://github.com/material-components/material-components-android) for theming. <br/> <br/>
+
 
 
 Here are some highlights:
+
+![Rally](images/rally-cover.png)
+![Rally](images/rally-cover.png)
+![Rally](images/rally-cover.png)
+
+
+Find us on Twitter:
+
+[@Thechanmyaeaung]()
+
+[@Linminphyoe1]()

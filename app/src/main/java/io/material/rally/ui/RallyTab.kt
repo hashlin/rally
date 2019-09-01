@@ -9,9 +9,14 @@ import android.util.Log
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.AccelerateInterpolator
 import android.widget.TextView
 import androidx.constraintlayout.helper.widget.Flow
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.interpolator.view.animation.FastOutLinearInInterpolator
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 import androidx.transition.AutoTransition
 import androidx.transition.Slide
 import androidx.transition.TransitionManager
@@ -46,20 +51,28 @@ class RallyTab @JvmOverloads constructor(
   private val transition by lazy {
     AutoTransition().apply {
       excludeTarget(textView, true)
+    }.apply {
+      interpolator = FastOutSlowInInterpolator()
+      duration = 300
     }
   }
 
 
   private val titleAlphaAnimator by lazy {
     ObjectAnimator.ofFloat(textView, "alpha", 0f, 1f).apply {
-      startDelay = duration / 2
+      startDelay = duration  * 1 / 3
+      duration = 300
     }
   }
 
   private val titleSlideAnimator by lazy {
+    val tvWidth = resources.displayMetrics.widthPixels - ( image1.width * 5 )
     ObjectAnimator.ofFloat(
-        textView, "translationX", 60.toFloat(), 0f
-    )
+        textView, "translationX", tvWidth.toFloat(), 0f
+    ).apply {
+      interpolator = FastOutSlowInInterpolator()
+      duration = 300
+    }
   }
 
   init {
@@ -72,23 +85,23 @@ class RallyTab @JvmOverloads constructor(
     // textView..addTransition(slideInRight)
 
     image1.setOnClickListener {
-      viewPager?.setCurrentItem(0, false)
+      viewPager?.setCurrentItem(0, true)
     }
 
     image2.setOnClickListener {
-      viewPager?.setCurrentItem(1, false)
+      viewPager?.setCurrentItem(1, true)
     }
 
     image3.setOnClickListener {
-      viewPager?.setCurrentItem(2, false)
+      viewPager?.setCurrentItem(2, true)
     }
 
     image4.setOnClickListener {
-      viewPager?.setCurrentItem(3, false)
+      viewPager?.setCurrentItem(3, true)
     }
 
     image5.setOnClickListener {
-      viewPager?.setCurrentItem(4, false)
+      viewPager?.setCurrentItem(4, true)
 
     }
 
@@ -173,7 +186,7 @@ class RallyTab @JvmOverloads constructor(
     allowSwipe: Boolean
   ) {
     this.viewPager = viewPager
-    this.viewPager?.swipeEnabled = allowSwipe
+    this.viewPager?.swipeEnabled = false
 
     this.viewPager?.addOnPageChangeListener(object : OnPageChangeListener {
       override fun onPageScrollStateChanged(state: Int) {
