@@ -36,7 +36,10 @@
     <item name="colorOnBackground">@color/color_on_background</item>
     <item name="colorOnSurface">@color/color_on_surface</item>
     <item name="colorOnError">@color/color_on_error</item>
+    <item name="android:textColorPrimary">#ffffff</item>
+    <item name="android:editTextColor">#ffffff</item>
 
+    <item name="android:textColor">@android:color/white</item>
     <item name="android:textColorLink">@color/color_primary_variant</item>
     <item name="android:textColorLinkInverse">@color/color_secondary_variant</item>
 
@@ -82,31 +85,6 @@
     </item>
   </style>
 
-  <style name="Widget.Rally.CardView" parent="Widget.MaterialComponents.CardView">
-    <item name="cardElevation">@dimen/card_elevation</item>
-    <item name="cardBackgroundColor">?attr/colorSurface</item>
-  </style>
-
-
-  <style name="Widget.Rally.CompoundButton.Switch" parent="@style/Widget.MaterialComponents.CompoundButton.Switch">
-    <item name="android:colorButtonNormal">@color/rally_green_700</item>
-    <item name="android:colorControlActivated">@color/rally_green_300</item>
-  </style>
-
-  <style name="Widget.Rally.Button.OutlinedButton" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
-    <item name="iconTint">?attr/colorPrimaryVariant</item>
-  </style>
-
-  <style name="Widget.Rally.Button.IconOnly" parent="@style/Widget.MaterialComponents.Button.TextButton.Icon">
-    <item name="iconPadding">0dp</item>
-    <item name="iconGravity">textStart</item>
-    <item name="iconTint">?attr/colorPrimaryVariant</item>
-  </style>
-
-  <style name="Widget.Rally.TabLayout" parent="@style/Widget.MaterialComponents.TabLayout">
-    <item name="android:background">?android:attr/colorBackground</item>
-    <item name="android:elevation">0dp</item>
-  </style>
 
 
   <style name="Base.MaterialThemeBuilder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -126,6 +104,16 @@
     <item name="colorAccent">?colorSecondary</item>
   </style>
 
+
+  <style name="ThemeOverlay.Rally.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.Dialog">
+    <item name="android:windowIsFloating">false</item>
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:windowAnimationStyle">@style/Animation.MyTheme.BottomSheet.Modal</item>
+    <item name="android:statusBarColor">@android:color/transparent</item>
+    <item name="bottomSheetStyle">@style/Widget.Rally.BottomSheet.Modal</item>
+    <item name="android:navigationBarColor">?colorSurface</item>
+    <item name="android:navigationBarDividerColor" tools:ignore="NewApi">@android:color/transparent</item>
+  </style>
 
   <style name="ThemeOverlay.Rally.Switch" parent="">
     <item name="colorSecondary">@color/rally_green_500</item>

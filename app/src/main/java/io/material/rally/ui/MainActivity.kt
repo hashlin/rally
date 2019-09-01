@@ -16,11 +16,6 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
-    (application as RallyApp).preferenceRepository
-        .nightModeLive.observe(this, Observer { nightMode ->
-      nightMode?.let { delegate.localNightMode = it }
-    })
-
     if (savedInstanceState == null) runEnterAnimation()
     setUpViewPager()
   }

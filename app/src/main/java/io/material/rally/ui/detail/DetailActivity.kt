@@ -27,11 +27,6 @@ class DetailActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_detail)
 
-    (application as RallyApp).preferenceRepository
-        .nightModeLive.observe(this, Observer { nightMode ->
-      nightMode?.let { delegate.localNightMode = it }
-    })
-
     rallyLine.setCurveBorderColor(intent.getIntExtra(KEY_COLOR, R.color.rally_dark_green))
 
     setUpToolbar()

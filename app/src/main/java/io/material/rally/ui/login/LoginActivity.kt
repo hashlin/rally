@@ -34,21 +34,19 @@ class LoginActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_login)
 
     authenticator = Authenticator(applicationContext)
     if (authenticator.isLoggedIn()) {
       navigateToMain()
     }
 
-
-    setContentView(R.layout.activity_login)
-
-
-    (application as RallyApp).preferenceRepository
-        .nightModeLive.observe(this, Observer { nightMode ->
-      nightMode?.let { delegate.localNightMode = it }
-    })
-
+//
+//    (application as RallyApp).preferenceRepository
+//        .nightModeLive.observe(this, Observer { nightMode ->
+//      nightMode?.let { delegate.localNightMode = it }
+//    })
+//
 
     if (savedInstanceState == null) runEnterAnimation()
 
