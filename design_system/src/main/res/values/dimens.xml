@@ -31,5 +31,5 @@
     <dimen name="alpha_emphasis_medium">@dimen/mtrl_emphasis_medium</dimen>
     <dimen name="alpha_emphasis_disabled">@dimen/mtrl_emphasis_disabled</dimen>
 
-    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="card_elevation">0dp</dimen>
 </resources>
