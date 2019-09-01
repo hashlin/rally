@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:background="?attr/selectableItemBackground"
+    >
+
+  <View
+      android:id="@+id/shareView"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"/>
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guide_vertical_20"
+      android:orientation="vertical"
+      app:layout_constraintGuide_percent=".2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guide_vertical_75"
+      android:orientation="vertical"
+      app:layout_constraintGuide_percent=".75"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+
+  <ProgressBar
+      android:id="@+id/bar"
+      android:layout_width="0dp"
+      android:layout_height="3dp"
+      style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+      app:layout_constraintTop_toTopOf="@id/tvName"
+      app:layout_constraintBottom_toBottomOf="@id/tvUsed"
+      app:layout_constraintEnd_toEndOf="@+id/guide_vertical_75"
+      app:layout_constraintStart_toStartOf="@+id/guide_vertical_20"
+      android:layout_marginTop="4dp"
+      android:layout_marginBottom="4dp"
+      android:layout_marginStart="@dimen/spacing_medium"/>
+
+  <TextView
+      android:id="@+id/tvName"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      tools:text="Coffee Shops"
+      android:layout_marginTop="@dimen/spacing_medium"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toStartOf="@id/tvLeft"
+      android:layout_marginStart="@dimen/spacing_medium"
+      style="?attr/textAppearanceSubtitle1"/>
+
+  <TextView
+      android:id="@+id/tvUsed"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      tools:text="$45.49"
+      android:layout_marginBottom="@dimen/spacing_medium"
+      app:layout_constraintTop_toBottomOf="@id/tvName"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      android:layout_marginStart="@dimen/spacing_medium"
+      style="?attr/textAppearanceBody2"/>
+
+  <TextView
+      android:id="@+id/tvTotal"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      tools:text="/ $45.49"
+      android:visibility="@integer/visibility_total_amount_budget_overview"
+      android:layout_marginBottom="@dimen/spacing_medium"
+      app:layout_constraintTop_toTopOf="@+id/tvUsed"
+      app:layout_constraintBottom_toBottomOf="@+id/tvUsed"
+      app:layout_constraintStart_toEndOf="@id/tvUsed"
+      style="?attr/textAppearanceBody2"/>
+
+
+  <TextView
+      android:id="@+id/text_view_dollar"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="$"
+      android:layout_marginStart="@dimen/spacing_x_large"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintHorizontal_bias=".55"
+      app:layout_constraintStart_toEndOf="@+id/guide_vertical_75"
+      app:layout_constraintTop_toTopOf="parent"
+      style="?attr/textAppearanceMoney1"
+      />
+
+
+  <TextView
+      android:id="@+id/tvLeft"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      tools:text="1200.00"
+      app:layout_constraintTop_toTopOf="@id/tvName"
+      app:layout_constraintBottom_toBottomOf="@id/tvUsed"
+      app:layout_constraintEnd_toStartOf="@id/ivArrow"
+      android:layout_marginStart="@dimen/spacing_medium"
+      android:layout_marginEnd="@dimen/spacing_medium"
+      style="?attr/textAppearanceMoney1"/>
+
+  <TextView
+      android:id="@+id/ivArrow"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toTopOf="@id/tvLeft"
+      app:layout_constraintBottom_toBottomOf="@id/tvLeft"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginEnd="@dimen/spacing_medium"
+      android:text="@string/label_left"
+      style="?attr/textAppearanceCaption"
+      />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

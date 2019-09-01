@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:background="?attr/selectableItemBackground"
+    >
+
+  <TextView
+      android:id="@+id/tvName"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      tools:text="Genoe"
+      android:layout_marginTop="@dimen/spacing_medium"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toStartOf="@id/tvAmount"
+      android:layout_marginStart="@dimen/spacing_large"
+      style="?attr/textAppearanceSubtitle1"/>
+
+  <TextView
+      android:id="@+id/tvDate"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      tools:text="12/30/18"
+      android:layout_marginBottom="@dimen/spacing_medium"
+      app:layout_constraintTop_toBottomOf="@id/tvName"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toStartOf="@id/tvAmount"
+      android:layout_marginStart="@dimen/spacing_large"
+      style="?attr/textAppearanceBody2"/>
+
+  <TextView
+      android:id="@+id/tvAmount"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      tools:text="2,215.13"
+      app:layout_constraintTop_toTopOf="@id/tvName"
+      app:layout_constraintBottom_toBottomOf="@id/tvDate"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginStart="@dimen/spacing_medium"
+      android:layout_marginEnd="@dimen/spacing_large"
+      style="?attr/textAppearanceMoney1"/>
+
+  <TextView
+      android:id="@+id/text_view_dollar"
+      tools:text="-$"
+      android:textColor="@color/color_on_surface_20"
+      style="?attr/textAppearanceMoney1"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintHorizontal_bias=".6"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

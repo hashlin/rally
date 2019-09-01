@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorSecondary"
+    >
+
+  <TextView
+      android:alpha=".8"
+      android:id="@+id/label_annual"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/spacing_x_large"
+      android:text="@string/label_annual_percentage"
+      app:layout_constraintStart_toStartOf="parent"
+      android:layout_marginStart="@dimen/spacing_large"
+      app:layout_constraintTop_toTopOf="parent"
+      style="?attr/textAppearanceSubtitle1"
+      />
+
+  <TextView
+      android:id="@+id/tvAnnualPercentage"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/spacing_small"
+      android:text="0.10%"
+      android:textAppearance="?attr/textAppearanceMoney1"
+      app:layout_constraintStart_toStartOf="@id/label_annual"
+      app:layout_constraintTop_toBottomOf="@id/label_annual"
+      />
+
+  <TextView
+      android:alpha=".8"
+
+      android:id="@+id/label_interest_rate"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/spacing_large"
+      android:text="@string/label_interest_rate"
+      app:layout_constraintStart_toStartOf="@id/label_annual"
+      app:layout_constraintTop_toBottomOf="@+id/bar1"
+      style="?attr/textAppearanceSubtitle1"
+      />
+
+  <TextView
+      android:id="@+id/tvInterestRate"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/spacing_small"
+      android:text="$1676.14"
+      android:textAppearance="?attr/textAppearanceMoney1"
+      app:layout_constraintStart_toStartOf="@id/label_interest_rate"
+      app:layout_constraintTop_toBottomOf="@id/label_interest_rate"
+      />
+
+  <TextView
+      android:alpha=".8"
+
+      android:id="@+id/label_interest_ytd"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/spacing_large"
+      android:text="@string/label_interest_ytd"
+      app:layout_constraintStart_toStartOf="@id/label_annual"
+      app:layout_constraintTop_toBottomOf="@+id/bar2"
+      style="?attr/textAppearanceSubtitle1"
+      />
+
+  <TextView
+      android:id="@+id/tvInterestYTD"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/spacing_small"
+      android:text="$81.45"
+      android:textAppearance="?attr/textAppearanceMoney1"
+      app:layout_constraintStart_toStartOf="@id/label_interest_ytd"
+      app:layout_constraintTop_toBottomOf="@id/label_interest_ytd"
+      />
+
+  <TextView
+      android:alpha=".8"
+
+      android:id="@+id/label_interest_paid"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/spacing_large"
+      android:text="@string/label_interest_paid"
+      app:layout_constraintStart_toStartOf="@id/label_annual"
+      app:layout_constraintTop_toBottomOf="@+id/bar3"
+      style="?attr/textAppearanceSubtitle1"
+      />
+
+  <TextView
+      android:id="@+id/tvInterestPaid"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/spacing_small"
+      android:text="$987.12"
+      android:textAppearance="?attr/textAppearanceMoney1"
+      app:layout_constraintStart_toStartOf="@id/label_interest_paid"
+      app:layout_constraintTop_toBottomOf="@id/label_interest_paid"
+      />
+
+  <TextView
+      android:id="@+id/label_next_statement"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/spacing_large"
+      android:text="@string/label_next_statement"
+      app:layout_constraintStart_toStartOf="@id/label_annual"
+      app:layout_constraintTop_toBottomOf="@+id/bar4"
+      style="?attr/textAppearanceSubtitle1"
+      />
+
+  <TextView
+      android:id="@+id/tvNextStatement"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/spacing_small"
+      android:text="January 25, 2019"
+      android:textAppearance="?attr/textAppearanceMoney1"
+      app:layout_constraintStart_toStartOf="@id/label_next_statement"
+      app:layout_constraintTop_toBottomOf="@id/label_next_statement"
+      />
+
+  <TextView
+      android:alpha=".8"
+      android:id="@+id/label_account_owner"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/spacing_large"
+      android:text="@string/label_owner"
+      app:layout_constraintStart_toStartOf="@id/label_annual"
+      app:layout_constraintTop_toBottomOf="@+id/bar5"
+      style="?attr/textAppearanceSubtitle1"
+      />
+
+  <TextView
+      android:id="@+id/tvAccOwner"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/spacing_small"
+      android:text="Philip Cao"
+      android:textAppearance="?attr/textAppearanceMoney1"
+      app:layout_constraintStart_toStartOf="@id/label_account_owner"
+      app:layout_constraintTop_toBottomOf="@id/label_account_owner"
+      />
+
+  <View
+      android:id="@+id/bar1"
+      android:layout_width="0dp"
+      android:layout_height="0.5dp"
+      android:layout_marginTop="4dp"
+      android:background="@drawable/background_rectangle"
+      android:backgroundTint="@color/color_on_surface_20"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@id/label_annual"
+      app:layout_constraintTop_toBottomOf="@id/tvAnnualPercentage"
+      />
+
+  <View
+      android:id="@+id/bar2"
+      android:layout_width="0dp"
+      android:layout_height="0.5dp"
+      android:layout_marginTop="4dp"
+      android:background="@drawable/background_rectangle"
+      android:backgroundTint="@color/color_on_surface_20"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@id/label_interest_rate"
+      app:layout_constraintTop_toBottomOf="@id/tvInterestRate"
+      />
+
+  <View
+      android:id="@+id/bar3"
+      android:layout_width="0dp"
+      android:layout_height="0.5dp"
+      android:layout_marginTop="4dp"
+      android:background="@drawable/background_rectangle"
+      android:backgroundTint="@color/color_on_surface_20"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@id/label_interest_ytd"
+      app:layout_constraintTop_toBottomOf="@id/tvInterestYTD"
+      />
+
+  <View
+      android:id="@+id/bar4"
+      android:layout_width="0dp"
+      android:layout_height="0.5dp"
+      android:layout_marginTop="4dp"
+      android:background="@drawable/background_rectangle"
+      android:backgroundTint="@color/color_on_surface_20"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@id/label_interest_paid"
+      app:layout_constraintTop_toBottomOf="@id/tvInterestPaid"
+      />
+
+  <View
+      android:id="@+id/bar5"
+      android:layout_width="0dp"
+      android:layout_height="0.5dp"
+      android:layout_marginTop="4dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:background="@drawable/background_rectangle"
+      android:backgroundTint="@color/color_on_surface_20"
+      app:layout_constraintStart_toStartOf="@id/label_next_statement"
+      app:layout_constraintTop_toBottomOf="@id/tvNextStatement"
+      />
+
+  <View
+      android:background="@drawable/background_rectangle"
+      android:backgroundTint="@color/color_on_surface_20"
+      android:id="@+id/bar6"
+      android:layout_width="0dp"
+      android:layout_height="0.5dp"
+      android:layout_marginBottom="@dimen/spacing_x_large"
+      android:layout_marginTop="4dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@id/label_account_owner"
+      app:layout_constraintTop_toBottomOf="@id/tvAccOwner"
+      />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

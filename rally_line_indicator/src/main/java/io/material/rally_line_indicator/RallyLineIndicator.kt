@@ -48,8 +48,12 @@ class RallyLineIndicator @JvmOverloads constructor(
   }
 
   fun setData(pieData: RallyLineIndicatorData) {
-    val totalPortionValues = pieData.portions.sumByDouble { it.value.toDouble() }
+    val maxValue = pieData.maxValue?.let {
+      it
+    } ?: pieData.portions.sumByDouble { it.value.toDouble() }
         .toFloat()
-    renderData = pieData.portions.toPoints(totalPortionValues)
+
+
+    renderData = pieData.portions.toPoints(maxValue)
   }
 }

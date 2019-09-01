@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:background="?attr/selectableItemBackground"
+    >
+
+  <View
+      android:id="@+id/shareView"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"/>
+
+  <io.material.rally_line_indicator.RallyVerticalBar
+      android:id="@+id/bar"
+      android:layout_width="4dp"
+      android:layout_height="0dp"
+      app:layout_constraintTop_toTopOf="@id/tvName"
+      app:layout_constraintBottom_toBottomOf="@id/tvDesc"
+      app:layout_constraintStart_toStartOf="parent"
+      android:background="?attr/colorSecondary"
+      android:layout_marginTop="4dp"
+      android:layout_marginBottom="4dp"
+      android:layout_marginStart="@dimen/spacing_medium"/>
+
+  <TextView
+      android:id="@+id/tvName"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      tools:text="RedPay Credit"
+      android:layout_marginTop="@dimen/spacing_medium"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toEndOf="@id/bar"
+      app:layout_constraintEnd_toStartOf="@id/tvAmount"
+      android:layout_marginStart="@dimen/spacing_medium"
+      style="?attr/textAppearanceSubtitle1"/>
+
+  <TextView
+      android:id="@+id/text_view_dollar"
+      android:text="-$ "
+      style="?attr/textAppearanceMoney1"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      android:textAlignment="textEnd"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintHorizontal_bias=".55"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      />
+
+
+  <TextView
+      android:id="@+id/tvDesc"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      tools:text="Due Feb 9"
+      android:layout_marginBottom="@dimen/spacing_medium"
+      app:layout_constraintTop_toBottomOf="@id/tvName"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toEndOf="@id/bar"
+      app:layout_constraintEnd_toStartOf="@id/tvAmount"
+      android:layout_marginStart="@dimen/spacing_medium"
+      style="?attr/textAppearanceBody2"/>
+
+  <TextView
+      android:id="@+id/tvAmount"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      tools:text="1200.00"
+      app:layout_constraintTop_toTopOf="@id/tvName"
+      app:layout_constraintBottom_toBottomOf="@id/tvDesc"
+      app:layout_constraintEnd_toStartOf="@id/ivArrow"
+      android:layout_marginStart="@dimen/spacing_medium"
+      android:layout_marginEnd="@dimen/spacing_small"
+      style="?attr/textAppearanceMoney1"/>
+
+  <ImageView
+      android:id="@+id/ivArrow"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toTopOf="@id/tvName"
+      app:layout_constraintBottom_toBottomOf="@id/tvDesc"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginEnd="@dimen/spacing_medium"
+      android:src="@drawable/ic_right_arrow"
+      android:tint="?attr/colorPrimaryVariant"
+      />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

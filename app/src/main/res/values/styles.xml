@@ -1,11 +1,39 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
+  <!-- Base application theme. -->
+  <style name="AppTheme" parent="Rally.DayNight" />
+
+
+  <style name="Rally.DayNight.Main" parent="Base.Rally">
+    <item name="android:windowContentTransitions">true</item>
+    <item name="android:windowExitTransition">@transition/main_exit</item>
+    <item name="android:windowReenterTransition">@transition/main_reenter</item>
+    <item name="android:windowSharedElementsUseOverlay">false</item>
+  </style>
+
+  <style name="Rally.DayNight.Detail" parent="Base.Rally">
+    <item name="android:windowContentTransitions">true</item>
+    <item name="android:windowEnterTransition">@transition/detail_enter</item>
+    <item name="android:windowReturnTransition">@transition/detail_return</item>
+    <item name="android:windowSharedElementEnterTransition">@transition/detail_share_enter</item>
+    <item name="android:windowSharedElementReturnTransition">@transition/detail_share_return</item>
+    <item name="android:windowSharedElementsUseOverlay">false</item>
+  </style>
+
+  <style name="Rally.DayNight.Login" parent="Base.Rally">
+    <item name="android:windowBackground">@drawable/bg_splash</item>
+  </style>
+
+  <!--Alert Dialog-->
+  <style name="Widget.Rally.AlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog.Centered">
+    <item name="android:windowBackground">?attr/colorSecondaryVariant</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:backgroundDimAmount">0.85</item>
+    <item name="android:windowAnimationStyle">@style/DialogAnimation</item>
+  </style>
+
+  <style name="DialogAnimation">
+    <item name="android:windowEnterAnimation">@anim/enter_overshoot_anim</item>
+  </style>
 
 </resources>

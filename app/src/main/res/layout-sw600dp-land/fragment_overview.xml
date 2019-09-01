@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.overview.OverviewFragment"
+    >
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/content"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:animateLayoutChanges="true"
+      >
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/keyline_start"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/spacing_keyline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/keyline_end"
+        app:layout_constraintGuide_end="@dimen/spacing_keyline"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+
+
+    <include
+        layout="@layout/layout_alert"
+        android:layout_marginTop="@dimen/vertical_gutters"
+        android:id="@+id/rally_alert"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/keyline_start"
+        app:layout_constraintEnd_toEndOf="@+id/keyline_end"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        />
+
+
+    <include
+        layout="@layout/layout_account_overview"
+        android:id="@+id/layout_account_overview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/horizontal_gutters_half"
+        android:layout_marginTop="@dimen/vertical_gutters"
+        app:layout_constraintEnd_toStartOf="@+id/layout_bill_overview"
+        app:layout_constraintStart_toStartOf="@+id/keyline_start"
+        app:layout_constraintTop_toBottomOf="@+id/rally_alert"
+        />
+
+    <include
+        layout="@layout/layout_bill_overview"
+        android:id="@+id/layout_bill_overview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_gutters_half"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_account_overview"
+        app:layout_constraintEnd_toEndOf="@+id/keyline_end"
+        app:layout_constraintStart_toEndOf="@+id/layout_account_overview"
+        app:layout_constraintTop_toTopOf="@+id/layout_account_overview"
+        />
+
+    <include
+        layout="@layout/layout_budget_overview"
+        android:id="@+id/layout_budget_overview"
+        android:layout_width="0dp"
+        app:layout_constraintStart_toStartOf="@+id/keyline_start"
+        app:layout_constraintEnd_toEndOf="@+id/keyline_end"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_medium"
+        android:layout_marginTop="@dimen/vertical_gutters"
+        app:layout_constraintTop_toBottomOf="@+id/layout_bill_overview"
+        />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

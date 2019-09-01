@@ -28,7 +28,6 @@
       app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <com.google.android.material.appbar.AppBarLayout
-      style="@style/Widget.MaterialComponents.AppBarLayout.Surface"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:translationZ="@dimen/elevation_default_top_app_bar">
@@ -99,10 +98,6 @@
           android:layout_width="match_parent"
           android:layout_height="?actionBarSize"
           android:layout_gravity="bottom"
-          android:background="@android:color/transparent"
-          app:tabTextColor="?colorOnSurface"
-          app:tabSelectedTextColor="?colorPrimary"
-          app:tabIndicatorColor="?colorPrimary"
           app:tabMode="scrollable" />
 
     </com.google.android.material.appbar.AppBarLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="@integer/anim_duration"
+    android:interpolator="@android:interpolator/linear_out_slow_in"
+    android:transitionOrdering="together">
+  <targets>
+    <target android:excludeId="@+id/shareView"/>
+    <target android:excludeId="@android:id/navigationBarBackground" />
+    <target android:excludeId="@android:id/statusBarBackground" />
+  </targets>
+  <slide/>
+  <fade
+      android:fadingMode="fade_in"
+      android:startDelay="@integer/anim_delay"/>
+</transitionSet>

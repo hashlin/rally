@@ -1,6 +1,28 @@
 <resources>
-  <string name="app_name">rally</string>
+  <string name="app_name">Rally</string>
 
-  <!-- TODO: Remove or change this placeholder text -->
   <string name="hello_blank_fragment">Hello blank fragment</string>
+  <string name="hint_email">email</string>
+  <string name="hint_pwd">password</string>
+  <string name="label_login_touch_id">Or Login With Touch ID</string>
+  <string name="label_dismiss">Dismiss</string>
+  <string name="label_total">Total</string>
+  <string name="label_due">Due</string>
+  <string name="label_left">Left</string>
+  <string name="label_meet_us_twitter">Meet us on twitter</string>
+  <string name="label_about_rally">Rally is a personal finance app that uses Material Design components and Material Theming to create an on-brand experience with a data-driven aesthetic.</string>
+  <string name="label_about_rally2">Rally is a part of Google\'s Material Studies. Visit https://material.io/design/material-studies/rally.html to learn more about this project. It is originally a design case study. And no codes.</string>
+  <string name="label_about_rally3">So, we implement the app, making every single UI components as close as possible. You can check source code at https://github.com/hashlin/rally.</string>
+  <string name="label_checking">Checking</string>
+  <string name="label_see_all">See All</string>
+  <string name="label_account">Accounts</string>
+  <string name="label_alert">Alerts</string>
+  <string name="label_bill">Bills</string>
+  <string name="label_budget">Budgets</string>
+  <string name="label_annual_percentage">Annual Percentage Yield</string>
+  <string name="label_interest_rate">Interest Rate</string>
+  <string name="label_interest_ytd">Interest YTD</string>
+  <string name="label_interest_paid">Interest Paid Last Year</string>
+  <string name="label_next_statement">Next Statement</string>
+  <string name="label_owner">Account Owner</string>
 </resources>

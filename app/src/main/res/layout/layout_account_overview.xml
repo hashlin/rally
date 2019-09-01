@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="true"
     android:layout_marginStart="@dimen/spacing_medium"
+    android:clickable="true"
     android:layout_marginEnd="@dimen/spacing_medium"
     android:layout_marginTop="@dimen/spacing_small"
-    android:layout_marginBottom="@dimen/spacing_small">
+    android:layout_marginBottom="@dimen/spacing_small"
+    >
 
   <LinearLayout
       android:layout_width="match_parent"
@@ -18,36 +21,40 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Accounts"
-        style="@style/TextAppearance.MyTheme.Subtitle1"
+        android:text="@string/label_account"
+        style="?attr/textAppearanceSubtitle2"
         android:layout_marginTop="@dimen/spacing_small"
         android:layout_marginStart="@dimen/spacing_medium"
         />
     <TextView
+        android:id="@+id/tv_account_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="$12,132,34"
-        style="@style/TextAppearance.MyTheme.Headline3"
+        tools:text="$12,132.49"
+        style="?attr/textAppearanceHeadline3"
         android:layout_marginStart="@dimen/spacing_medium"
         />
 
-    <View
+    <io.material.rally_line_indicator.RallyLineIndicator
+        android:id="@+id/account_line_indicator"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/rally_green_700"/>
+        tools:background="@color/rally_green_300"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_account_overview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:overScrollMode="never"
+        tools:listitem="@layout/item_account"
+        tools:itemCount="3"
         />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_acc_see_all"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="See All"
+        android:text="@string/label_see_all"
         style="@style/Widget.MaterialComponents.Button.TextButton"/>
 
   </LinearLayout>

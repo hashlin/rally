@@ -1,5 +1,6 @@
 package io.material.rally_line_indicator.data
 
+
 data class RallyLineIndicatorData(
   val portions: List<RallyLineIndicatorPortion>,
   val maxValue: Float? = null

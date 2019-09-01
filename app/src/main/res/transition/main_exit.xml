@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:duration="@integer/anim_duration">
+  <targets>
+    <target android:excludeId="@+id/shareView"/>
+    <target android:excludeId="@android:id/navigationBarBackground" />
+    <target android:excludeId="@android:id/statusBarBackground" />
+  </targets>
+  <transition
+      class="io.material.design_system.FadeTransition"
+      app:startAlpha="1.0"
+      app:endAlpha="0.3"/>
+  <transition
+      class="io.material.design_system.PopTransition"
+      app:startScale="1.0"
+      app:endScale="0.9"/>
+</transitionSet>

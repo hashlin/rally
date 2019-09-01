@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+  <TextView
+      android:id="@+id/tv_alert_title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      tools:text = "alert title here"
+      style="?attr/textAppearanceHeadline6"
+      android:layout_margin="@dimen/spacing_large"/>
+
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="0.5dp"
+      style="@style/Widget.Rally.Divider"
+      android:layout_marginStart="@dimen/spacing_large"
+      android:layout_marginEnd="@dimen/spacing_large"/>
+
+  <com.google.android.material.button.MaterialButton
+      android:id="@+id/btnDismiss"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:text="@string/label_dismiss"
+      style="@style/Widget.MaterialComponents.Button.TextButton"/>
+
+</LinearLayout>
