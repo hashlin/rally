@@ -17,28 +17,33 @@ So, we tried to implement the app for Android. We craft it looks like design as 
 
 Here are some highlights:
 
-![Tabs](highlights/hl-tab.mp4)
+
+### Tabs
+
+![Tabs](highlights/hl-tab.gif)
 
 Such kind of tab is not default on Android. We made it possible by using Constraint Layout's Flow.
 
 
 ### Graphs
 
-<video width="320" height="0" controls>
-  <source src="highlights/hl-graph.mp4" type="video/mp4">
-</video>
+![Graphs](highlights/hl-graph.gif)
 
 Meaningful motions and neat animations make the graph unique. Handcrafted the component on canvas.
 
 
-![Pie](highlights/hl-pie.mp4)
-<iframe src="https://www.youtube.com/embed/enMumwvLAug" frameborder="0" allowfullscreen="true"> </iframe>
 
-Draw the pie chart on canvas and make animation exactly the same with original.
+### Pie Chart
+
+![Pie](highlights/hl-pie.gif)
+
+Pie chart on canvas and make animation exactly the same with original.
 
 
 
-![Tablet UI](highlights/hl-tablet.mp4)
+### Tablet UI
+
+![Tablet UI](highlights/hl-tablet.gif)
 
 Made Rally unique on tablet, too.
 
