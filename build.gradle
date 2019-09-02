@@ -19,10 +19,26 @@ allprojects {
     repositories {
         google()
         jcenter()
+    }
+    ext {
+        androidMinSdkVersion = 23
 
+        versionMajor = 1
+        versionMinor = 0
+        versionPatch = 0
+
+        versionCode = getVersionCode(androidMinSdkVersion)
+        versionName = versionMajor + "." + versionMinor + "." + versionPatch
+
+        androidVersionCode = versionCode
+        androidVersionName = versionName
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+private Integer getVersionCode(Integer minSdkVersion) {
+    return minSdkVersion * 10000000 + ext.versionMajor * 10000 + ext.versionMinor * 100 + ext.versionPatch
 }

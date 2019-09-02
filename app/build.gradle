@@ -5,19 +5,48 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+
+  signingConfigs {
+    debug {
+      keyAlias 'debug'
+      keyPassword 'rallydebug'
+      storeFile file('../keystore/key.jks')
+      storePassword 'rallykeystore'
+    }
+
+    release {
+      keyAlias 'release'
+      keyPassword 'rallyrelease'
+      storeFile file('../keystore/key.jks')
+      storePassword 'rallykeystore'
+    }
+  }
+
+  def globalConfiguration = rootProject.extensions.getByName("ext")
   compileSdkVersion 29
   buildToolsVersion "29.0.1"
+
   defaultConfig {
     applicationId "io.material.rally"
     minSdkVersion 23
     targetSdkVersion 29
-    versionCode 1
-    versionName "1.0"
+    versionCode globalConfiguration["androidVersionCode"]
+    versionName globalConfiguration["androidVersionName"]
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
     buildTypes {
       release {
+        minifyEnabled true
+        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        signingConfig signingConfigs.release
+      }
+      debug {
+        versionNameSuffix "-debug"
+        applicationIdSuffix ".debug"
+        debuggable true
         minifyEnabled false
-        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        signingConfig signingConfigs.debug
       }
     }
     android {
@@ -30,7 +59,6 @@ android {
       }
     }
   }
-
   dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':design_system')
