@@ -111,7 +111,8 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
   </androidx.core.widget.NestedScrollView>
 
-  <View
+  <include
+      layout="@layout/sheet_info"
       android:background="?attr/colorSecondary"
       android:layout_width="0dp"
       android:layout_height="match_parent"

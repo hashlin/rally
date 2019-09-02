@@ -110,7 +110,8 @@
       </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
   </androidx.core.widget.NestedScrollView>
-  <View
+  <include
+      layout="@layout/sheet_info"
       android:background="?attr/colorSecondaryVariant"
       android:layout_weight="2"
       android:layout_width="0dp"
