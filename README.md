@@ -18,28 +18,29 @@ So, we tried to implement the app for Android. We craft it looks like design as 
 Here are some highlights:
 
 
-### Tabs
+### [RallyTab](https://github.com/hashlin/rally/blob/master/app/src/main/java/io/material/rally/ui/RallyTab.kt)
 
 ![Tabs](highlights/hl-tab.gif)
 
 Such kind of tab is not default on Android. We made it possible by using Constraint Layout's Flow.
 
+***
 
-### Graphs
+### [Graphs and Tabs](https://github.com/hashlin/rally/tree/master/rally_scrollable_tab/src/main/java/com/example/rally_scrollable_tab)
 
 ![Graphs](highlights/hl-graph.gif)
 
 Meaningful motions and neat animations make the graph unique. Handcrafted the component on canvas.
 
+***
 
-
-### Pie Chart
+### [Pie Chart](https://github.com/hashlin/rally/tree/master/rally_pie/src/main/java/io/material/rally_pie)
 
 ![Pie](highlights/hl-pie.gif)
 
 Pie chart on canvas and make animation exactly the same with original.
 
-
+***
 
 ### Tablet UI
 
@@ -48,7 +49,7 @@ Pie chart on canvas and make animation exactly the same with original.
 Made Rally unique on tablet, too.
 
 
-
+***
 
 
 Find us on Twitter:
