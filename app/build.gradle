@@ -6,21 +6,6 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
 
-  signingConfigs {
-    debug {
-      keyAlias 'debug'
-      keyPassword 'rallydebug'
-      storeFile file('../keystore/key.jks')
-      storePassword 'rallykeystore'
-    }
-
-    release {
-      keyAlias 'release'
-      keyPassword 'rallyrelease'
-      storeFile file('../keystore/key.jks')
-      storePassword 'rallykeystore'
-    }
-  }
 
   def globalConfiguration = rootProject.extensions.getByName("ext")
   compileSdkVersion 29
@@ -36,17 +21,8 @@ android {
 
     buildTypes {
       release {
-        minifyEnabled true
-        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        signingConfig signingConfigs.release
-      }
-      debug {
-        versionNameSuffix "-debug"
-        applicationIdSuffix ".debug"
-        debuggable true
         minifyEnabled false
-        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        signingConfig signingConfigs.debug
+        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
       }
     }
     android {
