@@ -51,9 +51,14 @@ Made Rally unique on tablet, too.
 
 ***
 
+### Articles about Rally
+
+https://medium.com/@chanmyaeaung1/drawing-bezier-curve-like-in-google-material-rally-e2b38053038c
+
+***
 
 Find us on Twitter:
 
-[@Thechanmyaeaung]()
+[@Thechanmyaeaung](https://twitter.com/Thechanmyaeaung)
 
-[@Linminphyoe1]()
+[@Linminphyoe1](https://twitter.com/linminphyoe1)
