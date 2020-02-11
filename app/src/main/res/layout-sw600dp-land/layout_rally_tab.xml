@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cl"
     android:layout_width="128dp"
     android:layout_height="match_parent"
@@ -16,12 +17,13 @@
       android:paddingTop="16dp"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:constraint_referenced_ids="image1 , textView , image2 , image3 , image4, image5"
+      app:constraint_referenced_ids="image1,textView,image2,image3,image4,image5"
       />
 
   <com.google.android.material.button.MaterialButton
       android:id="@+id/image1"
       android:layout_width="wrap_content"
+      tools:ignore="MissingConstraints"
       android:layout_height="wrap_content"
       android:padding="16dp"
       app:icon="@drawable/ic_overview"
@@ -37,11 +39,13 @@
       app:iconTint="?attr/colorPrimaryVariant"
       app:icon="@drawable/ic_attach_money"
       style="@style/Widget.Rally.Button.IconOnly"
+      tools:ignore="MissingConstraints"
       />
 
 
   <com.google.android.material.button.MaterialButton
       android:id="@+id/image3"
+      tools:ignore="MissingConstraints"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:padding="16dp"
@@ -56,7 +60,7 @@
       android:id="@+id/image4"
       android:layout_width="wrap_content"
       app:iconTint="?attr/colorPrimaryVariant"
-
+      tools:ignore="MissingConstraints"
       android:layout_height="wrap_content"
       android:padding="16dp"
       app:icon="@drawable/ic_budget"
@@ -68,7 +72,7 @@
       android:id="@+id/image5"
       android:layout_width="wrap_content"
       app:iconTint="?attr/colorPrimaryVariant"
-
+      tools:ignore="MissingConstraints"
       android:layout_height="wrap_content"
       style="@style/Widget.Rally.Button.IconOnly"
       android:padding="16dp"
@@ -81,6 +85,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:lines="3"
+      tools:ignore="MissingConstraints"
       android:text="Overview"
       style="?attr/textAppearanceButton"
       />

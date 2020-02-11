@@ -27,9 +27,9 @@
     <dimen name="elevation_default_top_app_bar">4dp</dimen>
 
     <!--Emphasis modifiers for "on" colors-->
-    <dimen name="alpha_emphasis_high">@dimen/mtrl_emphasis_high_type</dimen>
-    <dimen name="alpha_emphasis_medium">@dimen/mtrl_emphasis_medium</dimen>
-    <dimen name="alpha_emphasis_disabled">@dimen/mtrl_emphasis_disabled</dimen>
+    <dimen name="alpha_emphasis_high">0.87</dimen>
+    <dimen name="alpha_emphasis_medium">0.6</dimen>
+    <dimen name="alpha_emphasis_disabled">0.38</dimen>
 
     <dimen name="card_elevation">0dp</dimen>
 </resources>
